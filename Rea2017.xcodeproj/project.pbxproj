@@ -10,11 +10,10 @@
 		005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616DB1E48ABEF00F15664 /* AppDelegate.swift */; };
 		005616DE1E48ABEF00F15664 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616DD1E48ABEF00F15664 /* ViewController.swift */; };
 		005616E11E48ABEF00F15664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005616DF1E48ABEF00F15664 /* Main.storyboard */; };
-		005616E41E48ABEF00F15664 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 005616E21E48ABEF00F15664 /* Rea2017.xcdatamodeld */; };
 		005616E61E48ABEF00F15664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005616E51E48ABEF00F15664 /* Assets.xcassets */; };
 		005616E91E48ABEF00F15664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005616E71E48ABEF00F15664 /* LaunchScreen.storyboard */; };
-		005616F41E48ABEF00F15664 /* Rea2017Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616F31E48ABEF00F15664 /* Rea2017Tests.swift */; };
-		005616FF1E48ABEF00F15664 /* Rea2017UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616FE1E48ABEF00F15664 /* Rea2017UITests.swift */; };
+		0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056170E1E48AF1C00F15664 /* LoginViewController.swift */; };
+		005617111E48B0E200F15664 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005617101E48B0E200F15664 /* User.swift */; };
 		7195D65D27F5CFB058421266 /* Pods_Rea2017UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */; };
 		907597558A3638B0D716805B /* Pods_Rea2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */; };
 		C2CDF7216188B509B8BA4409 /* Pods_Rea2017Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06F59F7C7863CFE0E9D7F07 /* Pods_Rea2017Tests.framework */; };
@@ -42,16 +41,13 @@
 		005616DB1E48ABEF00F15664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005616DD1E48ABEF00F15664 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		005616E01E48ABEF00F15664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		005616E31E48ABEF00F15664 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
 		005616E51E48ABEF00F15664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		005616E81E48ABEF00F15664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		005616EA1E48ABEF00F15664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005616EF1E48ABEF00F15664 /* Rea2017Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rea2017Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		005616F31E48ABEF00F15664 /* Rea2017Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rea2017Tests.swift; sourceTree = "<group>"; };
-		005616F51E48ABEF00F15664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005616FA1E48ABEF00F15664 /* Rea2017UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rea2017UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		005616FE1E48ABEF00F15664 /* Rea2017UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rea2017UITests.swift; sourceTree = "<group>"; };
-		005617001E48ABEF00F15664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0056170E1E48AF1C00F15664 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		005617101E48B0E200F15664 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1680BFD9000AFFFC7B93A555 /* Pods-Rea2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A37697484D14A74ECC4669B /* Pods-Rea2017UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017UITests/Pods-Rea2017UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6F67141E69ED7E5C6F8E4F6 /* Pods-Rea2017Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				005616DA1E48ABEF00F15664 /* Rea2017 */,
-				005616F21E48ABEF00F15664 /* Rea2017Tests */,
-				005616FD1E48ABEF00F15664 /* Rea2017UITests */,
 				005616D91E48ABEF00F15664 /* Products */,
 				70046648A9F6431A0AFD1BB3 /* Pods */,
 				8E7D34DB8536784DD570839C /* Frameworks */,
@@ -116,37 +110,19 @@
 		005616DA1E48ABEF00F15664 /* Rea2017 */ = {
 			isa = PBXGroup;
 			children = (
-				0056170D1E48AC0B00F15664 /* View */,
 				0056170C1E48AC0200F15664 /* Model */,
+				0056170D1E48AC0B00F15664 /* View */,
 				005616DB1E48ABEF00F15664 /* AppDelegate.swift */,
 				005616E51E48ABEF00F15664 /* Assets.xcassets */,
 				005616EA1E48ABEF00F15664 /* Info.plist */,
-				005616E21E48ABEF00F15664 /* Rea2017.xcdatamodeld */,
 			);
 			path = Rea2017;
-			sourceTree = "<group>";
-		};
-		005616F21E48ABEF00F15664 /* Rea2017Tests */ = {
-			isa = PBXGroup;
-			children = (
-				005616F31E48ABEF00F15664 /* Rea2017Tests.swift */,
-				005616F51E48ABEF00F15664 /* Info.plist */,
-			);
-			path = Rea2017Tests;
-			sourceTree = "<group>";
-		};
-		005616FD1E48ABEF00F15664 /* Rea2017UITests */ = {
-			isa = PBXGroup;
-			children = (
-				005616FE1E48ABEF00F15664 /* Rea2017UITests.swift */,
-				005617001E48ABEF00F15664 /* Info.plist */,
-			);
-			path = Rea2017UITests;
 			sourceTree = "<group>";
 		};
 		0056170C1E48AC0200F15664 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				005617101E48B0E200F15664 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -157,6 +133,7 @@
 				005616E71E48ABEF00F15664 /* LaunchScreen.storyboard */,
 				005616DF1E48ABEF00F15664 /* Main.storyboard */,
 				005616DD1E48ABEF00F15664 /* ViewController.swift */,
+				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -468,8 +445,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */,
 				005616DE1E48ABEF00F15664 /* ViewController.swift in Sources */,
-				005616E41E48ABEF00F15664 /* Rea2017.xcdatamodeld in Sources */,
+				005617111E48B0E200F15664 /* User.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +456,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005616F41E48ABEF00F15664 /* Rea2017Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +463,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005616FF1E48ABEF00F15664 /* Rea2017UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +701,7 @@
 				005617051E48ABEF00F15664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		005617061E48ABEF00F15664 /* Build configuration list for PBXNativeTarget "Rea2017Tests" */ = {
 			isa = XCConfigurationList;
@@ -733,6 +710,7 @@
 				005617081E48ABEF00F15664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		005617091E48ABEF00F15664 /* Build configuration list for PBXNativeTarget "Rea2017UITests" */ = {
 			isa = XCConfigurationList;
@@ -741,21 +719,9 @@
 				0056170B1E48ABEF00F15664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		005616E21E48ABEF00F15664 /* Rea2017.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				005616E31E48ABEF00F15664 /* Rea2017.xcdatamodel */,
-			);
-			currentVersion = 005616E31E48ABEF00F15664 /* Rea2017.xcdatamodel */;
-			path = Rea2017.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 005616D01E48ABEF00F15664 /* Project object */;
 }

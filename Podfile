@@ -6,6 +6,14 @@ target 'Rea2017' do
   use_frameworks!
 
   # Pods for Rea2017
+  
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+  
+  
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'Rea2017Tests' do
     inherit! :search_paths
