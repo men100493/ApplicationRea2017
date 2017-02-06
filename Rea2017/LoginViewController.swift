@@ -7,9 +7,10 @@
 //
 
 import UIKit
-
+import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
+import Firebase
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
@@ -20,6 +21,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         setupFBbutton()
         setupGooglebutton()
+        
+    
         
         //view.addSubview(self.loginFBButton)
 
@@ -37,7 +40,21 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile"]
     }
-
+    
+    fileprivate func setupGooglebutton(){
+        //Add Google Sign in buutton
+        
+        let googlebutton = GIDSignInButton()
+        googlebutton.frame = CGRect(x: 16, y:(view.frame.height/4 )+70  , width: view.frame.width - 32, height: 50)
+        
+        view.addSubview(googlebutton)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        
+        
+    }
+    
+    
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Logout")
@@ -50,40 +67,52 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         }
         
         getUserData()
-        print("Login")
-        
-
-        
-        
-    }
+        //print("Login")
     
-    fileprivate func setupGooglebutton(){
-        //Add Google Sign in buutton
-        
-        let googlebutton = GIDSignInButton()
-        googlebutton.frame = CGRect(x: 16, y:view.frame.height/3  , width: view.frame.width - 32, height: 50)
-        
-        view.addSubview(googlebutton)
-        //GIDSignIn.sharedInstance().uiDelegate = self
-        
     }
     
     
     func getUserData() {
-        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, error) in
+        
+        let accesToken = FBSDKAccessToken.current()
+        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
+     
+        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email"]).start { (connection, result, error) in
             //print("Wesh")
             
             if error != nil {
                 print("Failed looser  fuck graph request" )
                 return
             }
-            print(result!)
+            let usrDict = result as! [String : AnyObject]
+            let userid = usrDict["id"] as! String
+            let userName = usrDict["last_name"] as! String
+            let userFName = usrDict["first_name"] as! String
+            let userMail = usrDict["email"] as! String
+            
+            //print(userName)
+            
+            //Création de l'utilsateur FB
+            let userFB = User(nom: userFName, pnom: userName, email: userMail,fbId: userid)
+            userFB.conectToFireBase(credientials: credentials)
+            if userFB.isConnectToFireBase() {
+                self.userConnexion()
+            }
+            
+            }
         }
-        
+    
+    
+
+    func userConnexion(){
+        self.dismiss(animated: true, completion: nil)
+    
     }
 
-
-
+    @IBAction func quitLoginView(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
    
     /*
     // MARK: - Navigation

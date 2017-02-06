@@ -9,13 +9,16 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
+import Firebase
+import GoogleSignIn
 
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
 
     var window: UIWindow?
+    var loginVC: LoginViewController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -24,13 +27,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        FIRApp.configure()
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error == nil) {
+            print("Log in to Google")
+            let userId = user.userID                  // For client-side use only!
+            
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            
+            
+            
+            guard let idToken = user.authentication.idToken else { return }
+            guard let accessToken = user.authentication.accessToken else { return }
+            let  credientials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            let userGoogle = User(nom: givenName!, pnom: familyName!, email: email!, googleId: userId!)
+            userGoogle.conectToFireBase(credientials: credientials)
+            
+          loginVC?.dismiss(animated: true, completion: nil)
+
+        } else {
+            print("\(error.localizedDescription)")
+            return
+        }
+    }
+    
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
-        
+        GIDSignIn.sharedInstance().handle(url,
+                                             sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                             annotation: [:])
         // Add any custom logic here.
         return handled;
     }

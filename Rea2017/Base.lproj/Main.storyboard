@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MXN-En-1dd">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,20 +9,83 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Evénements-->
+        <scene sceneID="Odz-Hw-wrW">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kXH-1F-tgm" customClass="EventViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="YN5-bX-bht"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ky9-QD-jfn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="4tP-pe-LNi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2b-Mo-syS">
+                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="Z2b-Mo-syS" id="ey4-Tu-Zwo">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Evénements" id="s6I-rV-CA4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ZI-On-r5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1013" y="-870"/>
+        </scene>
+        <!--Apéros-->
+        <scene sceneID="eKn-hK-7dh">
+            <objects>
+                <viewController id="tTL-fn-dsg" customClass="AperoViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g2d-GQ-cdG"/>
+                        <viewControllerLayoutGuide type="bottom" id="sKO-66-c7e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F4K-bp-VHk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKz-3E-KXQ">
+                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="AKz-3E-KXQ" id="fjA-Ce-Zfl">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176469999999" green="0.58039215690000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Apéros" id="25w-cB-imp"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-wc-Zkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="-870"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Moo-LR-dHD">
+            <objects>
+                <viewController id="R7o-sJ-sEH" customClass="HomeViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EEz-sY-n7C"/>
+                        <viewControllerLayoutGuide type="bottom" id="efJ-12-ZQf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wa0-st-4iD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-9W-r9t">
-                                <rect key="frame" x="266" y="28" width="38" height="30"/>
+                                <rect key="frame" x="262" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -32,11 +95,98 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.53725490200000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="90K-86-MeZ"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnc-g7-J9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1677" y="-870"/>
+        </scene>
+        <!--Recherche-->
+        <scene sceneID="j82-SG-YbN">
+            <objects>
+                <viewController id="ZbY-lS-nU1" customClass="SearchViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kZ0-TQ-crv"/>
+                        <viewControllerLayoutGuide type="bottom" id="3uC-4L-gW3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Vq-qx-qJN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbi-fj-Jsf">
+                                <rect key="frame" x="262" y="20" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="Bbi-fj-Jsf" id="JuL-lK-AoZ">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Recherche" id="dGz-AK-vaF"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-jt-UJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="-870"/>
+        </scene>
+        <!--Message-->
+        <scene sceneID="gzv-W5-HlZ">
+            <objects>
+                <viewController id="Zam-vt-2sz" customClass="MessageViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uSq-ZE-6zq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tph-LU-vmp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SxZ-ap-ogp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-XO-u61">
+                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="pVI-XO-u61" id="f56-Jz-YtW">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Message" id="UMk-YJ-Q9y"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8f-jK-nFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1007" y="-870"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SVQ-pI-UtV">
+            <objects>
+                <tabBarController id="MXN-En-1dd" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="sfm-Hu-QfB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="R7o-sJ-sEH" kind="relationship" relationship="viewControllers" id="ENS-rL-5bd"/>
+                        <segue destination="kXH-1F-tgm" kind="relationship" relationship="viewControllers" id="TXG-SK-Aky"/>
+                        <segue destination="ZbY-lS-nU1" kind="relationship" relationship="viewControllers" id="hJg-mW-6AN"/>
+                        <segue destination="tTL-fn-dsg" kind="relationship" relationship="viewControllers" id="heF-aU-b5N"/>
+                        <segue destination="Zam-vt-2sz" kind="relationship" relationship="viewControllers" id="8zX-FT-mDI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Adt-or-UAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2769" y="-870"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="7Ls-dB-Xyl">
@@ -57,13 +207,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOt-64-I2S">
+                                <rect key="frame" x="266" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <action selector="quitLoginView:" destination="VWF-vj-ObY" eventType="touchUpInside" id="v0a-xF-GID"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exk-7f-vkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="958"/>
+            <point key="canvasLocation" x="-364" y="-1574"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ey4-Tu-Zwo"/>
+    </inferredMetricsTieBreakers>
 </document>
