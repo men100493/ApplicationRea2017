@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 class HomeViewController: UIViewController {
-
+    
+    var user = GlobalVariables.sharedManager.userProfil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+            if (FBSDKAccessToken.current() != nil),(user != nil) {
+                let lg = LoginViewController()
+                self.present(lg, animated: true, completion: nil)
+            }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +41,23 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    // segue LoginViewController -> HomeViewController
+    @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
+        print("BAck From Login")
+        if let LoginVC = sender.source as? LoginViewController {
+            if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
+                print(dataRecieved )
+                LoginVC.user?.setActif()
+                dataRecieved.setActif()
+                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                
+                self.user = dataRecieved
+            }
+            
+        }
+    }
 
 }

@@ -20,6 +20,8 @@
 		007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E61E48F7FC00487EF0 /* SearchViewController.swift */; };
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
 		007C89EB1E48F82000487EF0 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EA1E48F82000487EF0 /* MessageViewController.swift */; };
+		007C89ED1E49E5FE00487EF0 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */; };
+		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
 		7195D65D27F5CFB058421266 /* Pods_Rea2017UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */; };
 		907597558A3638B0D716805B /* Pods_Rea2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */; };
 		C2CDF7216188B509B8BA4409 /* Pods_Rea2017Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06F59F7C7863CFE0E9D7F07 /* Pods_Rea2017Tests.framework */; };
@@ -61,6 +63,8 @@
 		007C89E61E48F7FC00487EF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
 		007C89EA1E48F82000487EF0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
 		1680BFD9000AFFFC7B93A555 /* Pods-Rea2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A37697484D14A74ECC4669B /* Pods-Rea2017UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017UITests/Pods-Rea2017UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6F67141E69ED7E5C6F8E4F6 /* Pods-Rea2017Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				005616E51E48ABEF00F15664 /* Assets.xcassets */,
 				007C89DF1E48C54800487EF0 /* GoogleService-Info.plist */,
 				005616EA1E48ABEF00F15664 /* Info.plist */,
+				007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */,
 			);
 			path = Rea2017;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				005617101E48B0E200F15664 /* User.swift */,
+				007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -475,8 +481,10 @@
 				007C89EB1E48F82000487EF0 /* MessageViewController.swift in Sources */,
 				007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */,
 				007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */,
+				007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */,
 				0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */,
 				005616DE1E48ABEF00F15664 /* ViewController.swift in Sources */,
+				007C89ED1E49E5FE00487EF0 /* GlobalVariables.swift in Sources */,
 				005617111E48B0E200F15664 /* User.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 				007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */,
@@ -649,6 +657,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ICOM.Rea2017;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -755,6 +764,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */,
+			);
+			currentVersion = 007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */;
+			path = Rea2017.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 005616D01E48ABEF00F15664 /* Project object */;
 }

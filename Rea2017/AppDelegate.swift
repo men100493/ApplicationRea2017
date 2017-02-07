@@ -52,7 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
             let userGoogle = User(nom: givenName!, pnom: familyName!, email: email!, googleId: userId!)
             userGoogle.conectToFireBase(credientials: credientials)
             
-          loginVC?.dismiss(animated: true, completion: nil)
+            loginVC?.user = userGoogle
+            
+
 
         } else {
             print("\(error.localizedDescription)")

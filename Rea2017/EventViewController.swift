@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 class EventViewController: UIViewController {
 
+ var user = GlobalVariables.sharedManager.userProfil    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFBEvent()
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +26,10 @@ class EventViewController: UIViewController {
     }
     
 
+    func getFBEvent() {
+        
+    
+    }
     /*
     // MARK: - Navigation
 
@@ -31,5 +39,21 @@ class EventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
+        print("BAck From Login")
+        if let LoginVC = sender.source as? LoginViewController {
+            if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
+                print(dataRecieved )
+                LoginVC.user?.setActif()
+                dataRecieved.setActif()
+                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                
+                self.user = dataRecieved
+            }
+            
+        }
+    }
+
 
 }

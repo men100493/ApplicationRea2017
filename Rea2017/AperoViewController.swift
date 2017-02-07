@@ -10,6 +10,8 @@ import UIKit
 
 class AperoViewController: UIViewController {
 
+     var user = GlobalVariables.sharedManager.userProfil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +33,20 @@ class AperoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
+        print("BAck From Login")
+        if let LoginVC = sender.source as? LoginViewController {
+            if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
+                print(dataRecieved )
+                LoginVC.user?.setActif()
+                dataRecieved.setActif()
+                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                
+                self.user = dataRecieved
+            }
+            
+        }
+    }
+
 
 }

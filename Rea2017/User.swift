@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class User: NSObject {
+    
+    //Variables de la classe
+    
     var id: String?
     var pnom: String?
     var nom: String?
@@ -23,25 +26,27 @@ class User: NSObject {
     init(nom: String, pnom: String, email:  String, fbId: String ) {
         let uuid = NSUUID().uuidString
         self.id = uuid
-        self.nom =  nom
-        self.pnom =  pnom
+        self.nom = nom
+        self.pnom = pnom
         self.email = email
         self.fbId = fbId
+        self.fireBaseId = nil
     }
     
     init(nom: String, pnom: String, email:  String, googleId: String ) {
         let uuid = NSUUID().uuidString
         self.id = uuid
-        self.nom =  nom
-        self.pnom =  pnom
+        self.nom = nom
+        self.pnom = pnom
         self.email = email
         self.googleId = googleId
+        self.fireBaseId = nil
     }
     
     func conectToFireBase(credientials: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credientials, completion: { (user, error) in
             if error != nil {
-                print("Failed to create  a fireBse user aAcount: ", error ?? "")
+                print("Failed to create  a fireBase user aAcount: ", error ?? "")
                 return
             }
             //Conecté a FIREBASE 
@@ -83,7 +88,7 @@ class User: NSObject {
         }
     }
     
-    func isActive() -> Bool{
+    func isLogin() -> Bool{
         return actif
     }
     
@@ -95,6 +100,9 @@ class User: NSObject {
             actif = true
         }
     }
+    
+    
+
 
 
 

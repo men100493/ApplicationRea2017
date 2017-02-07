@@ -13,14 +13,19 @@ import GoogleSignIn
 import Firebase
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
-
-   
+    
+    var user:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupFBbutton()
         setupGooglebutton()
+        
+        
+        if (FBSDKAccessToken.current() != nil) && GlobalVariables.sharedManager.userProfil == nil  {
+            getUserFBData()
+        }
         
     
         
@@ -66,13 +71,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             return
         }
         
-        getUserData()
+        getUserFBData()
         //print("Login")
+        self.performSegue(withIdentifier: "backHome", sender: nil)
     
     }
     
     
-    func getUserData() {
+    func getUserFBData() {
         
         let accesToken = FBSDKAccessToken.current()
         let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
@@ -93,26 +99,24 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             //print(userName)
             
             //Création de l'utilsateur FB
+            
             let userFB = User(nom: userFName, pnom: userName, email: userMail,fbId: userid)
             userFB.conectToFireBase(credientials: credentials)
-            if userFB.isConnectToFireBase() {
-                self.userConnexion()
-            }
+            self.user = userFB
+             
+            //self.userConnexion(user: userFB)
+            
             
             }
         }
     
     
 
-    func userConnexion(){
-        self.dismiss(animated: true, completion: nil)
-    
-    }
 
-    @IBAction func quitLoginView(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-    }
+
+    
+    
+    
    
     /*
     // MARK: - Navigation
@@ -123,5 +127,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }
