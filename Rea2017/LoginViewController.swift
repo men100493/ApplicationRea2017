@@ -101,8 +101,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
             //Création de l'utilsateur FB
             
             let userFB = User(nom: userFName, pnom: userName, email: userMail,fbId: userid)
-            userFB.conectToFireBase(credientials: credentials)
+            userFB.conectToFireBase()
+            userFB.saveUserToDataBase()
+            
             self.user = userFB
+            GlobalVariables.sharedManager.userProfil = userFB
              
             //self.userConnexion(user: userFB)
             

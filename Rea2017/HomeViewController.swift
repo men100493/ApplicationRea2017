@@ -16,12 +16,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-            if (FBSDKAccessToken.current() != nil),(user != nil) {
-                let lg = LoginViewController()
-                self.present(lg, animated: true, completion: nil)
-            }
+        initHomeViewController()
         
         // Do any additional setup after loading the view.
     }
@@ -31,6 +26,17 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func initHomeViewController(){
+        
+        if user != nil {
+            user?.loginFireBase()
+        }
+      
+        
+        
+
+    
+    }
 
     /*
     // MARK: - Navigation
@@ -46,15 +52,13 @@ class HomeViewController: UIViewController {
     
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
-        print("BAck From Login")
+        
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                LoginVC.user?.setActif()
-                dataRecieved.setActif()
                 GlobalVariables.sharedManager.userProfil =  dataRecieved
+                print("BAck From Login")
                 
-                self.user = dataRecieved
             }
             
         }

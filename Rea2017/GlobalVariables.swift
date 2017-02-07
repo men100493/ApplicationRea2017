@@ -10,7 +10,8 @@ import Foundation
 class GlobalVariables {
     
     // These are the properties you can store in your singleton
-    private var myName: String = "bob"
+    
+    //Varibles globale de l'utilisateur
     var userProfil: User? = nil
     
     

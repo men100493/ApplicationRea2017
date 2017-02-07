@@ -10,8 +10,8 @@ target 'Rea2017' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  
-  
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
 

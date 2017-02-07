@@ -50,10 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
             guard let accessToken = user.authentication.accessToken else { return }
             let  credientials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
             let userGoogle = User(nom: givenName!, pnom: familyName!, email: email!, googleId: userId!)
-            userGoogle.conectToFireBase(credientials: credientials)
-            
+            userGoogle.conectToFireBase()
+            userGoogle.saveUserToDataBase()
             loginVC?.user = userGoogle
-            
+            GlobalVariables.sharedManager.userProfil = userGoogle
 
 
         } else {

@@ -89,7 +89,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="GL3-9W-r9t" id="iWR-5A-4Zk">
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" identifier="LoginView" popoverAnchorView="GL3-9W-r9t" id="iWR-5A-4Zk">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
                                     </segue>
                                 </connections>

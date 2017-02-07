@@ -15,7 +15,7 @@ class EventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFBEvent()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -25,11 +25,6 @@ class EventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    func getFBEvent() {
-        
-    
-    }
     /*
     // MARK: - Navigation
 
@@ -45,8 +40,6 @@ class EventViewController: UIViewController {
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                LoginVC.user?.setActif()
-                dataRecieved.setActif()
                 GlobalVariables.sharedManager.userProfil =  dataRecieved
                 
                 self.user = dataRecieved
