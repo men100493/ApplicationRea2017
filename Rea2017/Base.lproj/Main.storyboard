@@ -35,6 +35,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Evénements" id="s6I-rV-CA4"/>
+                    <connections>
+                        <outlet property="loginBtnOutlet" destination="Z2b-Mo-syS" id="s41-CX-5eG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZI-On-r5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,6 +70,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Apéros" id="25w-cB-imp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="loginBtnOutlet" destination="AKz-3E-KXQ" id="eI8-aK-6UC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-wc-Zkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,7 +173,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQa-cd-D7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QGp-SQ-CZu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1678.125" y="16.901408450704224"/>
+            <point key="canvasLocation" x="-2769" y="-1609"/>
         </scene>
         <!--Recherche-->
         <scene sceneID="j82-SG-YbN">
@@ -196,6 +202,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Recherche" id="dGz-AK-vaF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="loginBtnOutlet" destination="Bbi-fj-Jsf" id="Bvq-tO-JFg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-jt-UJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -228,6 +237,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Message" id="UMk-YJ-Q9y"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="loginBtnOutlet" destination="pVI-XO-u61" id="auY-ur-lyF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8f-jK-nFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,6 +305,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VFh-Fx-pHv"/>
+        <segue reference="f56-Jz-YtW"/>
     </inferredMetricsTieBreakers>
 </document>

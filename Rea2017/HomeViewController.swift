@@ -31,8 +31,24 @@ class HomeViewController: UIViewController {
         Helper.initViewController()
 
         initHomeViewController()
+        
+        getMusicevent()
+        
+        
     }
     
+    //-------------------------------------
+    // MARK: -  Get MUSIC EVENT
+    //-------------------------------------
+
+    func getMusicevent(){
+        //
+        var urlString = GlobalVariables.sharedManager.urlMusicStoryAPIBEG
+        urlString = "url de l'event"
+        urlString = urlString + GlobalVariables.sharedManager.urlMusicStoryAPIEND
+    
+    
+    }
     
 
     /*

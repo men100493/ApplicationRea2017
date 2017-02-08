@@ -123,10 +123,13 @@ class Helper{
 
     static func logout(){
         GlobalVariables.sharedManager.userProfil?.logout()
-        
-        
-    
+
     }
+    
+    
+    //-------------------------------------
+    // MARK: - API Music Story
+    //-------------------------------------
 
     
 
