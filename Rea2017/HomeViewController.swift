@@ -13,11 +13,10 @@ class HomeViewController: UIViewController {
     
     var user = GlobalVariables.sharedManager.userProfil
     
+    @IBOutlet weak var loginBtnOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initHomeViewController()
-        
         // Do any additional setup after loading the view.
     }
 
@@ -26,17 +25,15 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func initHomeViewController(){
+    override func viewDidAppear(_ animated: Bool)
+    {
         
-        if user != nil {
-            user?.loginFireBase()
-        }
-      
-        
-        
+        Helper.initViewController()
 
-    
+        initHomeViewController()
     }
+    
+    
 
     /*
     // MARK: - Navigation
@@ -49,6 +46,52 @@ class HomeViewController: UIViewController {
     */
     
     
+    //-------------------------------------
+    // MARK: - Boutton => Log in / Profile
+    //-------------------------------------
+    
+    func initHomeViewController(){
+        self.user = GlobalVariables.sharedManager.userProfil
+        
+        if self.user != nil {
+            loginBtnOutlet.setTitle("Profil", for: .normal)
+            return
+            
+        }
+        
+        if Helper.isConnectToFacebook() {
+            Helper.getUserFBData()
+            self.user = GlobalVariables.sharedManager.userProfil
+            loginBtnOutlet.setTitle("Profil", for: .normal)
+            return
+        }
+        loginBtnOutlet.setTitle("Login", for: .normal)
+
+        print("Utilisateur non connecté")
+
+        
+        
+    }
+    
+    @IBAction func LoginPushView(_ sender: Any) {
+        //self.performSegue(let lg = LoginViewController()
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if loginBtnOutlet.titleLabel?.text == "Login" {
+            let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            self.present(vc, animated: true, completion: nil)
+        }
+        else{
+            let vc : ProfilViewController = mainStoryboard.instantiateViewController(withIdentifier: "ProfilVC") as! ProfilViewController
+            self.present(vc, animated: true, completion: nil)
+
+        
+        }
+        
+        
+    }
+
+    
     
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
@@ -60,6 +103,17 @@ class HomeViewController: UIViewController {
                 print("BAck From Login")
                 
             }
+            
+        }
+    }
+    
+    @IBAction func unwindFromProfil(sender: UIStoryboardSegue) {
+        
+        if let ProfilVC = sender.source as? LoginViewController {
+            
+                print("BAck From Profile")
+                
+            
             
         }
     }

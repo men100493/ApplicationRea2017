@@ -24,7 +24,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         
         if (FBSDKAccessToken.current() != nil) && GlobalVariables.sharedManager.userProfil == nil  {
-            getUserFBData()
+            Helper.getUserFBData()
         }
         
     
@@ -34,7 +34,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         // Do any additional setup after loading the view.
     }
     
-    
+    //-------------------------------------
+    // MARK: - Facebook Login Button Setup
+    //-------------------------------------
+
     fileprivate func setupFBbutton(){
         let loginButton = FBSDKLoginButton()
         
@@ -45,6 +48,33 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         loginButton.delegate = self
         loginButton.readPermissions = ["email", "public_profile"]
     }
+    
+    
+    
+    //-------------------------------------
+    // MARK: - Facebook Login Button Handle
+    //-------------------------------------
+
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Logout")
+        GlobalVariables.sharedManager.userProfil?.logout()
+        GlobalVariables.sharedManager.userProfil = nil
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil  {
+            print(error)
+            return
+        }
+        // Création de l'utisateur et Connection a Facebook
+        Helper.getUserFBData()
+        //print("Login")
+        self.performSegue(withIdentifier: "backHome", sender: nil)
+    
+    }
+    //-------------------------------------
+    // MARK: - Google Login Button Setup
+    //-------------------------------------
     
     fileprivate func setupGooglebutton(){
         //Add Google Sign in buutton
@@ -59,66 +89,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
     }
     
-    
 
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Logout")
-    }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil  {
-            print(error)
-            return
-        }
-        
-        getUserFBData()
-        //print("Login")
-        self.performSegue(withIdentifier: "backHome", sender: nil)
-    
-    }
-    
-    
-    func getUserFBData() {
-        
-        let accesToken = FBSDKAccessToken.current()
-        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
-     
-        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email"]).start { (connection, result, error) in
-            //print("Wesh")
-            
-            if error != nil {
-                print("Failed looser  fuck graph request" )
-                return
-            }
-            let usrDict = result as! [String : AnyObject]
-            let userid = usrDict["id"] as! String
-            let userName = usrDict["last_name"] as! String
-            let userFName = usrDict["first_name"] as! String
-            let userMail = usrDict["email"] as! String
-            
-            //print(userName)
-            
-            //Création de l'utilsateur FB
-            
-            let userFB = User(nom: userFName, pnom: userName, email: userMail,fbId: userid)
-            userFB.conectToFireBase()
-            userFB.saveUserToDataBase()
-            
-            self.user = userFB
-            GlobalVariables.sharedManager.userProfil = userFB
-             
-            //self.userConnexion(user: userFB)
-            
-            
-            }
-        }
-    
-    
-
-
-
-    
-    
     
    
     /*

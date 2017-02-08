@@ -84,13 +84,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-9W-r9t">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-9W-r9t" customClass="LoginView">
                                 <rect key="frame" x="262" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" identifier="LoginView" popoverAnchorView="GL3-9W-r9t" id="iWR-5A-4Zk">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
+                                    <action selector="LoginPushView:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="kKf-aY-xNv"/>
+                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" identifier="LoginView" popoverAnchorView="GL3-9W-r9t" id="VFh-Fx-pHv">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
@@ -98,10 +99,57 @@
                         <color key="backgroundColor" red="0.17254901959999999" green="0.53725490200000003" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="90K-86-MeZ"/>
+                    <connections>
+                        <outlet property="loginBtnOutlet" destination="GL3-9W-r9t" id="W3R-Yb-A52"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnc-g7-J9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1677" y="-870"/>
+            <point key="canvasLocation" x="-1678" y="-870"/>
+        </scene>
+        <!--Profil View Controller-->
+        <scene sceneID="Nyx-m7-KX4">
+            <objects>
+                <viewController storyboardIdentifier="ProfilVC" id="LTf-Ie-DOc" customClass="ProfilViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jbV-ny-6RT"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbK-wW-pAl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IIY-Og-yYj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profil View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ys4-Nw-cRi">
+                                <rect key="frame" x="120" y="112" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxL-rd-SRn">
+                                <rect key="frame" x="145" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="quit"/>
+                                <connections>
+                                    <segue destination="QGp-SQ-CZu" kind="unwind" unwindAction="unwindFromProfilWithSender:" id="z2x-4J-elI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCE-JU-qwd">
+                                <rect key="frame" x="136" y="518" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="LogOutofftheaoo:" destination="LTf-Ie-DOc" eventType="touchUpInside" id="7Rj-2Y-9VB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQa-cd-D7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QGp-SQ-CZu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1678" y="17"/>
         </scene>
         <!--Recherche-->
         <scene sceneID="j82-SG-YbN">
@@ -191,7 +239,7 @@
         <!--Login View Controller-->
         <scene sceneID="7Ls-dB-Xyl">
             <objects>
-                <viewController id="VWF-vj-ObY" customClass="LoginViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="VWF-vj-ObY" customClass="LoginViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7AP-6a-JMR"/>
                         <viewControllerLayoutGuide type="bottom" id="Qq8-dX-EeF"/>
@@ -218,14 +266,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1xa-yg-4tK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exk-7f-vkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="chr-Z1-NF4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-364" y="-1574"/>
+            <point key="canvasLocation" x="-1678" y="-1680"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iWR-5A-4Zk"/>
+        <segue reference="VFh-Fx-pHv"/>
     </inferredMetricsTieBreakers>
 </document>

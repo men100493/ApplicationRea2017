@@ -8,8 +8,10 @@
 
 import UIKit
 import FBSDKCoreKit
+import FBSDKLoginKit
 import Firebase
 import FirebaseDatabase
+
 
 class User: NSObject {
     
@@ -20,31 +22,28 @@ class User: NSObject {
     var nom: String?
     var email: String?
     var fbId:  String?
-    var fireBaseId:  String?
     var googleId:  String?
 
     
    
     init(nom: String, pnom: String, email:  String, fbId: String ) {
-        let uuid = NSUUID().uuidString
-        self.id = uuid
+        //let uuid = NSUUID().uuidString
+        self.id = fbId
         self.nom = nom
         self.pnom = pnom
         self.email = email
         self.fbId = fbId
         self.googleId = nil
-        self.fireBaseId = nil
     }
     
     init(nom: String, pnom: String, email:  String, googleId: String ) {
-        let uuid = NSUUID().uuidString
-        self.id = uuid
+        //let uuid = NSUUID().uuidString
+        self.id = googleId
         self.nom = nom
         self.pnom = pnom
         self.email = email
         self.fbId = nil
         self.googleId = googleId
-        self.fireBaseId = nil
     }
     
     
@@ -64,12 +63,18 @@ class User: NSObject {
         }
     }
     
+    func getId () -> String {
+        return (FIRAuth.auth()?.currentUser?.uid)!
+    }
+    
     
     func logout() {
-        
-        
         do{
             try FIRAuth.auth()?.signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() // this is an instance function
+            GlobalVariables.sharedManager.userProfil = nil
+            
             
         }catch let logouterr {
             print(logouterr)
@@ -97,6 +102,7 @@ class User: NSObject {
         
         //let ref = FIRDatabase.database().reference(fromURL: "")https://rea2017-f0ba6.firebaseio.com/"
         //ref.updateChildValues(["someValue" : 420000 ])
+        
         let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId]
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
@@ -125,11 +131,9 @@ class User: NSObject {
         return dic
         
     }
-    func conectToFireBase() {
-        
-        let accesToken = FBSDKAccessToken.current()
-        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
-        
+    
+    
+    func conectToFireBase(credentials: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
             if error != nil {
                 print("Failed to create  a fireBase user aAcount: ", error ?? "")
@@ -140,7 +144,8 @@ class User: NSObject {
             guard let uid = user?.uid else {
                 return
             }
-            self.fireBaseId = uid
+            //assign id
+            //self.id = uid
             
             print("FIREBASE")
             

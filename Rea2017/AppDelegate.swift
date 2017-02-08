@@ -35,6 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
         return true
     }
     
+    
+    //-------------------------------------
+    // MARK: - Google Login Button Handle
+    //-------------------------------------
+    
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             print("Log in to Google")
@@ -49,8 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
             guard let idToken = user.authentication.idToken else { return }
             guard let accessToken = user.authentication.accessToken else { return }
             let  credientials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            
+            
             let userGoogle = User(nom: givenName!, pnom: familyName!, email: email!, googleId: userId!)
-            userGoogle.conectToFireBase()
+            userGoogle.conectToFireBase(credentials:  credientials)
             userGoogle.saveUserToDataBase()
             loginVC?.user = userGoogle
             GlobalVariables.sharedManager.userProfil = userGoogle

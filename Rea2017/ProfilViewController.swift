@@ -1,17 +1,15 @@
 //
-//  AperoViewController.swift
+//  ProfilViewController.swift
 //  Rea2017
 //
-//  Created by MENES SIMEU on 06/02/2017.
+//  Created by MENES SIMEU on 08/02/2017.
 //  Copyright © 2017 MenesS. All rights reserved.
 //
 
 import UIKit
 
-class AperoViewController: UIViewController {
+class ProfilViewController: UIViewController {
 
-     var user = GlobalVariables.sharedManager.userProfil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +21,11 @@ class AperoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func LogOutofftheaoo(_ sender: Any) {
+        print("LogOut")
+        GlobalVariables.sharedManager.userProfil?.logout()
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -33,19 +36,5 @@ class AperoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
-        print("Back From Login")
-        if let LoginVC = sender.source as? LoginViewController {
-            if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
-                print(dataRecieved )
-
-                GlobalVariables.sharedManager.userProfil =  dataRecieved
-                
-                self.user = dataRecieved
-            }
-            
-        }
-    }
-
 
 }

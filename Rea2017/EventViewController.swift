@@ -11,7 +11,9 @@ import FBSDKCoreKit
 
 class EventViewController: UIViewController {
 
- var user = GlobalVariables.sharedManager.userProfil    
+ var user = GlobalVariables.sharedManager.userProfil
+@IBOutlet weak var loginBtnOutlet: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
