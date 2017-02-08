@@ -131,7 +131,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="quit"/>
                                 <connections>
-                                    <segue destination="QGp-SQ-CZu" kind="unwind" unwindAction="unwindFromProfilWithSender:" id="z2x-4J-elI"/>
+                                    <segue destination="QGp-SQ-CZu" kind="unwind" identifier="LogoutOfProfil" unwindAction="unwindFromProfilWithSender:" id="z2x-4J-elI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCE-JU-qwd">
@@ -142,14 +142,32 @@
                                     <action selector="LogOutofftheaoo:" destination="LTf-Ie-DOc" eventType="touchUpInside" id="7Rj-2Y-9VB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pnom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXI-aN-vsD">
+                                <rect key="frame" x="201" y="187" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-bu-z0g">
+                                <rect key="frame" x="16" y="187" width="145" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nomLabelOutlet" destination="Crp-bu-z0g" id="dYZ-79-lhW"/>
+                        <outlet property="prenomLabelOutlet" destination="rXI-aN-vsD" id="hkN-5k-O9x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQa-cd-D7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QGp-SQ-CZu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1678" y="17"/>
+            <point key="canvasLocation" x="-1678.125" y="16.901408450704224"/>
         </scene>
         <!--Recherche-->
         <scene sceneID="j82-SG-YbN">

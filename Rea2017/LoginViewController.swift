@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
         
         setupFBbutton()
         setupGooglebutton()
@@ -81,14 +83,21 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         let googlebutton = GIDSignInButton()
         googlebutton.frame = CGRect(x: 16, y:(view.frame.height/4 )+70  , width: view.frame.width - 32, height: 50)
-        
+        googlebutton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGoogleLogin)))
         view.addSubview(googlebutton)
+        
+        
         GIDSignIn.sharedInstance().uiDelegate = self
-        
-        
-        
     }
     
+    
+    func handleGoogleLogin() {
+        print("google")
+        if GlobalVariables.sharedManager.userProfil != nil {
+            self.performSegue(withIdentifier: "backHome", sender: nil)
+        
+        }
+    }
 
     
    

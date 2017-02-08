@@ -69,8 +69,15 @@ class User: NSObject {
     
     
     func logout() {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         do{
-            try FIRAuth.auth()?.signOut()
+            try firebaseAuth?.signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
             GlobalVariables.sharedManager.userProfil = nil
