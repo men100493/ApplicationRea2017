@@ -1,46 +1,49 @@
 //
-//  MessageViewController.swift
+//  ChatMessageViewController.swift
 //  Rea2017
 //
-//  Created by MENES SIMEU on 06/02/2017.
+//  Created by MENES SIMEU on 09/02/2017.
 //  Copyright © 2017 MenesS. All rights reserved.
 //
 
 import UIKit
 
-class MessageViewController: UIViewController {
-        @IBOutlet weak var loginBtnOutlet: UIButton!
-
-     var user = GlobalVariables.sharedManager.userProfil
+class ChatMessageViewController: UIViewController {
+    @IBOutlet weak var loginBtnOutlet: UIButton!
+    var user:User?
     
-        override func viewDidLoad() {
+    
+    
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        user = appDelegate.user
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     //-------------------------------------
     // MARK: - Boutton => Log in / Profile
     //-------------------------------------
     
     func initHomeViewController(){
-        self.user = GlobalVariables.sharedManager.userProfil
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
@@ -50,7 +53,6 @@ class MessageViewController: UIViewController {
         
         if Helper.isConnectToFacebook() {
             Helper.getUserFBData()
-            self.user = GlobalVariables.sharedManager.userProfil
             loginBtnOutlet.setTitle("Profil", for: .normal)
             return
         }
@@ -61,8 +63,7 @@ class MessageViewController: UIViewController {
         
         
     }
-    
-    @IBAction func LoginPushView(_ sender: Any) {
+    @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -82,13 +83,15 @@ class MessageViewController: UIViewController {
     
     
     
+    
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
         
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user =  dataRecieved
                 print("BAck From Login")
                 
             }
@@ -98,7 +101,7 @@ class MessageViewController: UIViewController {
     
     @IBAction func unwindFromProfil(sender: UIStoryboardSegue) {
         
-        if let ProfilVC = sender.source as? LoginViewController {
+        if sender.source is LoginViewController {
             
             print("BAck From Profile")
             

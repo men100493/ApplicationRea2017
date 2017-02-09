@@ -16,8 +16,10 @@ class ProfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nomLabelOutlet.text = GlobalVariables.sharedManager.userProfil?.nom
-        prenomLabelOutlet.text = GlobalVariables.sharedManager.userProfil?.pnom
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        nomLabelOutlet.text = appDelegate.user?.nom
+        prenomLabelOutlet.text = appDelegate.user?.pnom
 
         // Do any additional setup after loading the view.
     }
@@ -29,7 +31,8 @@ class ProfilViewController: UIViewController {
     
     @IBAction func LogOutofftheaoo(_ sender: Any) {
         print("LogOut")
-        GlobalVariables.sharedManager.userProfil?.logout()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.user?.logout()
         self.performSegue(withIdentifier: "LogoutOfProfil", sender: nil)
         
     }

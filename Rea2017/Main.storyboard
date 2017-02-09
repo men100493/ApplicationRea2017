@@ -21,14 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2b-Mo-syS">
-                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlH-DQ-ApF">
+                                <rect key="frame" x="266" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="Z2b-Mo-syS" id="ey4-Tu-Zwo">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="89h-NH-irO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -36,7 +34,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Evénements" id="s6I-rV-CA4"/>
                     <connections>
-                        <outlet property="loginBtnOutlet" destination="Z2b-Mo-syS" id="s41-CX-5eG"/>
+                        <outlet property="loginBtnOutlet" destination="vlH-DQ-ApF" id="PJe-gZ-bfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZI-On-r5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,14 +53,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKz-3E-KXQ">
-                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0q0-wD-8ay">
+                                <rect key="frame" x="266" y="20" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="AKz-3E-KXQ" id="fjA-Ce-Zfl">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="DPo-Va-ex4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-lQ-bSg">
+                                <rect key="frame" x="99" y="466" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ajouter un aperos"/>
+                                <connections>
+                                    <segue destination="UIB-bj-ngY" kind="show" id="TK5-U1-Scy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,12 +75,41 @@
                     <tabBarItem key="tabBarItem" title="Apéros" id="25w-cB-imp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="loginBtnOutlet" destination="AKz-3E-KXQ" id="eI8-aK-6UC"/>
+                        <outlet property="loginBtnOutlet" destination="0q0-wD-8ay" id="kiJ-bv-p92"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-wc-Zkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="291" y="-870"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6k4-FU-E1M">
+            <objects>
+                <viewController id="UIB-bj-ngY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6zN-PM-nM5"/>
+                        <viewControllerLayoutGuide type="bottom" id="phb-OX-6JI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wnc-t5-jp7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSW-Qy-oSx">
+                                <rect key="frame" x="145" y="46" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <segue destination="s27-FC-jXb" kind="unwind" unwindAction="unwindFromNewAperoWithSender:" id="7e4-MC-Rzm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GI0-iL-Zxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s27-FC-jXb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="117"/>
         </scene>
         <!--Home-->
         <scene sceneID="Moo-LR-dHD">
@@ -90,15 +123,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL3-9W-r9t" customClass="LoginView">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f06-GL-4w2">
                                 <rect key="frame" x="262" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="LoginPushView:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="kKf-aY-xNv"/>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" identifier="LoginView" popoverAnchorView="GL3-9W-r9t" id="VFh-Fx-pHv">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="fTo-lF-7AN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,7 +136,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="90K-86-MeZ"/>
                     <connections>
-                        <outlet property="loginBtnOutlet" destination="GL3-9W-r9t" id="W3R-Yb-A52"/>
+                        <outlet property="loginBtnOutlet" destination="f06-GL-4w2" id="m02-U2-1SC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnc-g7-J9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,14 +217,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbi-fj-Jsf">
-                                <rect key="frame" x="262" y="20" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWL-Wi-B0g">
+                                <rect key="frame" x="266" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="Bbi-fj-Jsf" id="JuL-lK-AoZ">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="nF1-i4-Qkg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -203,7 +231,7 @@
                     <tabBarItem key="tabBarItem" title="Recherche" id="dGz-AK-vaF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="loginBtnOutlet" destination="Bbi-fj-Jsf" id="Bvq-tO-JFg"/>
+                        <outlet property="loginBtnOutlet" destination="gWL-Wi-B0g" id="Av1-qV-pa8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-jt-UJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +241,7 @@
         <!--Message-->
         <scene sceneID="gzv-W5-HlZ">
             <objects>
-                <viewController id="Zam-vt-2sz" customClass="MessageViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zam-vt-2sz" customClass="ChatMessageViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uSq-ZE-6zq"/>
                         <viewControllerLayoutGuide type="bottom" id="Tph-LU-vmp"/>
@@ -222,14 +250,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVI-XO-u61">
-                                <rect key="frame" x="262" y="28" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUn-bn-1aU">
+                                <rect key="frame" x="266" y="28" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="VWF-vj-ObY" kind="popoverPresentation" popoverAnchorView="pVI-XO-u61" id="f56-Jz-YtW">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="pxm-6C-ux4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -238,7 +264,7 @@
                     <tabBarItem key="tabBarItem" title="Message" id="UMk-YJ-Q9y"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="loginBtnOutlet" destination="pVI-XO-u61" id="auY-ur-lyF"/>
+                        <outlet property="loginBtnOutlet" destination="SUn-bn-1aU" id="LjL-08-kbU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8f-jK-nFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,7 +330,4 @@
             <point key="canvasLocation" x="-1678" y="-1680"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="f56-Jz-YtW"/>
-    </inferredMetricsTieBreakers>
 </document>

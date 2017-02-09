@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
-import Firebase
+//import Firebase
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
@@ -19,13 +19,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
         
         setupFBbutton()
-        setupGooglebutton()
+        //setupGooglebutton()
+        //PB avec La connexction GOOGLE
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         
-        if (FBSDKAccessToken.current() != nil) && GlobalVariables.sharedManager.userProfil == nil  {
+        if (FBSDKAccessToken.current() != nil) && appDelegate.user == nil  {
             Helper.getUserFBData()
         }
         
@@ -59,8 +60,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Logout")
-        GlobalVariables.sharedManager.userProfil?.logout()
-        GlobalVariables.sharedManager.userProfil = nil
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.user?.logout()
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -88,12 +89,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().signIn()
     }
     
     
     func handleGoogleLogin() {
         print("google")
-        if GlobalVariables.sharedManager.userProfil != nil {
+        
+        //Google User issue .... I HAVE TO SOLVE IT
+        //GIDSignIn.sharedInstance().signIn()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.user != nil {
             self.performSegue(withIdentifier: "backHome", sender: nil)
         
         }

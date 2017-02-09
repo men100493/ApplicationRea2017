@@ -76,8 +76,8 @@ class Helper{
             let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
             userFB.conectToFireBase(credentials: credentials)
             userFB.saveUserToDataBase()
-            
-            GlobalVariables.sharedManager.userProfil = userFB
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.user = userFB
             
             
             }
@@ -93,9 +93,10 @@ class Helper{
 
     static func initViewController(){
         
-
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        if GlobalVariables.sharedManager.userProfil != nil {
+        
+        if appDelegate.user != nil {
             print("Utilisateur connecté")
             return
             
@@ -122,7 +123,8 @@ class Helper{
     //-------------------------------------
 
     static func logout(){
-        GlobalVariables.sharedManager.userProfil?.logout()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.user?.logout()
 
     }
     
@@ -132,8 +134,10 @@ class Helper{
     //-------------------------------------
     
     static func getFBUserEvents(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
         
-        if (FBSDKAccessToken.current()) != nil , GlobalVariables.sharedManager.userProfil != nil {
+        if (FBSDKAccessToken.current()) != nil , appDelegate.user != nil {
             
             FBSDKGraphRequest.init(graphPath: "/me/events", parameters: ["fields": "id, name"]).start { (connection, result, error) in
                 //print("Wesh")

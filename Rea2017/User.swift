@@ -16,7 +16,8 @@ import FirebaseDatabase
 class User: NSObject {
     
     //Variables de la classe
-    let ref : FIRDatabaseReference!
+    //let ref : FIRDatabaseReference!
+    //let urlData = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
     var id: String?
     var pnom: String?
     var nom: String?
@@ -34,7 +35,7 @@ class User: NSObject {
         self.email = email
         self.fbId = fbId
         self.googleId = nil
-        self.ref =  FIRDatabase.database().reference()
+        //self.ref =  FIRDatabase.database().reference()
     }
     
     init(nom: String, pnom: String, email:  String, googleId: String ) {
@@ -45,7 +46,7 @@ class User: NSObject {
         self.email = email
         self.fbId = nil
         self.googleId = googleId
-        self.ref =  FIRDatabase.database().reference()
+        //self.ref =  FIRDatabase.database().reference()
     }
     
     
@@ -82,7 +83,8 @@ class User: NSObject {
             try firebaseAuth?.signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
-            GlobalVariables.sharedManager.userProfil = nil
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.user = nil
             
             
         }catch let logouterr {
@@ -109,12 +111,11 @@ class User: NSObject {
     
     func saveUserToDataBase() {
         
-        //let ref = FIRDatabase.database().reference(fromURL: "")https://rea2017-f0ba6.firebaseio.com/"
-        //ref.updateChildValues(["someValue" : 420000 ])
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
+        ref.updateChildValues(["someValue" : 420000 ])
         
         let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId]
         
-        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         let usersReference = ref.child("users").child(self.id!)
 
         
@@ -131,7 +132,7 @@ class User: NSObject {
     func observe() -> [String: AnyObject]{
         let dic = [String: AnyObject]()
         let uid = FIRAuth.auth()?.currentUser?.uid
-        ref.child("users").child(uid!).observe(.value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
             print(snapshot)
             if let dic = snapshot.value as?  [String: AnyObject] {
                 print(dic)
@@ -150,7 +151,7 @@ class User: NSObject {
             }
             //Conecté a FIREBASE
             
-            guard let uid = user?.uid else {
+            guard (user?.uid) != nil else {
                 return
             }
             //assign id
@@ -164,7 +165,7 @@ class User: NSObject {
     func loginFireBase() {
         if isConnectToFacebook(){
             //Recherche le fbId dans la BDD
-            ref.child("users").observe(.value, with: { (snapshot) in
+            FIRDatabase.database().reference().child("users").observe(.value, with: { (snapshot) in
                 print(snapshot)
                 if let dic = snapshot.value as?  [String: AnyObject] {
                     print(dic)

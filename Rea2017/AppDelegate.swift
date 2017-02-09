@@ -15,8 +15,8 @@ import GoogleSignIn
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate{
+    var user: User?
     var window: UIWindow?
     var loginVC: LoginViewController?
 
@@ -25,12 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
         // Override point for customization after application launch.
         
         
+        FIRApp.configure()
+        FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        FIRApp.configure()
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        
+        
         
         return true
     }
@@ -61,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,GIDSignInDelegate {
             userGoogle.conectToFireBase(credentials:  credientials)
             userGoogle.saveUserToDataBase()
             loginVC?.user = userGoogle
-            GlobalVariables.sharedManager.userProfil = userGoogle
+            self.user = userGoogle
 
 
         } else {

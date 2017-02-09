@@ -11,12 +11,14 @@ import UIKit
 class SearchViewController: UIViewController {
         @IBOutlet weak var loginBtnOutlet: UIButton!
 
-     var user = GlobalVariables.sharedManager.userProfil
+    var user :User?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        user = appDelegate.user
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +42,6 @@ class SearchViewController: UIViewController {
     //-------------------------------------
     
     func initHomeViewController(){
-        self.user = GlobalVariables.sharedManager.userProfil
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
@@ -50,7 +51,7 @@ class SearchViewController: UIViewController {
         
         if Helper.isConnectToFacebook() {
             Helper.getUserFBData()
-            self.user = GlobalVariables.sharedManager.userProfil
+            
             loginBtnOutlet.setTitle("Profil", for: .normal)
             return
         }
@@ -62,7 +63,7 @@ class SearchViewController: UIViewController {
         
     }
     
-    @IBAction func LoginPushView(_ sender: Any) {
+    @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -82,13 +83,15 @@ class SearchViewController: UIViewController {
     
     
     
+    
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
         
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user =  dataRecieved
                 print("BAck From Login")
                 
             }
@@ -98,7 +101,7 @@ class SearchViewController: UIViewController {
     
     @IBAction func unwindFromProfil(sender: UIStoryboardSegue) {
         
-        if let ProfilVC = sender.source as? LoginViewController {
+        if sender.source is LoginViewController {
             
             print("BAck From Profile")
             

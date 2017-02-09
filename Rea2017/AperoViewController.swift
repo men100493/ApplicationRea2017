@@ -10,11 +10,15 @@ import UIKit
 
 class AperoViewController: UIViewController {
         @IBOutlet weak var loginBtnOutlet: UIButton!
+        var user:User?
+    
 
-     var user = GlobalVariables.sharedManager.userProfil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        user = appDelegate.user
 
         // Do any additional setup after loading the view.
     }
@@ -40,7 +44,6 @@ class AperoViewController: UIViewController {
     //-------------------------------------
     
     func initHomeViewController(){
-        self.user = GlobalVariables.sharedManager.userProfil
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
@@ -50,7 +53,6 @@ class AperoViewController: UIViewController {
         
         if Helper.isConnectToFacebook() {
             Helper.getUserFBData()
-            self.user = GlobalVariables.sharedManager.userProfil
             loginBtnOutlet.setTitle("Profil", for: .normal)
             return
         }
@@ -62,7 +64,7 @@ class AperoViewController: UIViewController {
         
     }
     
-    @IBAction func LoginPushView(_ sender: Any) {
+    @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -82,13 +84,15 @@ class AperoViewController: UIViewController {
     
     
     
+    
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
         
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user =  dataRecieved
                 print("BAck From Login")
                 
             }
@@ -98,9 +102,20 @@ class AperoViewController: UIViewController {
     
     @IBAction func unwindFromProfil(sender: UIStoryboardSegue) {
         
-        if let ProfilVC = sender.source as? LoginViewController {
+        if sender.source is LoginViewController {
             
             print("BAck From Profile")
+            
+            
+            
+        }
+    }
+    
+    @IBAction func unwindFromNewApero(sender: UIStoryboardSegue) {
+        
+        if sender.source is AperoViewController {
+            
+            print("BAck From Nouvelle apéros")
             
             
             

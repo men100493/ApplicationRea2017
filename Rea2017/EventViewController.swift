@@ -11,13 +11,14 @@ import FBSDKCoreKit
 
 class EventViewController: UIViewController {
 
- var user = GlobalVariables.sharedManager.userProfil
-@IBOutlet weak var loginBtnOutlet: UIButton!
+    var user :User?
+    @IBOutlet weak var loginBtnOutlet: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        user = appDelegate.user
 
         // Do any additional setup after loading the view.
     }
@@ -48,7 +49,6 @@ class EventViewController: UIViewController {
     //-------------------------------------
     
     func initHomeViewController(){
-        self.user = GlobalVariables.sharedManager.userProfil
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
@@ -58,7 +58,6 @@ class EventViewController: UIViewController {
         
         if Helper.isConnectToFacebook() {
             Helper.getUserFBData()
-            self.user = GlobalVariables.sharedManager.userProfil
             loginBtnOutlet.setTitle("Profil", for: .normal)
             return
         }
@@ -70,7 +69,7 @@ class EventViewController: UIViewController {
         
     }
     
-    @IBAction func LoginPushView(_ sender: Any) {
+    @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -90,13 +89,15 @@ class EventViewController: UIViewController {
     
     
     
+    
     // segue LoginViewController -> HomeViewController
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
         
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
-                GlobalVariables.sharedManager.userProfil =  dataRecieved
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user =  dataRecieved
                 print("BAck From Login")
                 
             }
@@ -106,7 +107,7 @@ class EventViewController: UIViewController {
     
     @IBAction func unwindFromProfil(sender: UIStoryboardSegue) {
         
-        if let ProfilVC = sender.source as? LoginViewController {
+        if sender.source is LoginViewController {
             
             print("BAck From Profile")
             

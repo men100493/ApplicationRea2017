@@ -7,23 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001385A11E4B49AB002F8CBA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001385A01E4B49AB002F8CBA /* Helper.swift */; };
 		001385A31E4B6A57002F8CBA /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001385A21E4B6A57002F8CBA /* ProfilViewController.swift */; };
+		0028E7A71E4CA07400E99101 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028E7A61E4CA07400E99101 /* Helper.swift */; };
+		0028E7AA1E4CA07E00E99101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */; };
+		0028E7AB1E4CA07E00E99101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0028E7A91E4CA07E00E99101 /* Main.storyboard */; };
 		005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616DB1E48ABEF00F15664 /* AppDelegate.swift */; };
-		005616DE1E48ABEF00F15664 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616DD1E48ABEF00F15664 /* ViewController.swift */; };
-		005616E11E48ABEF00F15664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005616DF1E48ABEF00F15664 /* Main.storyboard */; };
 		005616E61E48ABEF00F15664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005616E51E48ABEF00F15664 /* Assets.xcassets */; };
-		005616E91E48ABEF00F15664 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005616E71E48ABEF00F15664 /* LaunchScreen.storyboard */; };
 		0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056170E1E48AF1C00F15664 /* LoginViewController.swift */; };
 		005617111E48B0E200F15664 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005617101E48B0E200F15664 /* User.swift */; };
-		007C89E01E48C54800487EF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 007C89DF1E48C54800487EF0 /* GoogleService-Info.plist */; };
 		007C89E31E48F13700487EF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E21E48F13700487EF0 /* HomeViewController.swift */; };
 		007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E41E48F7E200487EF0 /* EventViewController.swift */; };
 		007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E61E48F7FC00487EF0 /* SearchViewController.swift */; };
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
-		007C89EB1E48F82000487EF0 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EA1E48F82000487EF0 /* MessageViewController.swift */; };
-		007C89ED1E49E5FE00487EF0 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */; };
 		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
+		00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */; };
+		00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */; };
 		7195D65D27F5CFB058421266 /* Pods_Rea2017UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */; };
 		907597558A3638B0D716805B /* Pods_Rea2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */; };
 		C2CDF7216188B509B8BA4409 /* Pods_Rea2017Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06F59F7C7863CFE0E9D7F07 /* Pods_Rea2017Tests.framework */; };
@@ -47,28 +45,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		001385A01E4B49AB002F8CBA /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		001385A21E4B6A57002F8CBA /* ProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		0028E7A61E4CA07400E99101 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0028E7A91E4CA07E00E99101 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		005616D81E48ABEF00F15664 /* Rea2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rea2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005616DB1E48ABEF00F15664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		005616DD1E48ABEF00F15664 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		005616E01E48ABEF00F15664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		005616E51E48ABEF00F15664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		005616E81E48ABEF00F15664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		005616EA1E48ABEF00F15664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005616EF1E48ABEF00F15664 /* Rea2017Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rea2017Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		005616FA1E48ABEF00F15664 /* Rea2017UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rea2017UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0056170E1E48AF1C00F15664 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		005617101E48B0E200F15664 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		007C89DF1E48C54800487EF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		007C89E11E48D3B900487EF0 /* Rea2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rea2017.entitlements; sourceTree = "<group>"; };
 		007C89E21E48F13700487EF0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		007C89E41E48F7E200487EF0 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		007C89E61E48F7FC00487EF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
-		007C89EA1E48F82000487EF0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
-		007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
+		00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
+		00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1680BFD9000AFFFC7B93A555 /* Pods-Rea2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A37697484D14A74ECC4669B /* Pods-Rea2017UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017UITests/Pods-Rea2017UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6F67141E69ED7E5C6F8E4F6 /* Pods-Rea2017Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,8 +107,7 @@
 		0013859F1E4B45FB002F8CBA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				007C89EC1E49E5FE00487EF0 /* GlobalVariables.swift */,
-				001385A01E4B49AB002F8CBA /* Helper.swift */,
+				0028E7A61E4CA07400E99101 /* Helper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -146,7 +141,7 @@
 				0056170D1E48AC0B00F15664 /* View */,
 				005616DB1E48ABEF00F15664 /* AppDelegate.swift */,
 				005616E51E48ABEF00F15664 /* Assets.xcassets */,
-				007C89DF1E48C54800487EF0 /* GoogleService-Info.plist */,
+				00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */,
 				005616EA1E48ABEF00F15664 /* Info.plist */,
 				007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */,
 			);
@@ -164,16 +159,15 @@
 		0056170D1E48AC0B00F15664 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				005616E71E48ABEF00F15664 /* LaunchScreen.storyboard */,
-				005616DF1E48ABEF00F15664 /* Main.storyboard */,
-				005616DD1E48ABEF00F15664 /* ViewController.swift */,
-				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
+				0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */,
+				0028E7A91E4CA07E00E99101 /* Main.storyboard */,
 				007C89E21E48F13700487EF0 /* HomeViewController.swift */,
+				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 				007C89E41E48F7E200487EF0 /* EventViewController.swift */,
 				007C89E61E48F7FC00487EF0 /* SearchViewController.swift */,
 				007C89E81E48F81300487EF0 /* AperoViewController.swift */,
-				007C89EA1E48F82000487EF0 /* MessageViewController.swift */,
 				001385A21E4B6A57002F8CBA /* ProfilViewController.swift */,
+				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -325,10 +319,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005616E91E48ABEF00F15664 /* LaunchScreen.storyboard in Resources */,
-				007C89E01E48C54800487EF0 /* GoogleService-Info.plist in Resources */,
+				00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */,
+				0028E7AB1E4CA07E00E99101 /* Main.storyboard in Resources */,
 				005616E61E48ABEF00F15664 /* Assets.xcassets in Resources */,
-				005616E11E48ABEF00F15664 /* Main.storyboard in Resources */,
+				0028E7AA1E4CA07E00E99101 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,18 +486,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				007C89E31E48F13700487EF0 /* HomeViewController.swift in Sources */,
+				0028E7A71E4CA07400E99101 /* Helper.swift in Sources */,
 				001385A31E4B6A57002F8CBA /* ProfilViewController.swift in Sources */,
-				007C89EB1E48F82000487EF0 /* MessageViewController.swift in Sources */,
+				00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */,
 				007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */,
 				007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */,
 				007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */,
 				0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */,
-				005616DE1E48ABEF00F15664 /* ViewController.swift in Sources */,
-				007C89ED1E49E5FE00487EF0 /* GlobalVariables.swift in Sources */,
 				005617111E48B0E200F15664 /* User.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 				007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */,
-				001385A11E4B49AB002F8CBA /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,25 +527,6 @@
 			targetProxy = 005616FB1E48ABEF00F15664 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		005616DF1E48ABEF00F15664 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				005616E01E48ABEF00F15664 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		005616E71E48ABEF00F15664 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				005616E81E48ABEF00F15664 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		005617011E48ABEF00F15664 /* Debug */ = {
