@@ -31,8 +31,10 @@ class HomeViewController: UIViewController {
         Helper.initViewController()
 
         initHomeViewController()
+        if GlobalVariables.sharedManager.userProfil != nil{
+            getMusicevent()
+        }
         
-        getMusicevent()
         
         
     }
@@ -43,9 +45,7 @@ class HomeViewController: UIViewController {
 
     func getMusicevent(){
         //
-        var urlString = GlobalVariables.sharedManager.urlMusicStoryAPIBEG
-        urlString = "url de l'event"
-        urlString = urlString + GlobalVariables.sharedManager.urlMusicStoryAPIEND
+        Helper.getFBUserEvents()
     
     
     }

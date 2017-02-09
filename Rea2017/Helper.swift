@@ -128,8 +128,27 @@ class Helper{
     
     
     //-------------------------------------
-    // MARK: - API Music Story
+    // MARK: - Get FaceBook User EVent
     //-------------------------------------
+    
+    static func getFBUserEvents(){
+        
+        if (FBSDKAccessToken.current()) != nil , GlobalVariables.sharedManager.userProfil != nil {
+            
+            FBSDKGraphRequest.init(graphPath: "/me/events", parameters: ["fields": "id, name"]).start { (connection, result, error) in
+                //print("Wesh")
+                
+                if error != nil {
+                    print("Failed looser  fuck graph request" )
+                    return
+                }
+                print(result ?? "")
+            }
+        }
+
+       
+        
+    }
 
     
 
