@@ -133,22 +133,31 @@ class Helper{
     // MARK: - Get FaceBook User EVent
     //-------------------------------------
     
-    static func getFBUserEvents(){
+    static func getFBUserEvents() {
+        
+        //var resultat: [String : AnyObject]? = nil
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
         
         if (FBSDKAccessToken.current()) != nil , appDelegate.user != nil {
             
-            FBSDKGraphRequest.init(graphPath: "/me/events", parameters: ["fields": "id, name"]).start { (connection, result, error) in
+            FBSDKGraphRequest.init(graphPath: "/me/events",
+                                   parameters: ["fields": "id,name,start_time,interested_count,ticket_uri",]).start { (connection, result, error) in
                 //print("Wesh")
                 
                 if error != nil {
-                    print("Failed looser  fuck graph request" )
+                    print("Failed looser fuck graph request" )
                     return
                 }
                 print(result ?? "")
+                // Cast result to optional dictionary type
+                let resultdict = result as? NSDictionary
+                
+                
             }
         }
+        
+       
 
        
         

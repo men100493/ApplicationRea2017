@@ -21,6 +21,10 @@ class EventViewController: UIViewController {
         user = appDelegate.user
 
         // Do any additional setup after loading the view.
+        
+        if (user?.isConnectToFireBase())!{
+            getEvent()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,10 +43,13 @@ class EventViewController: UIViewController {
     */
     
     //-------------------------------------
-    // MARK: - Boutton => Log in / Profile
+    // MARK: - Get User Event
     //-------------------------------------
     
-    
+    func getEvent(){
+        let event = Helper.getFBUserEvents()
+        print(event)
+    }
     
     //-------------------------------------
     // MARK: - Boutton => Log in / Profile
