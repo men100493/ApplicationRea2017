@@ -22,8 +22,15 @@ class EventViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if (user?.isConnectToFireBase())!{
-            getEvent()
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if user != nil {
+            if (user?.isConnectToFireBase())!{
+                getEvent()
+            }
         }
     }
 
@@ -47,8 +54,8 @@ class EventViewController: UIViewController {
     //-------------------------------------
     
     func getEvent(){
-        let event = Helper.getFBUserEvents()
-        print(event)
+        Helper.getFBUserEvents()
+        //print(event)
     }
     
     //-------------------------------------

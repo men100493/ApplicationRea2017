@@ -112,7 +112,7 @@ class User: NSObject {
     func saveUserToDataBase() {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
-        ref.updateChildValues(["someValue" : 420000 ])
+        //ref.updateChildValues(["someValue" : 420000 ])
         
         let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId]
         
@@ -129,7 +129,7 @@ class User: NSObject {
     }
     
     
-    func observe() -> [String: AnyObject]{
+    func observeUser() -> [String: AnyObject]{
         let dic = [String: AnyObject]()
         let uid = FIRAuth.auth()?.currentUser?.uid
         FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in

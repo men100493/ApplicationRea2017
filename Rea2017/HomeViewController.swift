@@ -30,10 +30,10 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool)
     {
         initHomeViewController()
-                
-        
+  
         
     }
+    
     
     //-------------------------------------
     // MARK: -  Get MUSIC EVENT

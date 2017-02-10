@@ -9,9 +9,13 @@
 import Foundation
 import FBSDKCoreKit
 import Firebase
+import FirebaseDatabase
 import GoogleSignIn
 
 class Helper{
+    var ref: FIRDatabaseReference!
+    
+    
     
     
     
@@ -135,35 +139,67 @@ class Helper{
     
     static func getFBUserEvents() {
         
-        //var resultat: [String : AnyObject]? = nil
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var eventTab:[FBEvent]? = nil
 
         
         if (FBSDKAccessToken.current()) != nil , appDelegate.user != nil {
             
             FBSDKGraphRequest.init(graphPath: "/me/events",
-                                   parameters: ["fields": "id,name,start_time,interested_count,ticket_uri",]).start { (connection, result, error) in
+                                   parameters: ["fields": "id,name,start_time",]).start { (connection, result, error) in
                 //print("Wesh")
                 
                 if error != nil {
                     print("Failed looser fuck graph request" )
                     return
                 }
-                print(result ?? "")
-                // Cast result to optional dictionary type
-                let resultdict = result as? NSDictionary
+                print(result)
+                //Recuperation des Evenement FB
+                                    let resultat = result as? NSDictionary
+                                    if let eventData = resultat?["data"] as? [Dictionary<String,AnyObject>]{
+                                    print(eventData)
+                                    for event in eventData {
+                                        // Access event data
+                                        let eventid = event["id"] as? String
+                                        let eventname = event["name"] as? String
+                                        let eventdate = event["start_time"] as? String
+                                        print(eventname)
+                                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                                        let isSet = event.isSetInBDD()
+                                        if isSet == false  {
+                                            //Ajout a la bdd
+                                            eventTab?.append(event)
+                                            event.saveEventToDataBase()
+                                            print("BDDDDDDDDDDDDDd")
+                                        }
+
+
+                                        
+                                    }
+                                    }
+                    
+                    
                 
-                
+                                    
+//                        let event = FBEvent(id: eventid as! String, name: eventname as! String, date: eventdate as! String)
+//                        let isSet = event.isSetInBDD()
+//                        if isSet == false  {
+//                            //Ajout a la bdd
+//                            eventTab?.append(event)
+//                            event.saveEventToDataBase()
+//                            print("BDDDDDDDDDDDDDd")
+//                        }
+                      
+                        
+                                            
+                                            
+                                        }
+                }
             }
-        }
-        
-       
-
-       
-        
-    }
-
-    
-
-        
+            
 }
+        
+        
+        
+       
