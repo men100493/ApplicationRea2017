@@ -141,7 +141,7 @@ class Helper{
         
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        var eventTab:[FBEvent]? = nil
+        
 
         
         if (FBSDKAccessToken.current()) != nil , appDelegate.user != nil {
@@ -158,20 +158,20 @@ class Helper{
                 //Recuperation des Evenement FB
                                     let resultat = result as? NSDictionary
                                     if let eventData = resultat?["data"] as? [Dictionary<String,AnyObject>]{
-                                    print(eventData)
+                                    //print(eventData)
                                     for event in eventData {
                                         // Access event data
                                         let eventid = event["id"] as? String
                                         let eventname = event["name"] as? String
                                         let eventdate = event["start_time"] as? String
-                                        print(eventname)
+                                        //print(eventname)
                                         let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
                                         let isSet = event.isSetInBDD()
                                         if isSet == false  {
                                             //Ajout a la bdd
-                                            eventTab?.append(event)
+                                            
                                             event.saveEventToDataBase()
-                                            print("BDDDDDDDDDDDDDd")
+                                            //print("BDDDDDDDDDDDDDd")
                                         }
 
 
@@ -189,8 +189,23 @@ class Helper{
     // MARK: - Get Event From DataBase
     //-------------------------------------
     
-    static func getBDDEvents() {
+    static func getBDDEvents(){
+        //let dic : NSDictionary? = nil
+        let refBDD = FIRDatabase.database().reference().child("FBevent").observe(.value, with: { (snapshot) in
+            //print(snapshot)
+            if let dic = snapshot.value as?  [String: AnyObject] {
+                //print(dic)
+                for event  in dic{
+                    let idEvent = event.key as? String
+                    let infoEvent = event.value
+                    print(idEvent)
+                }
+               
+            }
+            
+        })
         
+
     
     }
     

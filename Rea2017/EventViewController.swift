@@ -38,7 +38,20 @@ class EventViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //-------------------------------------
+    // MARK: - Get User Event
+    //-------------------------------------
     
+    func getEvent(){
+        if (user?.isConnectToFacebook())! {
+            Helper.getFBUserEvents()
+        }
+        
+        //get event from BDD
+        Helper.getBDDEvents()
+        
+    }
+
     /*
     // MARK: - Navigation
 
@@ -49,14 +62,6 @@ class EventViewController: UIViewController {
     }
     */
     
-    //-------------------------------------
-    // MARK: - Get User Event
-    //-------------------------------------
-    
-    func getEvent(){
-        Helper.getFBUserEvents()
-        //print(event)
-    }
     
     //-------------------------------------
     // MARK: - Boutton => Log in / Profile

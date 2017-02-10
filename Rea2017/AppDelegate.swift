@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var user: User?
     var window: UIWindow?
     var loginVC: LoginViewController?
+    var tabEvent: [FBEvent]?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

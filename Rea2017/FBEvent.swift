@@ -33,7 +33,7 @@ class FBEvent {
             print(snapshot)
             let dic = snapshot.value as?  [String: AnyObject]
         })
-        print(dic)
+        //print(dic)
         return dic
         
     }
@@ -45,19 +45,21 @@ class FBEvent {
             .observe(.value, with: { snapshot in
                 
                 if ( snapshot.value is NSNull ) {
-                    print("not found)")
+                   // print("not found)")
                     
                     
                 } else {
                     isinBDD = true
-                    print(snapshot)
+                    //print(snapshot)
                 }
         })
         return isinBDD
         
        
     }
-    
+    //-------------------------------------
+    // MARK: - Save Event BDD
+    //-------------------------------------
     func saveEventToDataBase() {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
@@ -73,7 +75,7 @@ class FBEvent {
                 print("Failed to create add event ", err ?? "")
                 return
             }
-            print(values)
+            //print(values)
         }
     }
 
