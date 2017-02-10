@@ -177,27 +177,24 @@ class Helper{
 
                                         
                                     }
-                                    }
-                    
-                    
-                
-                                    
-//                        let event = FBEvent(id: eventid as! String, name: eventname as! String, date: eventdate as! String)
-//                        let isSet = event.isSetInBDD()
-//                        if isSet == false  {
-//                            //Ajout a la bdd
-//                            eventTab?.append(event)
-//                            event.saveEventToDataBase()
-//                            print("BDDDDDDDDDDDDDd")
-//                        }
-                      
-                        
-                                            
-                                            
-                                        }
+                                }
+   
+                            }
                 }
             }
-            
+
+    
+    
+    //-------------------------------------
+    // MARK: - Get Event From DataBase
+    //-------------------------------------
+    
+    static func getBDDEvents() {
+        
+    
+    }
+    
+
 }
         
         
