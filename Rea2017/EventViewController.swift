@@ -8,9 +8,17 @@
 
 import UIKit
 import FBSDKCoreKit
+import Firebase
+import FirebaseDatabase
 
+struct event{
+    let name : String!
+    let date : String!
+    }
+    
 class EventViewController: UIViewController {
 
+    let events = [event]()
     var user :User?
     @IBOutlet weak var loginBtnOutlet: UIButton!
     
@@ -19,8 +27,7 @@ class EventViewController: UIViewController {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = appDelegate.user
-
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
         
        
     }
@@ -38,6 +45,8 @@ class EventViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     //-------------------------------------
     // MARK: - Get User Event
     //-------------------------------------
