@@ -19,6 +19,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var eventTableView: UITableView!
     var user :User?
     var tabEvent = [FBEvent]()
+    var eventTitle = [String]()
     @IBOutlet weak var loginBtnOutlet: UIButton!
     //@IBOutlet weak var EventTableView: UITableView!
     
@@ -27,22 +28,44 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
-        eventTableView.alpha = 1
+        //eventTableView.alpha = 1
         eventTableView.delegate = self
         eventTableView.dataSource = self
+        
+        
+//    
+//        if self.tabEvent == Constants.Events.tabEvent! {
+//        
+//            for event in tabEvent {
+//                self.eventTitle.append(event.name!)
+//                print(event.name)
+//            }
+//        }else{
+//            Helper.getBDDEvents()
+//        }
         
 //       let  ref = FIRDatabase.database().reference()
 //        
 //
 //        let databaseHandle = ref.child("FBevent").observe(.childAdded, with: { (snapshot) in
-//            let event = snapshot.value as? String
-//            if let actualEvent = event {
+//            if let dic = snapshot.value as?  [String: AnyObject] {
+//                //print(dic)
+//                for event  in dic{
+//                    let eventid = event.key as? String
+//                    
+//                    let eventname = event.value["name"] as? String
+//                    
+//                        self.eventTitle.append(eventname!)
+//                    
+//                        //self.tabEvent.append(event)
+//                        //print(event.date)
+//                    
+//                    
+//                }
 //                
-//                self.getEvent()
-//                self.eventTableView.reloadData()
 //            }
 //        })
-//        
+        
         
         
         
@@ -78,28 +101,16 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let count = Constants.Events.tabEvent?.count else {
-            let count = 0
-            return 0
-        }
-        return count
+
+        return eventTitle.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell?
-        
-        if user?.isConnectToFireBase() == false {
-            //
-        }else{
-        
-            cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
-            cell?.textLabel?.text = Constants.Events.tabEvent?[indexPath.row].name
-            cell?.detailTextLabel?.text =  Constants.Events.tabEvent?[indexPath.row].date
-        
-        
-        }
+        cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as UITableViewCell
+            cell?.textLabel?.text = self.eventTitle[indexPath.row]
 
         return cell!
     }
@@ -115,11 +126,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //get event from BDD
        Helper.getBDDEvents()
-        if (user?.isConnectToFireBase())! , Constants.Events.tabEvent != nil  {
-            tabEvent = Constants.Events.tabEvent!
-            
-        }
-        
         
     }
     
