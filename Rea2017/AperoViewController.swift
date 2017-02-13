@@ -7,42 +7,82 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
-class AperoViewController: UIViewController {
-        @IBOutlet weak var loginBtnOutlet: UIButton!
-        var user:User?
+
+
+class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var loginBtnOutlet: UIButton!
+    @IBOutlet weak var aperoTableView: UITableView!
+    var user:User?
+    var ref:FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
+    var aperoData = [String]()
     
-
-
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         user = Constants.Users.user
-
+        
+        aperoTableView.delegate = self
+        aperoTableView.dataSource = self
+        
+        //set the firebase reference
+        ref = FIRDatabase.database().reference()
+        
+        databaseHandle = ref?.child("Apero").observe(.childAdded, with: { (snapshot) in
+            // let apero = snapshot.value["title"] as? String
+            let value = snapshot.value as? NSDictionary
+            let aperotitle = value?["title"] as? String?
+            //let apero = snapshot.childSnapshot(forPath: "title").value as! String
+            if let actualApero = aperotitle {
+                self.aperoData.append(actualApero!)
+                self.aperoTableView.reloadData()
+            }
+        })
+        
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool)
-    {
-        initHomeViewController()
-        
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return aperoData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        cell?.textLabel?.text = aperoData[indexPath.row]
+        //let label = cell?.viewWithTag(1) as! UILabel
+        //label.text = aperoData[indexPath.row]
+        return cell!
         
     }
-
+    
+    
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     //-------------------------------------
     // MARK: - Boutton => Log in / Profile
@@ -69,7 +109,6 @@ class AperoViewController: UIViewController {
         
     }
     
-   
     @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         

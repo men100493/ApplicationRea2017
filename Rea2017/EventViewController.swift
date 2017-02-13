@@ -18,7 +18,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var eventTableView: UITableView!
     var user :User?
-    var tabEvent :[FBEvent] = []
+    var tabEvent = [FBEvent]()
     @IBOutlet weak var loginBtnOutlet: UIButton!
     //@IBOutlet weak var EventTableView: UITableView!
     
