@@ -16,10 +16,10 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
-    var user: User?
+    //var user: User?
     var window: UIWindow?
     var loginVC: LoginViewController?
-    var tabEvent: [FBEvent]?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             userGoogle.conectToFireBase(credentials:  credientials)
             userGoogle.saveUserToDataBase()
             loginVC?.user = userGoogle
-            self.user = userGoogle
+            Constants.Users.user = userGoogle
 
 
         } else {

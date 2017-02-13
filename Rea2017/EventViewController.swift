@@ -16,29 +16,51 @@ struct event{
     let date : String!
     }
     
-class EventViewController: UIViewController {
+class EventViewController: UIViewController,UITableViewController{
+    
 
-    let events = [event]()
+    
+    @IBOutlet weak var eventTableView: UITableView!
     var user :User?
+    var tabEvent :[FBEvent] = []
     @IBOutlet weak var loginBtnOutlet: UIButton!
+    //@IBOutlet weak var EventTableView: UITableView!
+    @IBOutlet weak var eventView: UITextView!
+    
+    let animals = ["Cat", "Dog", "Cow", "Mulval"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = appDelegate.user
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        user = Constants.Users.user
+        eventView.alpha = 1
+        
+        eventTableView.delegate = self
+        
+        
+        
                 // Do any additional setup after loading the view.
         
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        initHomeViewController()
         if user != nil {
             if (user?.isConnectToFireBase())!{
                 getEvent()
             }
         }
+        
+        if tabEvent.count > 0 {
+            displayData()
+            
+            
+        }
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +68,35 @@ class EventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //-------------------------------------
+    // MARK: - TableVIew Handler
+    //-------------------------------------
+    
+//    
+//    @available(iOS 2.0, *)
+//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//        if (user?.isConnectToFireBase())!{
+//            return tabEvent.count
+//        }else{
+//            return 0
+//        
+//        }
+//       
+//    }
+//
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if user?.isConnectToFireBase() == false {
+//            return UITableViewCell()
+//        }
+//        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
+//        cell.textLabel?.text = tabEvent[indexPath.row].name
+//        cell.detailTextLabel?.text =  tabEvent[indexPath.row].date
+//        
+//        return cell
+//    }
     
     //-------------------------------------
     // MARK: - Get User Event
@@ -57,8 +108,24 @@ class EventViewController: UIViewController {
         }
         
         //get event from BDD
-        Helper.getBDDEvents()
+       Helper.getBDDEvents()
+        self.
+        if (user?.isConnectToFireBase())! , Constants.Events.tabEvent != nil  {
+            tabEvent = Constants.Events.tabEvent!
+            
+        }
         
+        
+    }
+    
+    func displayData() {
+        
+        for event in tabEvent {
+            eventView.text = eventView.text + event.id
+            eventView.text = eventView.text + event.name!
+            eventView.text = eventView.text + " -/- "
+        }
+    
     }
 
     /*
@@ -125,7 +192,7 @@ class EventViewController: UIViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.user =  dataRecieved
+                Constants.Users.user =  dataRecieved
                 print("BAck From Login")
                 
             }

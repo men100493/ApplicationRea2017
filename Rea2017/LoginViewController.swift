@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         
-        if (FBSDKAccessToken.current() != nil) && appDelegate.user == nil  {
+        if (FBSDKAccessToken.current() != nil) && Constants.Users.user == nil  {
             Helper.getUserFBData()
         }
         
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Logout")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.user?.logout()
+        Constants.Users.user?.logout()
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -99,7 +99,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         //Google User issue .... I HAVE TO SOLVE IT
         //GIDSignIn.sharedInstance().signIn()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.user != nil {
+        if Constants.Users.user != nil {
             self.performSegue(withIdentifier: "backHome", sender: nil)
         
         }

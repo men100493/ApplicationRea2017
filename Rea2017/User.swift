@@ -83,8 +83,8 @@ class User: NSObject {
             try firebaseAuth?.signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.user = nil
+            
+            Constants.Users.user = nil
             
             
         }catch let logouterr {

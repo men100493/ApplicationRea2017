@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = appDelegate.user
+        user = Constants.Users.user
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,7 +112,7 @@ class HomeViewController: UIViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
                  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.user =  dataRecieved
+                Constants.Users.user =  dataRecieved
                 print("BAck From Login")
                 
             }

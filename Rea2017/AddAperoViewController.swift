@@ -31,7 +31,7 @@ class AddAperoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = appDelegate.user
+        user = Constants.Users.user
         
 
 
@@ -49,8 +49,7 @@ class AddAperoViewController: UIViewController {
         let event = eventField.text
         let nbGuest = nbGuestField.text
         let adress = adressField.text
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let fbid = appDelegate.user?.fbId
+        let fbid = Constants.Users.user?.fbId
         titleField.text = ""
         descrField.text = ""
         eventField.text = ""

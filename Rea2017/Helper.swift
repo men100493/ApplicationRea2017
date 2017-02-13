@@ -81,7 +81,7 @@ class Helper{
             userFB.conectToFireBase(credentials: credentials)
             userFB.saveUserToDataBase()
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.user = userFB
+            Constants.Users.user = userFB
             
             
             }
@@ -97,10 +97,7 @@ class Helper{
 
     static func initViewController(){
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        
-        if appDelegate.user != nil {
+        if Constants.Users.user != nil {
             print("Utilisateur connecté")
             return
             
@@ -127,8 +124,8 @@ class Helper{
     //-------------------------------------
 
     static func logout(){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.user?.logout()
+
+        Constants.Users.user?.logout()
 
     }
     
@@ -144,7 +141,7 @@ class Helper{
         
 
         
-        if (FBSDKAccessToken.current()) != nil , appDelegate.user != nil {
+        if (FBSDKAccessToken.current()) != nil , Constants.Users.user != nil {
             
             FBSDKGraphRequest.init(graphPath: "/me/events",
                                    parameters: ["fields": "id,name,start_time",]).start { (connection, result, error) in
@@ -190,23 +187,28 @@ class Helper{
     //-------------------------------------
     
     static func getBDDEvents(){
-        //let dic : NSDictionary? = nil
+        //let dicEvent : NSDictionary? = nil
         let refBDD = FIRDatabase.database().reference().child("FBevent").observe(.value, with: { (snapshot) in
             //print(snapshot)
             if let dic = snapshot.value as?  [String: AnyObject] {
                 //print(dic)
                 for event  in dic{
-                    let idEvent = event.key as? String
-                    let infoEvent = event.value
-                    print(idEvent)
+                    let eventid = event.key as? String
+                    
+                    let eventname = event.value["name"] as? String
+                    let eventdate = event.value["date"] as? String
+                    
+                    if eventid != nil , eventname != nil, eventdate != nil{
+                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                        Constants.Events.tabEvent?.append(event)
+                    }
+                    
                 }
                
             }
             
         })
-        
 
-    
     }
     
 

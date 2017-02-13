@@ -18,14 +18,19 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = appDelegate.user
+        user = Constants.Users.user
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        initHomeViewController()
+        
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -91,7 +96,7 @@ class SearchViewController: UIViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
                 print(dataRecieved )
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.user =  dataRecieved
+                Constants.Users.user =  dataRecieved
                 print("BAck From Login")
                 
             }
