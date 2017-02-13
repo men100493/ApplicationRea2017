@@ -26,6 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="LoginOrProfile:" destination="kXH-1F-tgm" eventType="touchUpInside" id="7I7-Xu-Va4"/>
                                     <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="89h-NH-irO"/>
                                 </connections>
                             </button>
@@ -75,6 +76,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="DPo-Va-ex4"/>
+                                    <action selector="LoginOrProfile:" destination="tTL-fn-dsg" eventType="touchUpInside" id="rnX-FH-vPW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-lQ-bSg">
@@ -330,6 +332,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="LoginOrProfile:" destination="ZbY-lS-nU1" eventType="touchUpInside" id="WY4-zq-Ums"/>
                                     <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="nF1-i4-Qkg"/>
                                 </connections>
                             </button>
@@ -363,6 +366,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
+                                    <action selector="LoginOrProfile:" destination="Zam-vt-2sz" eventType="touchUpInside" id="jGq-bv-HRk"/>
                                     <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="pxm-6C-ux4"/>
                                 </connections>
                             </button>
