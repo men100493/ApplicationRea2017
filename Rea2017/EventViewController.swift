@@ -11,12 +11,8 @@ import FBSDKCoreKit
 import Firebase
 import FirebaseDatabase
 
-struct event{
-    let name : String!
-    let date : String!
-    }
     
-class EventViewController: UIViewController,UITableViewController{
+class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
     
@@ -25,18 +21,31 @@ class EventViewController: UIViewController,UITableViewController{
     var tabEvent :[FBEvent] = []
     @IBOutlet weak var loginBtnOutlet: UIButton!
     //@IBOutlet weak var EventTableView: UITableView!
-    @IBOutlet weak var eventView: UITextView!
     
     let animals = ["Cat", "Dog", "Cow", "Mulval"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
-        eventView.alpha = 1
-        
+        eventTableView.alpha = 1
         eventTableView.delegate = self
+        eventTableView.dataSource = self
+        
+//       let  ref = FIRDatabase.database().reference()
+//        
+//
+//        let databaseHandle = ref.child("FBevent").observe(.childAdded, with: { (snapshot) in
+//            let event = snapshot.value as? String
+//            if let actualEvent = event {
+//                
+//                self.getEvent()
+//                self.eventTableView.reloadData()
+//            }
+//        })
+//        
         
         
         
@@ -53,11 +62,8 @@ class EventViewController: UIViewController,UITableViewController{
             }
         }
         
-        if tabEvent.count > 0 {
-            displayData()
-            
-            
-        }
+        //self.eventTableView.reloadData()
+
 
         
         
@@ -73,30 +79,31 @@ class EventViewController: UIViewController,UITableViewController{
     //-------------------------------------
     
 //    
-//    @available(iOS 2.0, *)
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        if (user?.isConnectToFireBase())!{
-//            return tabEvent.count
-//        }else{
-//            return 0
-//        
-//        }
-//       
-//    }
-//
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if user?.isConnectToFireBase() == false {
-//            return UITableViewCell()
-//        }
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
-//        cell.textLabel?.text = tabEvent[indexPath.row].name
-//        cell.detailTextLabel?.text =  tabEvent[indexPath.row].date
-//        
-//        return cell
-//    }
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+            return tabEvent.count
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell: UITableViewCell?
+        
+        if user?.isConnectToFireBase() == false {
+            //
+        }else{
+        
+            cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
+            cell?.textLabel?.text = tabEvent[indexPath.row].name
+            cell?.detailTextLabel?.text =  tabEvent[indexPath.row].date
+        
+        
+        }
+
+        return cell!
+    }
     
     //-------------------------------------
     // MARK: - Get User Event
@@ -109,7 +116,6 @@ class EventViewController: UIViewController,UITableViewController{
         
         //get event from BDD
        Helper.getBDDEvents()
-        self.
         if (user?.isConnectToFireBase())! , Constants.Events.tabEvent != nil  {
             tabEvent = Constants.Events.tabEvent!
             
@@ -118,16 +124,7 @@ class EventViewController: UIViewController,UITableViewController{
         
     }
     
-    func displayData() {
-        
-        for event in tabEvent {
-            eventView.text = eventView.text + event.id
-            eventView.text = eventView.text + event.name!
-            eventView.text = eventView.text + " -/- "
-        }
-    
-    }
-
+   
     /*
     // MARK: - Navigation
 
