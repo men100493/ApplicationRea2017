@@ -14,7 +14,7 @@ import GoogleSignIn
 
 class Helper{
     var ref: FIRDatabaseReference!
-    
+    var myGroup = DispatchGroup()
     
     
     
@@ -82,7 +82,6 @@ class Helper{
             userFB.saveUserToDataBase()
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Constants.Users.user = userFB
-            
             
             }
             
@@ -201,6 +200,7 @@ class Helper{
                     if eventid != nil , eventname != nil, eventdate != nil{
                         let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
                         Constants.Events.tabEvent?.append(event)
+                        //print(event.date)
                     }
                     
                 }

@@ -63,10 +63,11 @@ class HomeViewController: UIViewController {
     //-------------------------------------
     
     func initHomeViewController(){
-        Helper.getBDDEvents()
+
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
+            Helper.getBDDEvents()
             return
             
         }
@@ -75,6 +76,7 @@ class HomeViewController: UIViewController {
             Helper.getUserFBData()
             
             loginBtnOutlet.setTitle("Profil", for: .normal)
+            Helper.getBDDEvents()
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)

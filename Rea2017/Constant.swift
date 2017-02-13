@@ -11,6 +11,7 @@ struct Constants {
     
     static let appName: String = "Sounds Meetings"
     
+    
     struct Users {
         
         static var user: User?

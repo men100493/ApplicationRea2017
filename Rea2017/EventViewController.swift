@@ -22,12 +22,9 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var loginBtnOutlet: UIButton!
     //@IBOutlet weak var EventTableView: UITableView!
     
-    let animals = ["Cat", "Dog", "Cow", "Mulval"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         eventTableView.alpha = 1
@@ -59,13 +56,12 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if user != nil {
             if (user?.isConnectToFireBase())!{
                 getEvent()
+
             }
         }
+        print(tabEvent)
         
         //self.eventTableView.reloadData()
-
-
-        
         
     }
 
@@ -82,8 +78,11 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-            return tabEvent.count
+        guard let count = Constants.Events.tabEvent?.count else {
+            let count = 0
+            return 0
+        }
+        return count
     }
 
     
@@ -96,8 +95,8 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }else{
         
             cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
-            cell?.textLabel?.text = tabEvent[indexPath.row].name
-            cell?.detailTextLabel?.text =  tabEvent[indexPath.row].date
+            cell?.textLabel?.text = Constants.Events.tabEvent?[indexPath.row].name
+            cell?.detailTextLabel?.text =  Constants.Events.tabEvent?[indexPath.row].date
         
         
         }
