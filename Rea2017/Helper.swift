@@ -150,7 +150,7 @@ class Helper{
                     print("Failed looser fuck graph request" )
                     return
                 }
-                print(result)
+                //print(result)
                 //Recuperation des Evenement FB
                                     let resultat = result as? NSDictionary
                                     if let eventData = resultat?["data"] as? [Dictionary<String,AnyObject>]{

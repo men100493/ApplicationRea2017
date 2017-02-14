@@ -30,7 +30,7 @@ class FBEvent {
         let dic = [String: AnyObject]()
         let uid = FIRAuth.auth()?.currentUser?.uid
         FIRDatabase.database().reference().child("FBEvent").child(uid!).observe(.value, with: { (snapshot) in
-            print(snapshot)
+           // print(snapshot)
             let dic = snapshot.value as?  [String: AnyObject]
         })
         //print(dic)

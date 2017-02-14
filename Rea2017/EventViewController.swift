@@ -20,6 +20,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var user :User?
     var tabEvent = [FBEvent]()
     var eventTitle = [String]()
+    var eventId = [String]()
+    var eventChoose:String?
+    var eventIdChoose:String?
+    var row:Int? = nil
     @IBOutlet weak var loginBtnOutlet: UIButton!
     //@IBOutlet weak var EventTableView: UITableView!
     
@@ -32,38 +36,14 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         for event in Constants.Events.tabEvent! {
             self.eventTitle.append(event.name!)
-            print(event.name)
+            self.eventId.append(event.id)
+            //print(event.name)
         }
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
 
-        
-//        
-//       let  ref = FIRDatabase.database().reference()
-//        
-//
-//        let databaseHandle = ref.child("FBevent").observe(.childAdded, with: { (snapshot) in
-//            if let dic = snapshot.value as?  [String: AnyObject] {
-//                //print(dic)
-//                for event  in dic{
-//                    let eventid = event.key as? String
-//                    
-//                    let eventname = event.value["name"] as? String
-//                    
-//                        self.eventTitle.append(eventname!)
-//                    
-//                        //self.tabEvent.append(event)
-//                        //print(event.date)
-//                    
-//                    
-//                }
-//                
-//            }
-//        })
-//        
-        
-        
+
         
                 // Do any additional setup after loading the view.
         
@@ -78,7 +58,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
             }
         }
-        print(tabEvent)
+        //print(tabEvent)
         
         //self.eventTableView.reloadData()
         
@@ -109,6 +89,17 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell?.textLabel?.text = self.eventTitle[indexPath.row]
 
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.row = indexPath.row
+        eventChoose = eventTitle[self.row!]
+        eventIdChoose = eventId[self.row!]
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        print("Row: \(row)")
+        performSegue(withIdentifier: "eventSegue", sender: nil)
+
+        
     }
     
     //-------------------------------------
@@ -181,6 +172,26 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    //-------------------------------------
+    // MARK: - Segue handler
+    //-------------------------------------
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "eventSegue" {
+            if eventIdChoose == nil {
+                eventIdChoose = eventId[row!]
+            }
+            let destVC = segue.destination as! DetailEventViewController
+                destVC.eventId = eventIdChoose
+                print(eventIdChoose)
+            }
+            
+        
+        
+        }
     
     
     
@@ -204,6 +215,17 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if sender.source is LoginViewController {
             
             print("BAck From Profile")
+            
+            
+            
+        }
+    }
+    
+    @IBAction func unwindFromEventDetail(sender: UIStoryboardSegue) {
+        
+        if sender.source is LoginViewController {
+            
+            print("BAck From Event")
             
             
             

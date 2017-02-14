@@ -73,6 +73,10 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
+    @IBAction func addAperosBtn(_ sender: Any) {
+        performSegue(withIdentifier: "aperoSegue", sender: nil)
+    }
+   
     
     /*
      // MARK: - Navigation
@@ -126,6 +130,22 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
     }
+    //-------------------------------------
+    // MARK: - Segue handler
+    //-------------------------------------
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "aperosSegue" {
+           print("new apéros")
+        }
+        
+        
+        
+    }
+
     
     
     
@@ -135,7 +155,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let LoginVC = sender.source as? LoginViewController {
             if LoginVC.user?.isConnectToFireBase() == true , let dataRecieved = LoginVC.user {
-                print(dataRecieved )
+                //print(dataRecieved )
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 Constants.Users.user =  dataRecieved
                 print("BAck From Login")

@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nNd-um-dFS" id="mYX-FW-U6f">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-uf-Y6u">
@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="eventTableView" destination="WYe-de-2CT" id="OtF-r3-FrL"/>
                         <outlet property="loginBtnOutlet" destination="vlH-DQ-ApF" id="PJe-gZ-bfE"/>
+                        <segue destination="Dld-Fm-qSn" kind="show" identifier="eventSegue" id="PHv-RE-SEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZI-On-r5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,19 +101,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ajouter un aperos"/>
                                 <connections>
-                                    <segue destination="UIB-bj-ngY" kind="show" id="TK5-U1-Scy"/>
+                                    <action selector="addAperosBtn:" destination="tTL-fn-dsg" eventType="touchUpInside" id="c9S-W3-0Tn"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l9l-p1-C9D">
-                                <rect key="frame" x="16" y="58" width="288" height="402"/>
+                                <rect key="frame" x="0.0" y="54" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aperoCell" id="wj0-mx-qGk">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wj0-mx-qGk" id="RVy-ZM-lzW">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N34-84-fIN">
@@ -135,11 +136,77 @@
                     <connections>
                         <outlet property="aperoTableView" destination="l9l-p1-C9D" id="QzP-3Y-H2e"/>
                         <outlet property="loginBtnOutlet" destination="0q0-wD-8ay" id="kiJ-bv-p92"/>
+                        <segue destination="UIB-bj-ngY" kind="show" identifier="aperoSegue" id="Zta-ZI-yKD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-wc-Zkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="290.625" y="-870.42253521126759"/>
+        </scene>
+        <!--Detail Event View Controller-->
+        <scene sceneID="HqV-Sj-rET">
+            <objects>
+                <viewController id="Dld-Fm-qSn" customClass="DetailEventViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NUc-mP-6O6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sme-0m-EdD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gH-L6-y8v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InY-ks-PqV">
+                                <rect key="frame" x="220" y="489" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add apero"/>
+                                <connections>
+                                    <action selector="addAperoBtn:" destination="Dld-Fm-qSn" eventType="touchUpInside" id="5PT-P0-Dt1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-rn-AjB">
+                                <rect key="frame" x="258" y="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <segue destination="Ml8-Ri-ac9" kind="unwind" unwindAction="unwindFromEventDetailWithSender:" id="Deq-CI-4vL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSq-lN-1YM">
+                                <rect key="frame" x="16" y="93" width="288" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-VU-a3P">
+                                <rect key="frame" x="16" y="136" width="288" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i16-an-3RX">
+                                <rect key="frame" x="16" y="261" width="288" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addAperosBtn" destination="i16-an-3RX" id="zeq-SL-Dkn"/>
+                        <outlet property="eventDescriptino" destination="i16-an-3RX" id="ITX-yM-xiB"/>
+                        <outlet property="eventIdLabel" destination="SSq-lN-1YM" id="wbE-mY-ly9"/>
+                        <outlet property="eventname" destination="wA0-VU-a3P" id="fxA-0U-Lsm"/>
+                        <segue destination="UIB-bj-ngY" kind="show" identifier="aperoSegue2" id="6wd-WM-yrQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bs3-qn-obd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ml8-Ri-ac9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1014" y="-1681"/>
         </scene>
         <!--Add Apero View Controller-->
         <scene sceneID="6k4-FU-E1M">
@@ -158,7 +225,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Quit"/>
                                 <connections>
-                                    <segue destination="s27-FC-jXb" kind="unwind" unwindAction="unwindFromNewAperoWithSender:" id="7e4-MC-Rzm"/>
+                                    <segue destination="s27-FC-jXb" kind="unwind" unwindAction="unwindFromNewAperoWithSender:" id="mob-h9-ztf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nouvelle Apero!! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH8-EU-IQu">
@@ -260,7 +327,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GI0-iL-Zxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="s27-FC-jXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="291" y="117"/>
+            <point key="canvasLocation" x="291" y="-1682"/>
         </scene>
         <!--Home-->
         <scene sceneID="Moo-LR-dHD">
@@ -384,11 +451,20 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="loginBtnOutlet" destination="gWL-Wi-B0g" id="Av1-qV-pa8"/>
+                        <outlet property="searchDisplayController" destination="g9Y-Jk-eFO" id="0pc-uq-Kv1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-jt-UJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="g9Y-Jk-eFO">
+                    <connections>
+                        <outlet property="delegate" destination="ZbY-lS-nU1" id="D2e-EF-Iw1"/>
+                        <outlet property="searchContentsController" destination="ZbY-lS-nU1" id="0FP-mf-68G"/>
+                        <outlet property="searchResultsDataSource" destination="ZbY-lS-nU1" id="9aZ-kV-JPN"/>
+                        <outlet property="searchResultsDelegate" destination="ZbY-lS-nU1" id="loP-at-EwV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-362" y="-870"/>
+            <point key="canvasLocation" x="-363.75" y="-870.42253521126759"/>
         </scene>
         <!--Message-->
         <scene sceneID="gzv-W5-HlZ">
@@ -483,4 +559,7 @@
             <point key="canvasLocation" x="-1678" y="-1680"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6wd-WM-yrQ"/>
+    </inferredMetricsTieBreakers>
 </document>
