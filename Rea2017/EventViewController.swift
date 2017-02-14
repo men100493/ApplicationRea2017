@@ -29,21 +29,17 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         //eventTableView.alpha = 1
+        
+        for event in Constants.Events.tabEvent! {
+            self.eventTitle.append(event.name!)
+            print(event.name)
+        }
+        
         eventTableView.delegate = self
         eventTableView.dataSource = self
+
         
-        
-//    
-//        if self.tabEvent == Constants.Events.tabEvent! {
 //        
-//            for event in tabEvent {
-//                self.eventTitle.append(event.name!)
-//                print(event.name)
-//            }
-//        }else{
-//            Helper.getBDDEvents()
-//        }
-        
 //       let  ref = FIRDatabase.database().reference()
 //        
 //
@@ -65,7 +61,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //                
 //            }
 //        })
-        
+//        
         
         
         

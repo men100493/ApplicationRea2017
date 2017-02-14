@@ -62,7 +62,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aperoCell")
         cell?.textLabel?.text = aperoData[indexPath.row]
         //let label = cell?.viewWithTag(1) as! UILabel
         //label.text = aperoData[indexPath.row]

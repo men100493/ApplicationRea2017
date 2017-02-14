@@ -187,6 +187,7 @@ class Helper{
     
     static func getBDDEvents(){
         //let dicEvent : NSDictionary? = nil
+        var tabEve = [FBEvent]()
         let refBDD = FIRDatabase.database().reference().child("FBevent").observe(.value, with: { (snapshot) in
             //print(snapshot)
             if let dic = snapshot.value as?  [String: AnyObject] {
@@ -199,15 +200,21 @@ class Helper{
                     
                     if eventid != nil , eventname != nil, eventdate != nil{
                         let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
-                        Constants.Events.tabEvent?.append(event)
+                        tabEve.append(event)
+                        Constants.Events.tabEvent = tabEve
+                        //Constants.Events.addEvent(event)
                         //print(event.date)
                     }
                     
                 }
+                Constants.Events.tabEvent = tabEve
+                //print(Constants.Events.tabEvent?.count)
+                //print(tabEve.count)
                
             }
             
         })
+        
 
     }
     

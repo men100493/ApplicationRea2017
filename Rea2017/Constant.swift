@@ -18,10 +18,14 @@ struct Constants {
         
     }
     
+    
     struct Events{
         
         static var tabEvent: [FBEvent]?  // Yea, this is not a constant, but that's alright...
         
+        func addEvent (event: FBEvent){
+            Events.tabEvent?.append(event)
+        }
     }
     
 }
