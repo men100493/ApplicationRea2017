@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
     
-class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
     
@@ -33,9 +33,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         initHomeViewController()
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
+        user?.getEventAsFav()
         //eventTableView.alpha = 1
         
-        for event in Constants.Events.tabEvent {
+        for event in Constants.Users.tabEventFav {
             self.eventTitle.append(event.name!)
             self.eventId.append(event.id)
             //print(event.name)
@@ -51,20 +52,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        initHomeViewController()
-        if user != nil {
-            if (user?.isConnectToFireBase())!{
-                getEvent()
-
-            }
-        }
-        //print(tabEvent)
-        
-        //self.eventTableView.reloadData()
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

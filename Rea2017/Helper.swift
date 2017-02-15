@@ -72,7 +72,7 @@ class Helper{
             
             //Création de l'utilsateur FB
             
-            let userFB = User(nom: userFName, pnom: userName, email: userMail,fbId: userid)
+            let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid)
             
             
             //Firebase Setup

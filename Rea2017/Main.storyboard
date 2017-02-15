@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Evénements-->
+        <!--Favoris-->
         <scene sceneID="Odz-Hw-wrW">
             <objects>
-                <viewController id="kXH-1F-tgm" customClass="EventViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Favoris" id="kXH-1F-tgm" customClass="FavorisViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YN5-bX-bht"/>
                         <viewControllerLayoutGuide type="bottom" id="Ky9-QD-jfn"/>
@@ -57,7 +57,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Evénements" id="s6I-rV-CA4"/>
+                    <tabBarItem key="tabBarItem" title="Favoris" id="s6I-rV-CA4"/>
                     <connections>
                         <outlet property="eventTableView" destination="WYe-de-2CT" id="OtF-r3-FrL"/>
                         <outlet property="loginBtnOutlet" destination="vlH-DQ-ApF" id="PJe-gZ-bfE"/>

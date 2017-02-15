@@ -212,6 +212,43 @@ class User: NSObject {
         
     }
     
+    func getEventAsFav(){
+        var tabEve = [FBEvent]()
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child((self.id!))
+        //let value = ["nom": event.name , "date":event.date]
+        let favReference = ref.child("EventFav")
+        favReference.observe(.value, with: { (snapshot) in
+            print(snapshot)
+            
+            if let dic = snapshot.value as?  [String: AnyObject] {
+                print(dic)
+                for event  in dic{
+                    let eventid = event.key as? String
+                    
+                    let eventname = event.value["name"] as? String
+                    let eventdate = event.value["date"] as? String
+                    
+                    if eventid != nil , eventname != nil, eventdate != nil{
+                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                        tabEve.append(event)
+                        //Constants.Events.tabEvent = tabEve
+                        //Constants.Events.addEvent(event)
+                        print(event.date)
+                    }
+                    
+                }
+                Constants.Users.tabEventFav = tabEve
+                //print(Constants.Events.tabEvent?.count)
+                //print(tabEve.count)
+                
+            }
+            
+        })
+        
+        
+    }
+
+    
 
 
 

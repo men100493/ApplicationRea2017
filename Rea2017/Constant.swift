@@ -16,6 +16,8 @@ struct Constants {
         
         static var user: User?
         
+        static var tabEventFav = [FBEvent]()
+        
     }
     
     

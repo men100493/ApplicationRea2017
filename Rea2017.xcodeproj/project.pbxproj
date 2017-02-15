@@ -16,7 +16,7 @@
 		0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056170E1E48AF1C00F15664 /* LoginViewController.swift */; };
 		005617111E48B0E200F15664 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005617101E48B0E200F15664 /* User.swift */; };
 		007C89E31E48F13700487EF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E21E48F13700487EF0 /* HomeViewController.swift */; };
-		007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E41E48F7E200487EF0 /* EventViewController.swift */; };
+		007C89E51E48F7E200487EF0 /* FavorisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E41E48F7E200487EF0 /* FavorisViewController.swift */; };
 		007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E61E48F7FC00487EF0 /* SearchViewController.swift */; };
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
 		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
@@ -64,7 +64,7 @@
 		005617101E48B0E200F15664 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		007C89E11E48D3B900487EF0 /* Rea2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rea2017.entitlements; sourceTree = "<group>"; };
 		007C89E21E48F13700487EF0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		007C89E41E48F7E200487EF0 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		007C89E41E48F7E200487EF0 /* FavorisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorisViewController.swift; sourceTree = "<group>"; };
 		007C89E61E48F7FC00487EF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */,
 				0028E7A91E4CA07E00E99101 /* Main.storyboard */,
 				007C89E21E48F13700487EF0 /* HomeViewController.swift */,
-				007C89E41E48F7E200487EF0 /* EventViewController.swift */,
+				007C89E41E48F7E200487EF0 /* FavorisViewController.swift */,
 				007C89E61E48F7FC00487EF0 /* SearchViewController.swift */,
 				007C89E81E48F81300487EF0 /* AperoViewController.swift */,
 				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
@@ -515,7 +515,7 @@
 				005617111E48B0E200F15664 /* User.swift in Sources */,
 				0088709F1E5358630081771B /* Apero.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
-				007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */,
+				007C89E51E48F7E200487EF0 /* FavorisViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
