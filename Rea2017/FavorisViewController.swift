@@ -105,7 +105,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         eventIdChoose = eventId[self.row!]
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         print("Row: \(row)")
-        //performSegue(withIdentifier: "eventSegue", sender: nil)
+        performSegue(withIdentifier: "eventSegue", sender: nil)
 
         
     }
@@ -229,6 +229,8 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
+    
+    
     
     
 }

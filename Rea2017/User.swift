@@ -245,8 +245,8 @@ class User: NSObject {
                     
                 }
                 Constants.Users.tabEventFav = tabEve
-                print(Constants.Users.tabEventFav.count)
-                print(Constants.Events.tabEvent.count)
+                //print(Constants.Users.tabEventFav.count)
+                //print(Constants.Events.tabEvent.count)
                 //print(tabEve.count)
                 
             }

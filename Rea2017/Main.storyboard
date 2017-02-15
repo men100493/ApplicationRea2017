@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="eventTableView" destination="WYe-de-2CT" id="OtF-r3-FrL"/>
                         <outlet property="loginBtnOutlet" destination="vlH-DQ-ApF" id="PJe-gZ-bfE"/>
+                        <segue destination="Dld-Fm-qSn" kind="show" identifier="eventSegue" id="7Fw-aD-Jvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZI-On-r5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,7 +215,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bs3-qn-obd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ml8-Ri-ac9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-368" y="-1694"/>
+            <point key="canvasLocation" x="-675" y="-1681"/>
         </scene>
         <!--Add Apero View Controller-->
         <scene sceneID="6k4-FU-E1M">
@@ -647,6 +648,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="7Fw-aD-Jvx"/>
         <segue reference="6wd-WM-yrQ"/>
     </inferredMetricsTieBreakers>
 </document>
