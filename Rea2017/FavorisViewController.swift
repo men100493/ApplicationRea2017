@@ -30,21 +30,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initHomeViewController()
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = Constants.Users.user
-        user?.getEventAsFav()
-        //eventTableView.alpha = 1
         
-        for event in Constants.Users.tabEventFav {
-            self.eventTitle.append(event.name!)
-            self.eventId.append(event.id)
-            //print(event.name)
-        }
-        
-        eventTableView.delegate = self
-        eventTableView.dataSource = self
-
 
         
                 // Do any additional setup after loading the view.
@@ -57,6 +43,40 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        user = Constants.Users.user
+        Helper.initViewController()
+        initHomeViewController()
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        user?.getEventAsFav()
+        
+        print(Constants.Users.tabEventFav.count)
+        //eventTableView.alpha = 1
+        
+        
+        
+        if Constants.Users.tabEventFav.count != 0 {
+            tabEvent = Constants.Users.tabEventFav
+        }
+        
+        for event in tabEvent {
+            self.eventTitle.append(event.name!)
+            self.eventId.append(event.id)
+            //print(event.name)
+        }
+        
+        eventTableView.delegate = self
+        eventTableView.dataSource = self
+
+        
+        self.eventTableView.reloadData()
+        
+       
+
+    }
+
+    
     //-------------------------------------
     // MARK: - TableVIew Handler
     //-------------------------------------
@@ -66,7 +86,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
 
-        return eventTitle.count
+        return tabEvent.count
     }
 
     
@@ -74,7 +94,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var cell: UITableViewCell?
         cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as UITableViewCell
-            cell?.textLabel?.text = self.eventTitle[indexPath.row]
+        cell?.textLabel?.text = self.tabEvent[indexPath.row].name
 
         return cell!
     }
@@ -85,7 +105,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         eventIdChoose = eventId[self.row!]
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         print("Row: \(row)")
-        performSegue(withIdentifier: "eventSegue", sender: nil)
+        //performSegue(withIdentifier: "eventSegue", sender: nil)
 
         
     }
@@ -114,7 +134,8 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
-    
+
+
     
     //-------------------------------------
     // MARK: - Boutton => Log in / Profile
@@ -208,7 +229,6 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
     }
-    
     
     
 }

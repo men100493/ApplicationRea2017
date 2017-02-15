@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
+        Helper.initViewController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +31,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool)
     {
         initHomeViewController()
-
-  
-        
+ 
     }
     
     
@@ -68,8 +67,8 @@ class HomeViewController: UIViewController {
         
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
-            Helper.getBDDEvents()
-            Helper.getBDDAperos()
+
+            
             return
             
         }
@@ -77,8 +76,7 @@ class HomeViewController: UIViewController {
         if Helper.isConnectToFacebook() {
             
             loginBtnOutlet.setTitle("Profil", for: .normal)
-            Helper.getBDDEvents()
-            Helper.getBDDAperos()
+
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)

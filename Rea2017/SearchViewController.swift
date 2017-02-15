@@ -30,6 +30,8 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        user = Constants.Users.user
+        Helper.initViewController()
         Helper.getBDDAperos()
         //searchTableView.delegate = self
         //searchTableView.dataSource = self

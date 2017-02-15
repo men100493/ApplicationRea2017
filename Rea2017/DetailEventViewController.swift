@@ -95,6 +95,7 @@ class DetailEventViewController: UIViewController {
     @IBAction func favBtn(_ sender: Any) {
         
         isSaveEventAsFav()
+       
         
         if isFav == false {
 
@@ -103,6 +104,7 @@ class DetailEventViewController: UIViewController {
 
             Constants.Users.user?.deleteEventAsFav(event: event!)
         }
+        Constants.Users.user?.getEventAsFav()
 
 
     }

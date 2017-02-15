@@ -123,7 +123,7 @@ class User: NSObject {
                 print("Failed to create  a fireBase user Acount: ", err ?? "")
                 return
             }
-            print(values)
+            //print(values)
         }
     }
     
@@ -132,9 +132,9 @@ class User: NSObject {
         let dic = [String: AnyObject]()
         let uid = FIRAuth.auth()?.currentUser?.uid
         FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
-            print(snapshot)
+            //print(snapshot)
             if let dic = snapshot.value as?  [String: AnyObject] {
-                print(dic)
+                //print(dic)
             }
         })
         return dic
@@ -165,7 +165,7 @@ class User: NSObject {
         if isConnectToFacebook(){
             //Recherche le fbId dans la BDD
             FIRDatabase.database().reference().child("users").observe(.value, with: { (snapshot) in
-                print(snapshot)
+                //print(snapshot)
                 if let dic = snapshot.value as?  [String: AnyObject] {
                     print(dic)
                 }
@@ -212,23 +212,30 @@ class User: NSObject {
         
     }
     
+    //-------------------------------------
+    // MARK: - Get Fav Event
+    //-------------------------------------
+    
+    
     func getEventAsFav(){
+        
+        
         var tabEve = [FBEvent]()
-        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child((self.id!))
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child((Constants.Users.user?.id)!)
         //let value = ["nom": event.name , "date":event.date]
         let favReference = ref.child("EventFav")
         favReference.observe(.value, with: { (snapshot) in
-            print(snapshot)
+            //print(snapshot)
             
             if let dic = snapshot.value as?  [String: AnyObject] {
                 print(dic)
                 for event  in dic{
                     let eventid = event.key as? String
                     
-                    let eventname = event.value["name"] as? String
+                    let eventname = event.value["nom"] as? String
                     let eventdate = event.value["date"] as? String
                     
-                    if eventid != nil , eventname != nil, eventdate != nil{
+                    if eventid != nil, eventname != nil, eventdate != nil{
                         let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
                         tabEve.append(event)
                         //Constants.Events.tabEvent = tabEve
@@ -238,19 +245,13 @@ class User: NSObject {
                     
                 }
                 Constants.Users.tabEventFav = tabEve
-                //print(Constants.Events.tabEvent?.count)
+                print(Constants.Users.tabEventFav.count)
+                print(Constants.Events.tabEvent.count)
                 //print(tabEve.count)
                 
             }
             
         })
-        
-        
+
     }
-
-    
-
-
-
-
 }

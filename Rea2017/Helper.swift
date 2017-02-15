@@ -80,8 +80,10 @@ class Helper{
             let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
             userFB.conectToFireBase(credentials: credentials)
             userFB.saveUserToDataBase()
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Constants.Users.user = userFB
+            Constants.Users.user?.getEventAsFav()
             
             }
             
@@ -96,8 +98,13 @@ class Helper{
 
     static func initViewController(){
         
+        
+        
         if Constants.Users.user != nil {
             print("Utilisateur connecté")
+            Helper.getBDDEvents()
+            Helper.getBDDAperos()
+            Constants.Users.user?.getEventAsFav()
             return
             
         }
@@ -106,6 +113,9 @@ class Helper{
             print("Utilisateur connecté a FB")
             // Création de l'utisateur et Connection a Facebook
             Helper.getUserFBData()
+            Helper.getBDDEvents()
+            Helper.getBDDAperos()
+            Constants.Users.user?.getEventAsFav()
             print("Utilisateur connecté")
             return
             

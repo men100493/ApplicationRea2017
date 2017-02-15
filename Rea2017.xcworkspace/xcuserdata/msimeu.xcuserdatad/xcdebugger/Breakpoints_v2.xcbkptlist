@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "favBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,59 +26,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "favBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "favBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "favBtn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
+            landmarkName = "favBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/DetailEventViewController.swift"
+            timestampString = "508872703.177707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "favBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/DetailEventViewController.swift"
+            timestampString = "508872703.177707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "favBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/DetailEventViewController.swift"
+            timestampString = "508872703.177707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "favBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,7 +122,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.498554"
+                  timestampString = "508873008.000643"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "203"
@@ -137,7 +137,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.499771"
+                  timestampString = "508873008.002063"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "204"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "isSaveEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "isSaveEventAsFav()"
             landmarkType = "7">
             <Locations>
@@ -218,11 +218,11 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/DetailEventViewController.swift"
-                  timestampString = "508865843.506347"
+                  timestampString = "508873008.008477"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
                   offsetFromSymbolStart = "1275">
                </Location>
                <Location
@@ -233,11 +233,11 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/DetailEventViewController.swift"
-                  timestampString = "508865843.507747"
+                  timestampString = "508873008.009602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
                   offsetFromSymbolStart = "26">
                </Location>
             </Locations>
@@ -250,7 +250,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "isSaveEventAsFav()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/DetailEventViewController.swift"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -266,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "isSaveEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,23 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "isSaveEventAsFav()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/DetailEventViewController.swift"
-            timestampString = "508864572.429131"
+            timestampString = "508872703.177707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "isSaveEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -361,13 +361,91 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Rea2017/FavorisViewController.swift"
-            timestampString = "508865427.226427"
+            filePath = "Rea2017/Constant.swift"
+            timestampString = "508866801.496157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "Users"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_0B72C2360A569260267510D933B07A69_func2"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/Constant.swift"
+                  timestampString = "508873008.026429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rea2017.Constants.Users.tabEventFav.unsafeMutableAddressor : Swift.Array&lt;Rea2017.FBEvent&gt;"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/Constant.swift"
+                  timestampString = "508873008.027562"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Rea2017.Constants.Users.tabEventFav.getter : Swift.Array&lt;Rea2017.FBEvent&gt;"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/Constant.swift"
+                  timestampString = "508873008.028669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Rea2017.Constants.Users.tabEventFav.setter : Swift.Array&lt;Rea2017.FBEvent&gt;"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/Constant.swift"
+                  timestampString = "508873008.029782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/Helper.swift"
+            timestampString = "508871658.289296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "getUserFBData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/User.swift"
-            timestampString = "508865497.192993"
+            timestampString = "508871663.921486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "getEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -394,11 +472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/User.swift"
-            timestampString = "508865498.800913"
+            timestampString = "508871664.497428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "getEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -410,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/User.swift"
-            timestampString = "508865505.808419"
+            timestampString = "508871665.13747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "getEventAsFav()"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +504,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/User.swift"
-            timestampString = "508865511.910778"
+            timestampString = "508871665.657379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "getEventAsFav()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/User.swift"
+            timestampString = "508871666.96139"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "getEventAsFav()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/User.swift"
+            timestampString = "508871667.401227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "getEventAsFav()"
             landmarkType = "7">
             <Locations>
@@ -442,12 +552,12 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.532783"
+                  timestampString = "508873008.045162"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "246">
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "39">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -457,12 +567,12 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.533867"
+                  timestampString = "508873008.046319"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "822">
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "635">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -474,7 +584,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/User.swift"
-            timestampString = "508865512.672418"
+            timestampString = "508871667.889546"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "getEventAsFav()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rea2017.User.getEventAsFav () -&gt; ()"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
+                  timestampString = "508873008.048706"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rea2017.User.getEventAsFav () -&gt; ()"
+                  moduleName = "Rea2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
+                  timestampString = "508873008.049823"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "224"
+                  endingLineNumber = "224"
+                  offsetFromSymbolStart = "1129">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/User.swift"
+            timestampString = "508871669.241591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
@@ -486,16 +644,16 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Rea2017.User.(getEventAsFav () -&gt; ()).(closure #1)"
+                  symbolName = "Rea2017.User.getEventAsFav () -&gt; ()"
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.536105"
+                  timestampString = "508873008.05226"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "223"
                   endingLineNumber = "223"
-                  offsetFromSymbolStart = "246">
+                  offsetFromSymbolStart = "55">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -505,12 +663,12 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/User.swift"
-                  timestampString = "508865843.537314"
+                  timestampString = "508873008.053384"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "223"
                   endingLineNumber = "223"
-                  offsetFromSymbolStart = "822">
+                  offsetFromSymbolStart = "25">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -521,29 +679,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Rea2017/User.swift"
-            timestampString = "508865817.96313"
+            filePath = "Rea2017/FavorisViewController.swift"
+            timestampString = "508873007.788261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "getEventAsFav()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Rea2017/User.swift"
-            timestampString = "508865819.778989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "getEventAsFav()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

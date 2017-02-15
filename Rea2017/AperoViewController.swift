@@ -29,6 +29,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         initHomeViewController()
         user = Constants.Users.user
+        Helper.initViewController()
         
         aperoTableView.delegate = self
         aperoTableView.dataSource = self
