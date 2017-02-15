@@ -8,6 +8,8 @@
 
 import UIKit
 import FBSDKCoreKit
+import Firebase
+
 
 class DetailEventViewController: UIViewController {
     
@@ -23,7 +25,6 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventDescriptino: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        isFav = (Constants.Users.user?.isSaveEventAsFav(event: event!))!
         
         
 
@@ -33,6 +34,7 @@ class DetailEventViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if eventId != nil {
             print(eventId)
+            isSaveEventAsFav()
             getFBEventInfo()
             eventIdLabel.text = eventId
             
@@ -44,10 +46,7 @@ class DetailEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initView(){
-        favBtn.alpha = 0.5
-        if isFav {
-            favBtn.alpha = 1.0
-        }
+
     
     
     }
@@ -95,19 +94,39 @@ class DetailEventViewController: UIViewController {
     
     @IBAction func favBtn(_ sender: Any) {
         
+        isSaveEventAsFav()
         
-        
-        isFav = (Constants.Users.user?.isSaveEventAsFav(event: event!))!
-        if !isFav {
-            favBtn.alpha = 1.0
+        if isFav == false {
+
             Constants.Users.user?.saveEventAsFav(event: event!)
         }else{
-            favBtn.alpha = 0.5
+
             Constants.Users.user?.deleteEventAsFav(event: event!)
         }
 
 
     }
+    func isSaveEventAsFav(){
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child((Constants.Users.user?.id!)!)
+        //let value = ["nom": event.name , "date":event.date]
+        let favReference = ref.child("EventFav").child(eventId!)
+        favReference.observe(.value, with: { (snapshot) in
+            print(snapshot)
+            
+            if snapshot.value  is NSNull{
+                self.isFav = false
+                 self.favBtn.alpha = 0.5
+            }else{
+                self.isFav = true
+                 self.favBtn.alpha = 1.0
+            }
+            
+        })
+    
+        
+    }
+
 
     /*
     // MARK: - Navigation

@@ -211,23 +211,7 @@ class User: NSObject {
         
         
     }
-    func isSaveEventAsFav(event :FBEvent) -> Bool{
-        var repBool: Bool = false
-        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child(self.id!)
-        //let value = ["nom": event.name , "date":event.date]
-        let favReference = ref.child("EventFav").child(event.id)
-        favReference.observe(.value, with: { (snapshot) in
-            
-            if snapshot != nil {
-                repBool = true
-            }
-
-        })
-        print(repBool)
-        return repBool
-
-    }
-
+    
 
 
 
