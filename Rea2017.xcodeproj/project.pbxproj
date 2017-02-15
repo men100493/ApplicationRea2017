@@ -29,6 +29,7 @@
 		7195D65D27F5CFB058421266 /* Pods_Rea2017UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */; };
 		907597558A3638B0D716805B /* Pods_Rea2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */; };
 		912C65DC1E5072130045B5CB /* AddAperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C65DB1E5072130045B5CB /* AddAperoViewController.swift */; };
+		915190201E549BF1001D1F13 /* ConfigProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */; };
 		C2CDF7216188B509B8BA4409 /* Pods_Rea2017Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06F59F7C7863CFE0E9D7F07 /* Pods_Rea2017Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		1680BFD9000AFFFC7B93A555 /* Pods-Rea2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A37697484D14A74ECC4669B /* Pods-Rea2017UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017UITests/Pods-Rea2017UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		912C65DB1E5072130045B5CB /* AddAperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAperoViewController.swift; sourceTree = "<group>"; };
+		9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigProfilViewController.swift; sourceTree = "<group>"; };
 		A6F67141E69ED7E5C6F8E4F6 /* Pods-Rea2017Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rea2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rea2017UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 				912C65DB1E5072130045B5CB /* AddAperoViewController.swift */,
 				00B4C48D1E531674003082E9 /* DetailEventViewController.swift */,
+				9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */,
 				007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */,
 				00D151F71E51C2D20073BDFA /* Constant.swift in Sources */,
+				915190201E549BF1001D1F13 /* ConfigProfilViewController.swift in Sources */,
 				007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */,
 				00B4C48E1E531674003082E9 /* DetailEventViewController.swift in Sources */,
 				007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */,
