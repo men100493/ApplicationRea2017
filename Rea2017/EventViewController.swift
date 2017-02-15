@@ -35,7 +35,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         user = Constants.Users.user
         //eventTableView.alpha = 1
         
-        for event in Constants.Events.tabEvent! {
+        for event in Constants.Events.tabEvent {
             self.eventTitle.append(event.name!)
             self.eventId.append(event.id)
             //print(event.name)
@@ -222,15 +222,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBAction func unwindFromEventDetail(sender: UIStoryboardSegue) {
-        
-        if sender.source is LoginViewController {
-            
-            print("BAck From Event")
-            
-            
-            
-        }
-    }
+    
     
 }

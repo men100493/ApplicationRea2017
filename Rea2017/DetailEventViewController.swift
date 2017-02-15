@@ -11,8 +11,10 @@ import FBSDKCoreKit
 
 class DetailEventViewController: UIViewController {
     
+    @IBOutlet weak var favBtn: UIButton!
     var eventId:String?
     var event :FBEvent?
+    var isFav :Bool = false
     
     @IBOutlet weak var eventIdLabel: UILabel!
 
@@ -21,7 +23,7 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventDescriptino: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isFav = (Constants.Users.user?.isSaveEventAsFav(event: event!))!
         
         
 
@@ -35,12 +37,20 @@ class DetailEventViewController: UIViewController {
             eventIdLabel.text = eventId
             
         }
+        //initView()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func initView(){
+        favBtn.alpha = 0.5
+        if isFav {
+            favBtn.alpha = 1.0
+        }
     
+    
+    }
     func getFBEventInfo(){
         
         if (FBSDKAccessToken.current()) != nil , Constants.Users.user != nil {
@@ -83,6 +93,21 @@ class DetailEventViewController: UIViewController {
         
     }
     
+    @IBAction func favBtn(_ sender: Any) {
+        
+        
+        
+        isFav = (Constants.Users.user?.isSaveEventAsFav(event: event!))!
+        if !isFav {
+            favBtn.alpha = 1.0
+            Constants.Users.user?.saveEventAsFav(event: event!)
+        }else{
+            favBtn.alpha = 0.5
+            Constants.Users.user?.deleteEventAsFav(event: event!)
+        }
+
+
+    }
 
     /*
     // MARK: - Navigation

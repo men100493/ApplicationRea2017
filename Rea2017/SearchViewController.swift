@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController,UITableViewDataSource, UISearchResultsUpdating{
+class SearchViewController: UIViewController,UITableViewDataSource, UISearchResultsUpdating, UITableViewDelegate{
         @IBOutlet weak var loginBtnOutlet: UIButton!
 
     @IBOutlet weak var search: UISearchBar!
@@ -19,21 +19,14 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     
     
     var user :User?
+    var eventChoose :FBEvent?
+    var aperoChoose :Apero?
     
     //create two arrays
-    var friendsArray = [String]()       //array of all frineds
-    var filteredFriends = [String]()    //array of filtered friends
+    var searchArray = [String]()       //array of all value
+    var searchArrayid = [String]()
+    var filteredsearch = [String]()    //array of filtered search
     
-    
-    var arraySearch = [NSObject]()
-    var arraySearchFiltered = [NSObject]()
-    
-    
-    var arrayEventSearch = [FBEvent]()
-    var arrayEventSearchFiltered = [FBEvent]()
-    
-    var arrayAperotSearch = [Apero]()
-    var arrayAperoSearchFiltered = [Apero]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +35,25 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
         //searchTableView.dataSource = self
         // Do any additional setup after loading the view.
          initHomeViewController()
+        Helper.getBDDEvents()
+        Helper.getBDDAperos()
         
-        for event in Constants.Events.tabEvent! {
-            self.friendsArray.append(event.name!)
+        for event in Constants.Events.tabEvent {
+            self.searchArray.append(event.name!)
+            self.searchArrayid.append(event.id)
         }
-//        for apero in Constants.Aperos.tabEApero!{
-//            self.friendsArray.append(apero.id!)
-//        }
+        for apero in Constants.Aperos.tabEApero{
+            self.searchArray.append(apero.name!)
+            self.searchArrayid.append(apero.id)
+        }
         
         
         //let appDelegate = UIAdelegate as! AppDelegate
         user = Constants.Users.user
         
         
-        //ADD THIS SEARCH CONTROLLER CODE!!!
+        //Search Controller
+
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.sizeToFit()
@@ -92,34 +90,34 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     // Uupdate searching results
  
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text
-        filterContentForSearchText(searchText: searchText!)
+        let searchText = searchController.searchBar.text!
+        filterContentForSearchText(searchText: searchText)
+        //searchTableView.reloadData()
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "ALL")
+    {
+   
+        self.filteredsearch = self.searchArray.filter({ (events : String ) -> Bool in
+            var categoryMatch = (scope == "ALL")
+            
+            var stringMatch = events.lowercased().range(of: searchText.lowercased())
+            return categoryMatch && (stringMatch != nil)
+        })
         searchTableView.reloadData()
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "Title")
-    {
-        self.filteredFriends = self.friendsArray.filter({(friend : String) -> Bool in
-            
-            var categoryMatch = (scope == "Title")
-            //var stringMatch = friend.rangeOfString(searchText)
-            var stringMatch = friend.range(of: searchText)
-            return categoryMatch && (stringMatch != nil)
-            
-        })
-    }
-    
-    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchString searchString: String!) -> Bool { //CHANGE FROM UISearchDisplayController TO UISearchController !!!
+    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchString searchString: String!) -> Bool {
         
-        self.filterContentForSearchText(searchText: searchString, scope: "Title")
+        self.filterContentForSearchText(searchText: searchString, scope: "ALL")
         
         return true
         
     }
     
-    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchScope searchOption: Int) -> Bool { //CHANGE FROM UISearchDisplayController TO UISearchController !!!
+    func searchDisplayController(controller: UISearchController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
         
-        self.filterContentForSearchText(searchText: self.searchController!.searchBar.text!, scope: "Title") //CHANGE FROM searchDisplayController TO searchController !!!
+        self.filterContentForSearchText(searchText: self.searchController!.searchBar.text!, scope: "ALL")
         
         return true
         
@@ -138,15 +136,13 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (searchController.isActive){ //CHANGE tableView == self.searchDisplayController?.searchResultsTableView TO searchController.active
+        if (searchController.isActive) && searchController.searchBar.text != "" {
             
-            return self.filteredFriends.count
-            
-        }else{
-            
-            return self.friendsArray.count
+            return self.filteredsearch.count
             
         }
+            
+            return self.searchArray.count
         
     }
 
@@ -155,42 +151,77 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
         
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell")
         
-        var friend: String
+        var event: String
+        var id: String
         
-        if (searchController.isActive){ //CHANGE FROM tableView == self.searchDisplayController?.searchResultsTableView TO searchController.active !!!
-            
-            friend = self.filteredFriends[indexPath.row]
+        if (searchController.isActive) && searchController.searchBar.text != "" {
+            event = self.filteredsearch[indexPath.row]
+            let pos = self.searchArray.index(of: event)
+            id = self.searchArrayid[pos!]
+
             
         }else{
             
-            friend = self.friendsArray[indexPath.row]
+            event = self.searchArray[indexPath.row]
+            id = self.searchArrayid[indexPath.row]
+
             
         }
         
-        cell?.textLabel?.text = friend
+        cell?.textLabel?.text = event
+        cell?.detailTextLabel?.text = id
         
         return cell!
     }
-    
+   
+//    // method to run when table view cell is tapped
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//       
+//       print("Menes Menes mens")
+//    }
+
 
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+
         searchTableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
-        var friend: String
+        var event: String
+        var id: String
         
-        if (searchController.isActive){ //CHANGE FROM tableView == self.searchDisplayController?.searchResultsTableView TO searchController.active !!!
+        if (searchController.isActive && searchController.searchBar.text != "" ){
             
-            friend = self.filteredFriends[indexPath.row]
+            event = self.filteredsearch[indexPath.row]
+            let pos = self.searchArray.index(of: event)
+            id = self.searchArrayid[pos!]
+            
             
         }else{
             
-            friend = self.friendsArray[indexPath.row]
+            event = self.searchArray[indexPath.row]
+            id = self.searchArrayid[indexPath.row]
             
         }
         
-        print(friend)
+        print(event ,"----", id)
+        
+        for event in Constants.Events.tabEvent {
+            if event.id == id {
+                print("event trouvé")
+                self.eventChoose =  event
+                performSegue(withIdentifier: "eventSegue", sender: nil)
+               
+            }
+        }
+        
+        for apero in Constants.Aperos.tabEApero {
+            if apero.id == id {
+                print("apero trouvé")
+                self.aperoChoose = apero
+            }
+        }
+        //performSegue(withIdentifier: "eventSegue", sender: nil)
     }
     /*
     // MARK: - Navigation
@@ -248,6 +279,30 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     }
     
     
+    //-------------------------------------
+    // MARK: - Segue handler
+    //-------------------------------------
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "eventSegue" {
+           
+            
+            let destVC = segue.destination as! DetailEventViewController
+            
+            destVC.event =  eventChoose
+            destVC.eventId =  eventChoose?.id
+            print(eventChoose?.id)
+            
+            
+        }
+        
+        
+        
+    }
+
     
     
     // segue LoginViewController -> HomeViewController
@@ -275,5 +330,19 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
             
         }
     }
+    
+    @IBAction func unwindFromEventDetail(sender: UIStoryboardSegue) {
+        
+        if sender.source is LoginViewController {
+            
+            print("BAck From Event")
+            
+            
+            
+        }
+    }
+    
+    
+    
     
 }

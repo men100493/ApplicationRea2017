@@ -70,6 +70,11 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell!
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Segue to the second view controller
+        print("Menes Menes mens")
+    }
     
     
     

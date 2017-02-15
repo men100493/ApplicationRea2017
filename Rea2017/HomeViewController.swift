@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool)
     {
         initHomeViewController()
+
   
         
     }
@@ -68,20 +69,23 @@ class HomeViewController: UIViewController {
         if self.user != nil {
             loginBtnOutlet.setTitle("Profil", for: .normal)
             Helper.getBDDEvents()
+            Helper.getBDDAperos()
             return
             
         }
         
         if Helper.isConnectToFacebook() {
-            Helper.getUserFBData()
             
             loginBtnOutlet.setTitle("Profil", for: .normal)
             Helper.getBDDEvents()
+            Helper.getBDDAperos()
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)
 
         print("Utilisateur non connecté")
+        Helper.getBDDEvents()
+        Helper.getBDDAperos()
 
         
         

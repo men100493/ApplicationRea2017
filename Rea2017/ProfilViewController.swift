@@ -33,6 +33,7 @@ class ProfilViewController: UIViewController {
         print("LogOut")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         Constants.Users.user?.logout()
+        Constants.Users.user = nil
         self.performSegue(withIdentifier: "LogoutOfProfil", sender: nil)
         
     }

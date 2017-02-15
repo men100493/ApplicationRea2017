@@ -112,7 +112,6 @@ class User: NSObject {
     func saveUserToDataBase() {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
-        //ref.updateChildValues(["someValue" : 420000 ])
         
         let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId]
         
@@ -179,10 +178,56 @@ class User: NSObject {
         
     }
     
+    func deleteEventAsFav(event :FBEvent){
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child(self.id!)
+        let value = ["nom": event.name , "date":event.date]
+        let favReference = ref.child("EventFav").child(event.id)
+        
+        favReference.removeValue { (error, ref) in
+            if error != nil {
+                print("error \(error)")
+            }
+        }
+    }
 
     
     
     
+    func saveEventAsFav(event :FBEvent){
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child(self.id!)
+        let value = ["nom": event.name , "date":event.date]
+        let favReference = ref.child("EventFav").child(event.id)
+        
+        favReference.updateChildValues(value) { (err, data) in
+            if err != nil {
+                print("Failed to create  a fireBase user Acount: ", err ?? "")
+                return
+            }
+            print(value)
+        }
+        
+        
+        
+    }
+    func isSaveEventAsFav(event :FBEvent) -> Bool{
+        var repBool: Bool = false
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/").child("users").child(self.id!)
+        //let value = ["nom": event.name , "date":event.date]
+        let favReference = ref.child("EventFav").child(event.id)
+        favReference.observe(.value, with: { (snapshot) in
+            
+            if snapshot != nil {
+                repBool = true
+            }
+
+        })
+        print(repBool)
+        return repBool
+
+    }
+
 
 
 

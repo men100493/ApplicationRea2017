@@ -21,16 +21,16 @@ struct Constants {
     
     struct Events{
         
-        static var tabEvent: [FBEvent]?  // Yea, this is not a constant, but that's alright...
+        static var tabEvent = [FBEvent]()
         
         func addEvent (event: FBEvent){
-            Events.tabEvent?.append(event)
+            Events.tabEvent.append(event)
         }
     }
     
     struct Aperos{
         
-        static var tabEApero: [Apero]?  // Yea, this is not a constant, but that's alright...
+        static var tabEApero = [Apero]()
 
     }
     

@@ -201,13 +201,19 @@ class Helper{
                     //let aperoadress = apero.value["adress"] as? String
                     
                     if aperoname != nil , aperoevent != nil , aperoid != nil {
-                        let aperoTotab = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!)
-                        Constants.Aperos.tabEApero?.append(aperoTotab)
+                        let apero = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!)
+                        tabApero.append(apero)
+                        
+                        //Constants.Aperos.tabEApero? = tabApero
+                        //print(tabApero.count)
                         
                     }
 
                     
                 }
+                Constants.Aperos.tabEApero = tabApero
+                
+                //print(Constants.Aperos.tabEApero.count)
             }
         })
 
@@ -232,7 +238,7 @@ class Helper{
                     if eventid != nil , eventname != nil, eventdate != nil{
                         let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
                         tabEve.append(event)
-                        Constants.Events.tabEvent = tabEve
+                        //Constants.Events.tabEvent = tabEve
                         //Constants.Events.addEvent(event)
                         //print(event.date)
                     }

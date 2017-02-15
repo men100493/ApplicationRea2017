@@ -9,7 +9,7 @@
 import Foundation
 
 class Apero: NSObject {
-    var id: String? = nil
+    var id: String
     var name: String? = nil
     //var date: String? = nil
     var nbInvite: String? = nil
