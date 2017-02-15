@@ -14,12 +14,25 @@ class ProfilViewController: UIViewController {
     
     @IBOutlet weak var prenomLabelOutlet: UILabel!
     
+    @IBOutlet weak var surnomLabelOutlet: UILabel!
+    
+    @IBOutlet weak var musicLabelOutlet: UILabel!
+    
+    @IBOutlet weak var adressLabelOutlet: UILabel!
+    
+    @IBOutlet weak var emailLabelOutlet: UILabel!
+    
+    @IBOutlet weak var phoneLabelOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
         nomLabelOutlet.text = Constants.Users.user?.nom
         prenomLabelOutlet.text = Constants.Users.user?.pnom
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
