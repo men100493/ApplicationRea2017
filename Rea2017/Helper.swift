@@ -180,7 +180,38 @@ class Helper{
             }
 
     
+    //-------------------------------------
+    // MARK: - Get Aperos From DataBase
+    //-------------------------------------
     
+    
+    static func getBDDAperos()  {
+        var tabApero = [Apero]()
+        let refBDD = FIRDatabase.database().reference().child("Apero").observe(.value, with: { (snapshot) in
+            
+            if let dic = snapshot.value as?  [String: AnyObject] {
+                //print(dic)
+                for apero  in dic{
+                    let aperoid = apero.key as? String
+                    
+                    let aperoname = apero.value["title"] as? String
+                    let aperoevent = apero.value["event"] as? String
+                    let aperoinvite = apero.value["nbGuest"] as? String
+                    let aperodescription = apero.value["description"] as? String
+                    //let aperoadress = apero.value["adress"] as? String
+                    
+                    if aperoname != nil , aperoevent != nil , aperoid != nil {
+                        let aperoTotab = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!)
+                        Constants.Aperos.tabEApero?.append(aperoTotab)
+                        
+                    }
+
+                    
+                }
+            }
+        })
+
+    }
     //-------------------------------------
     // MARK: - Get Event From DataBase
     //-------------------------------------

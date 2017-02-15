@@ -30,6 +30,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initHomeViewController()
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         //eventTableView.alpha = 1

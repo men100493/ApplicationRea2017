@@ -28,4 +28,10 @@ struct Constants {
         }
     }
     
+    struct Aperos{
+        
+        static var tabEApero: [Apero]?  // Yea, this is not a constant, but that's alright...
+
+    }
+    
 }

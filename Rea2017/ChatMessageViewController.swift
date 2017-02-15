@@ -17,6 +17,7 @@ class ChatMessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initHomeViewController()
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         

@@ -20,6 +20,7 @@
 		007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E61E48F7FC00487EF0 /* SearchViewController.swift */; };
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
 		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
+		0088709F1E5358630081771B /* Apero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088709E1E5358630081771B /* Apero.swift */; };
 		00B4C48E1E531674003082E9 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B4C48D1E531674003082E9 /* DetailEventViewController.swift */; };
 		00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */; };
 		00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */; };
@@ -67,6 +68,7 @@
 		007C89E61E48F7FC00487EF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
+		0088709E1E5358630081771B /* Apero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apero.swift; sourceTree = "<group>"; };
 		00B4C48D1E531674003082E9 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
 		00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				005617101E48B0E200F15664 /* User.swift */,
 				00BBA2311E4DF12F0022FB84 /* FBEvent.swift */,
+				0088709E1E5358630081771B /* Apero.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -172,12 +175,12 @@
 				0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */,
 				0028E7A91E4CA07E00E99101 /* Main.storyboard */,
 				007C89E21E48F13700487EF0 /* HomeViewController.swift */,
-				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 				007C89E41E48F7E200487EF0 /* EventViewController.swift */,
 				007C89E61E48F7FC00487EF0 /* SearchViewController.swift */,
 				007C89E81E48F81300487EF0 /* AperoViewController.swift */,
-				001385A21E4B6A57002F8CBA /* ProfilViewController.swift */,
 				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
+				001385A21E4B6A57002F8CBA /* ProfilViewController.swift */,
+				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 				912C65DB1E5072130045B5CB /* AddAperoViewController.swift */,
 				00B4C48D1E531674003082E9 /* DetailEventViewController.swift */,
 			);
@@ -510,6 +513,7 @@
 				007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */,
 				0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */,
 				005617111E48B0E200F15664 /* User.swift in Sources */,
+				0088709F1E5358630081771B /* Apero.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 				007C89E51E48F7E200487EF0 /* EventViewController.swift in Sources */,
 			);

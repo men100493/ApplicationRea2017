@@ -27,7 +27,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initHomeViewController()
         user = Constants.Users.user
         
         aperoTableView.delegate = self
@@ -39,6 +39,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         databaseHandle = ref?.child("Apero").observe(.childAdded, with: { (snapshot) in
             // let apero = snapshot.value["title"] as? String
             let value = snapshot.value as? NSDictionary
+            print(value)
             let aperotitle = value?["title"] as? String?
             //let apero = snapshot.childSnapshot(forPath: "title").value as! String
             if let actualApero = aperotitle {
