@@ -53,26 +53,32 @@ class Helper{
         
         if (FBSDKAccessToken.current()) != nil{
         
-        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email"]).start { (connection, result, error) in
+        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"]).start { (connection, result, error) in
             //print("Wesh")
             
             if error != nil {
                 print("Failed looser  fuck graph request" )
                 return
             }
+            
             let usrDict = result as! [String : AnyObject]
+            let profilePictureURLStr = (usrDict["picture"]!["data"]!! as! [String : AnyObject])["url"]
             let userid = usrDict["id"] as! String
             let userName = usrDict["last_name"] as! String
             let userFName = usrDict["first_name"] as! String
             let userMail = usrDict["email"] as! String
             
+            //let profilPic = usrDict["picture"]!["data"]! as! [String : AnyObject])["url"]as! String
+            //(data["picture"]!["data"]!! as! [String : AnyObject])["url"]as! String
+            //let profilPic = usrDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("data"") as! String
+            print(profilePictureURLStr)
             //print(userName)
             
             
             
             //Création de l'utilsateur FB
             
-            let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid)
+            let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String)
             
             
             //Firebase Setup
@@ -84,6 +90,7 @@ class Helper{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             Constants.Users.user = userFB
             Constants.Users.user?.getEventAsFav()
+            //Constants.Users.user?.getFBPicture()
             
             }
             

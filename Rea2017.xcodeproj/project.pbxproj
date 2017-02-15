@@ -20,6 +20,7 @@
 		007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E61E48F7FC00487EF0 /* SearchViewController.swift */; };
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
 		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
+		007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F210D1E54DD9600E291DA /* AperoPageViewController.swift */; };
 		0088709F1E5358630081771B /* Apero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088709E1E5358630081771B /* Apero.swift */; };
 		00B4C48E1E531674003082E9 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B4C48D1E531674003082E9 /* DetailEventViewController.swift */; };
 		00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */; };
@@ -69,6 +70,7 @@
 		007C89E61E48F7FC00487EF0 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
+		007F210D1E54DD9600E291DA /* AperoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoPageViewController.swift; sourceTree = "<group>"; };
 		0088709E1E5358630081771B /* Apero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apero.swift; sourceTree = "<group>"; };
 		00B4C48D1E531674003082E9 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
@@ -174,20 +176,29 @@
 		0056170D1E48AC0B00F15664 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				008870A01E54D1240081771B /* Main */,
 				0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */,
 				0028E7A91E4CA07E00E99101 /* Main.storyboard */,
-				007C89E21E48F13700487EF0 /* HomeViewController.swift */,
-				007C89E41E48F7E200487EF0 /* FavorisViewController.swift */,
-				007C89E61E48F7FC00487EF0 /* SearchViewController.swift */,
-				007C89E81E48F81300487EF0 /* AperoViewController.swift */,
-				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
 				001385A21E4B6A57002F8CBA /* ProfilViewController.swift */,
 				0056170E1E48AF1C00F15664 /* LoginViewController.swift */,
 				912C65DB1E5072130045B5CB /* AddAperoViewController.swift */,
 				00B4C48D1E531674003082E9 /* DetailEventViewController.swift */,
 				9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */,
+				007F210D1E54DD9600E291DA /* AperoPageViewController.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		008870A01E54D1240081771B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				007C89E21E48F13700487EF0 /* HomeViewController.swift */,
+				007C89E41E48F7E200487EF0 /* FavorisViewController.swift */,
+				007C89E61E48F7FC00487EF0 /* SearchViewController.swift */,
+				007C89E81E48F81300487EF0 /* AperoViewController.swift */,
+				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		70046648A9F6431A0AFD1BB3 /* Pods */ = {
@@ -506,6 +517,7 @@
 				007C89E31E48F13700487EF0 /* HomeViewController.swift in Sources */,
 				0028E7A71E4CA07400E99101 /* Helper.swift in Sources */,
 				00BBA2321E4DF12F0022FB84 /* FBEvent.swift in Sources */,
+				007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */,
 				912C65DC1E5072130045B5CB /* AddAperoViewController.swift in Sources */,
 				001385A31E4B6A57002F8CBA /* ProfilViewController.swift in Sources */,
 				00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */,

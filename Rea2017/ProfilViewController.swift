@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ProfilViewController: UIViewController {
 
     @IBOutlet weak var nomLabelOutlet: UILabel!
@@ -24,13 +25,26 @@ class ProfilViewController: UIViewController {
     
     @IBOutlet weak var phoneLabelOutlet: UILabel!
     
+    @IBOutlet weak var profilPicture: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
+        
+        //Constants.Users.user?.getFBPicture()
+        var userID = Constants.Users.user?.id
+        var pictureFB = Constants.Users.user?.photoProfilUrl
+        //profilPicture.image = pictureFB
+        print(pictureFB)
         nomLabelOutlet.text = Constants.Users.user?.nom
         prenomLabelOutlet.text = Constants.Users.user?.pnom
         
+        
+        let url = NSURL(string: pictureFB!)
+        let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        profilPicture.image = UIImage(data: data! as Data)
         
         
 
@@ -47,6 +61,7 @@ class ProfilViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         Constants.Users.user?.logout()
         Constants.Users.user = nil
+        // this is an instance function
         self.performSegue(withIdentifier: "LogoutOfProfil", sender: nil)
         
     }
@@ -60,5 +75,16 @@ class ProfilViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindFromProfilConfig(sender: UIStoryboardSegue) {
+        
+        if sender.source is ConfigProfilViewController {
+            
+            print("Données Sauvegardé")
+            
+            
+            
+        }
+    }
 
 }

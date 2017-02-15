@@ -81,7 +81,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     }
     override func viewDidAppear(_ animated: Bool)
     {
-
+        initHomeViewController()
     }
     
     

@@ -27,7 +27,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initHomeViewController()
+
         user = Constants.Users.user
         Helper.initViewController()
         
@@ -53,7 +53,10 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        initHomeViewController()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,6 +78,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Segue to the second view controller
         print("Menes Menes mens")
+        performSegue(withIdentifier: "aperoPageSegue", sender: nil)
     }
     
     
@@ -149,6 +153,10 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
            print("new apéros")
         }
         
+        if segue.identifier == "aperosPageSegue" {
+            print("AAAAApéros")
+        }
+        
         
         
     }
@@ -184,6 +192,17 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func unwindFromNewApero(sender: UIStoryboardSegue) {
+        
+        if sender.source is AperoViewController {
+            
+            print("BAck From Nouvelle apéros")
+            
+            
+            
+        }
+    }
+    
+    @IBAction func unwindFromAperoPage(sender: UIStoryboardSegue) {
         
         if sender.source is AperoViewController {
             

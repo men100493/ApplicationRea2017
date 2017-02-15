@@ -137,11 +137,41 @@
                         <outlet property="aperoTableView" destination="l9l-p1-C9D" id="QzP-3Y-H2e"/>
                         <outlet property="loginBtnOutlet" destination="0q0-wD-8ay" id="kiJ-bv-p92"/>
                         <segue destination="UIB-bj-ngY" kind="show" identifier="aperoSegue" id="Zta-ZI-yKD"/>
+                        <segue destination="L9g-89-DgG" kind="show" identifier="aperoPageSegue" id="4Am-8I-J3Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFj-wc-Zkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="290.625" y="-870.42253521126759"/>
+        </scene>
+        <!--Apero Page View Controller-->
+        <scene sceneID="Squ-pb-nKR">
+            <objects>
+                <viewController id="L9g-89-DgG" customClass="AperoPageViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KGt-Tz-DG4"/>
+                        <viewControllerLayoutGuide type="bottom" id="73k-Gy-6Ue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xO4-U4-ggw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB4-7i-9WD">
+                                <rect key="frame" x="266" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <segue destination="xqn-aH-a7q" kind="unwind" unwindAction="unwindFromAperoPageWithSender:" id="YnJ-SI-5ip"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJZ-Kv-EUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xqn-aH-a7q" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="290.625" y="49.647887323943664"/>
         </scene>
         <!--Detail Event View Controller-->
         <scene sceneID="HqV-Sj-rET">
@@ -215,7 +245,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bs3-qn-obd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ml8-Ri-ac9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-675" y="-1681"/>
+            <point key="canvasLocation" x="-662" y="-1824"/>
         </scene>
         <!--Add Apero View Controller-->
         <scene sceneID="6k4-FU-E1M">
@@ -381,7 +411,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GI0-iL-Zxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="s27-FC-jXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-1682"/>
+            <point key="canvasLocation" x="291" y="-1824"/>
         </scene>
         <!--Home-->
         <scene sceneID="Moo-LR-dHD">
@@ -439,7 +469,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Quit"/>
                                 <connections>
-                                    <segue destination="oVz-7A-V5d" kind="unwind" unwindAction="unwindFromProfilWithSender:" id="gpz-Ey-lDf"/>
+                                    <segue destination="oVz-7A-V5d" kind="unwind" unwindAction="unwindFromProfilConfigWithSender:" id="zSW-qL-zQ7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Surnom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNu-ZF-EF0">
@@ -534,7 +564,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGR-op-F5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oVz-7A-V5d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3686.25" y="-1696.4788732394366"/>
+            <point key="canvasLocation" x="-3248" y="-1824"/>
         </scene>
         <!--Profil View Controller-->
         <scene sceneID="Nyx-m7-KX4">
@@ -649,13 +679,14 @@
                         <outlet property="nomLabelOutlet" destination="Crp-bu-z0g" id="dYZ-79-lhW"/>
                         <outlet property="phoneLabelOutlet" destination="zhf-Fd-fkc" id="2uP-Ei-OGD"/>
                         <outlet property="prenomLabelOutlet" destination="rXI-aN-vsD" id="hkN-5k-O9x"/>
+                        <outlet property="profilPicture" destination="uSv-0s-XHg" id="6MX-d2-3Iy"/>
                         <outlet property="surnomLabelOutlet" destination="MMc-EE-Fuq" id="Cb9-2r-r5j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQa-cd-D7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QGp-SQ-CZu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2597" y="-1614"/>
+            <point key="canvasLocation" x="-2589.375" y="-1824.2957746478874"/>
         </scene>
         <!--Recherche-->
         <scene sceneID="j82-SG-YbN">
@@ -732,7 +763,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-366" y="-870"/>
+            <point key="canvasLocation" x="-362" y="-870"/>
         </scene>
         <!--Message-->
         <scene sceneID="gzv-W5-HlZ">
@@ -824,25 +855,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exk-7f-vkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="chr-Z1-NF4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1678" y="-1680"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gw7-4l-I1Y">
-            <objects>
-                <viewController id="a2j-gc-3l1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JUF-sw-Sr8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PGe-8I-EC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2203" y="-2539"/>
+            <point key="canvasLocation" x="-1678" y="-1824"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Fw-aD-Jvx"/>
-        <segue reference="6wd-WM-yrQ"/>
+        <segue reference="Zta-ZI-yKD"/>
+        <segue reference="Agb-Xb-wmH"/>
     </inferredMetricsTieBreakers>
 </document>

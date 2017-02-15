@@ -24,6 +24,7 @@ class User: NSObject {
     var email: String?
     var fbId:  String?
     var googleId:  String?
+    var photoProfilUrl: String?
 
     
    
@@ -35,6 +36,18 @@ class User: NSObject {
         self.email = email
         self.fbId = fbId
         self.googleId = nil
+        //self.ref =  FIRDatabase.database().reference()
+    }
+    
+    init(nom: String, pnom: String, email:  String, fbId: String,imageUrl :String ) {
+        //let uuid = NSUUID().uuidString
+        self.id = fbId
+        self.nom = nom
+        self.pnom = pnom
+        self.email = email
+        self.fbId = fbId
+        self.googleId = nil
+        self.photoProfilUrl = imageUrl
         //self.ref =  FIRDatabase.database().reference()
     }
     
@@ -83,7 +96,8 @@ class User: NSObject {
             try firebaseAuth?.signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut() // this is an instance function
-            
+            FBSDKAccessToken.setCurrent(nil)
+            FBSDKProfile.setCurrent(nil)
             Constants.Users.user = nil
             
             
@@ -254,4 +268,5 @@ class User: NSObject {
         })
 
     }
-}
+    
+   }
