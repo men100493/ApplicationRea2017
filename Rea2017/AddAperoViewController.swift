@@ -110,6 +110,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func AddApero(_ sender: Any) {
+        let id = NSUUID().uuidString
         let title = titleField.text!
         let decr = descrField.text
         let event = eventField.text
@@ -118,21 +119,36 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let start = startField.text
         let end = endField.text
         let cp = cpField.text
-        let fbid = Constants.Users.user?.fbId
-        titleField.text = ""
-        descrField.text = ""
-        eventField.text = ""
-        nbGuestField.text = ""
-        adressField.text = ""
-        startField.text = ""
-        endField.text = ""
-        cpField.text = ""
         
-        ref = FIRDatabase.database().reference()
         
-        let apero  =  ["title": title, "description": decr, "event": event, "nbGuest": nbGuest, "address":adress, "fbid": fbid, "commence a": start, "fini a": end, "cp": cp]
-        ref.child("Apero").childByAutoId().setValue(apero)
+        if !title.isEmpty, !(nbGuest?.isEmpty)! , !(adress?.isEmpty)! {
         
+            titleField.text = ""
+            descrField.text = ""
+            eventField.text = ""
+            nbGuestField.text = ""
+            adressField.text = ""
+            startField.text = ""
+            endField.text = ""
+            cpField.text = ""
+        
+                ref = FIRDatabase.database().reference()
+        
+            let apero  =  ["id":id, "title": title, "description": decr, "event": event, "nbGuest": nbGuest, "address":adress, "commence a": start, "fini a": end, "cp": cp]
+            ref.child("Apero").child(id).setValue(apero)
+            let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
+            
+            Constants.Aperos.tabEApero.append(aperoForTab)
+        }else{
+            
+            let alertController = UIAlertController(title: "Problème", message:
+                "Un champ n'a pas été remplis", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        
+        
+        }
         
         
     }

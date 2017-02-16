@@ -62,6 +62,7 @@ class ConfigProfilViewController: UIViewController {
         let music = musicField.text
         let phone = phoneField.text
         let fbid = Constants.Users.user?.fbId
+        
         surnomField.text = ""
         adressField.text = ""
         cpField.text = ""

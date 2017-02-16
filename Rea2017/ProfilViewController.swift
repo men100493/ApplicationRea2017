@@ -45,7 +45,10 @@ class ProfilViewController: UIViewController {
         let url = NSURL(string: pictureFB!)
         let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
         profilPicture.image = UIImage(data: data! as Data)
-        
+        profilPicture.layer.cornerRadius = 40
+        profilPicture.layer.masksToBounds = true
+        profilPicture.layer.borderWidth = 0.3
+        profilPicture.layer.borderColor =  UIColor.white.cgColor
         
 
         // Do any additional setup after loading the view.

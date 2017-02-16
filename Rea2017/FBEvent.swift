@@ -14,7 +14,8 @@ import FirebaseDatabase
 class FBEvent {
     let id: String
     var name: String?
-    let date: String?
+    var date: String?
+    var tabAperoId = [String]()
    
     init(id:String, name: String, date: String) {
         self.id = id
@@ -32,6 +33,26 @@ class FBEvent {
         FIRDatabase.database().reference().child("FBEvent").child(uid!).observe(.value, with: { (snapshot) in
            // print(snapshot)
             let dic = snapshot.value as?  [String: AnyObject]
+            for event  in dic!{
+                let eventid = event.key as? String
+                
+                let eventname = event.value["nom"] as? String
+                let eventdate = event.value["date"] as? String
+                
+                if eventid != nil, eventname != nil, eventdate != nil{
+                    self.name = eventname
+                    self.date = eventdate
+                   
+                }
+                let eventAperos = event.value["Aperos"] as? [String: AnyObject]
+                for id in eventAperos!{
+                    self.tabAperoId.append(id.value as! String)
+                    
+                
+                }
+                
+            }
+
         })
         //print(dic)
         return dic
@@ -76,6 +97,27 @@ class FBEvent {
                 return
             }
             //print(values)
+        }
+    }
+    
+    func saveAperoToEvent(apero: Apero) {
+        
+        let apId = apero.id
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
+        
+        
+        let values = ["AperoId": apId, "AperoNom": apero.name ]
+        
+        let usersReference = ref.child("FBevent").child(self.id).child("Aperos").child(apId)
+        
+        
+        usersReference.updateChildValues(values) { (err, data) in
+            if err != nil {
+                print("Failed to create add event ", err ?? "")
+                return
+            }
+            print(values)
         }
     }
 

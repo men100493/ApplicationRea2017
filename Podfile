@@ -16,6 +16,7 @@ target 'Rea2017' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  #pod 'CCAutocomplete'
 
   target 'Rea2017Tests' do
     inherit! :search_paths

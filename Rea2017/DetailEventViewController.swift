@@ -20,6 +20,7 @@ class DetailEventViewController: UIViewController {
     
     @IBOutlet weak var eventIdLabel: UILabel!
 
+    @IBOutlet weak var listeAperosAssocie: UILabel!
     @IBOutlet weak var addAperosBtn: UILabel!
     @IBOutlet weak var eventname: UILabel!
     @IBOutlet weak var eventDescriptino: UILabel!
@@ -33,10 +34,12 @@ class DetailEventViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         if eventId != nil {
+            
             print(eventId)
             isSaveEventAsFav()
             getFBEventInfo()
             eventIdLabel.text = eventId
+            //event?.observeEvent()
             
         }
         //initView()
@@ -118,10 +121,10 @@ class DetailEventViewController: UIViewController {
             
             if snapshot.value  is NSNull{
                 self.isFav = false
-                 self.favBtn.alpha = 0.5
+                 self.favBtn.setImage(UIImage(named: "addFavori"), for: UIControlState.normal)
             }else{
                 self.isFav = true
-                 self.favBtn.alpha = 1.0
+                 self.favBtn.setImage(UIImage(named: "Favoris"), for: UIControlState.normal)
             }
             
         })
