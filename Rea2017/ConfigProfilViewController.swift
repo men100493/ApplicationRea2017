@@ -29,7 +29,8 @@ class ConfigProfilViewController: UIViewController {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
-
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 
@@ -48,6 +49,11 @@ class ConfigProfilViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     @IBAction func update(_ sender: Any) {
         let surnom = surnomField.text!

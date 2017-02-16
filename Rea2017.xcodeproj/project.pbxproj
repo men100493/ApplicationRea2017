@@ -301,7 +301,7 @@
 				TargetAttributes = {
 					005616D71E48ABEF00F15664 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = LQ82UWA473;
+						DevelopmentTeam = LHW9TYVFKU;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -665,7 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Rea2017/Rea2017.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LQ82UWA473;
+				DEVELOPMENT_TEAM = LHW9TYVFKU;
 				INFOPLIST_FILE = Rea2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ICOM.Rea2017;
@@ -681,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Rea2017/Rea2017.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LQ82UWA473;
+				DEVELOPMENT_TEAM = LHW9TYVFKU;
 				INFOPLIST_FILE = Rea2017/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ICOM.Rea2017;
