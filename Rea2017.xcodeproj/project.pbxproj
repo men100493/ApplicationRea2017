@@ -72,6 +72,7 @@
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
 		007F210D1E54DD9600E291DA /* AperoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoPageViewController.swift; sourceTree = "<group>"; };
 		0088709E1E5358630081771B /* Apero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apero.swift; sourceTree = "<group>"; };
+		00ABB3E01E560DBC002EDD2C /* aqua.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aqua.ttf; sourceTree = "<group>"; };
 		00B4C48D1E531674003082E9 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
 		00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 		005616DA1E48ABEF00F15664 /* Rea2017 */ = {
 			isa = PBXGroup;
 			children = (
+				00ABB3DF1E560DAD002EDD2C /* Fonts */,
 				007C89E11E48D3B900487EF0 /* Rea2017.entitlements */,
 				0013859F1E4B45FB002F8CBA /* Utils */,
 				0056170C1E48AC0200F15664 /* Model */,
@@ -199,6 +201,14 @@
 				00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		00ABB3DF1E560DAD002EDD2C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				00ABB3E01E560DBC002EDD2C /* aqua.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		70046648A9F6431A0AFD1BB3 /* Pods */ = {

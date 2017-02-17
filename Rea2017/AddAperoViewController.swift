@@ -114,14 +114,14 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let title = titleField.text!
         let decr = descrField.text
         let event = eventField.text
-        let nbGuest = nbGuestField.text
+        let nbGuest = nbGuestField.text!
         let adress = adressField.text
         let start = startField.text
         let end = endField.text
         let cp = cpField.text
         
         
-        if !title.isEmpty, !(nbGuest?.isEmpty)! , !(adress?.isEmpty)! {
+        if !title.isEmpty, ((nbGuest != nil)) , !(adress?.isEmpty)!, !(event?.isEmpty)!{
         
             titleField.text = ""
             descrField.text = ""
@@ -132,26 +132,45 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             endField.text = ""
             cpField.text = ""
         
-                ref = FIRDatabase.database().reference()
+//                ref = FIRDatabase.database().reference()
         
-            let apero  =  ["id":id, "title": title, "description": decr, "event": event, "nbGuest": nbGuest, "address":adress, "commence a": start, "fini a": end, "cp": cp]
-            ref.child("Apero").child(id).setValue(apero)
-            let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
+//            let apero  =  ["id":id, "title": title, "description": decr, "event": event, "nbGuest": nbGuest, "address":adress, "commence a": start, "fini a": end, "cp": cp]
+//            ref.child("Apero").child(id).setValue(apero)
             
-            Constants.Aperos.tabEApero.append(aperoForTab)
+            //let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
+            let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: event!, adresse: adress!, startTime: start!, endTime: end!, cp: cp!)
+            
+            if (Constants.Events.tabEvent.count != 0 ){
+                if let event = Constants.Events.tabEvent.first(where: { $0.id == event! }){
+                    
+                    aperosTab.saveAperoToBDD()
+                    aperosTab.saveEventToApero(event: event)
+                    event.tabAperoId.append(aperosTab.id)
+                    
+            }
+            Constants.Aperos.tabEApero.append(aperosTab)
+            self.dismiss(animated: true, completion: nil)
+                
+        }
+        
+        }else if((event?.isEmpty)!){
+            
+            let alertController = UIAlertController(title: "Problème", message:
+                "Genre tu veux faire un Apero sans evenement ... poche à bière !", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+            
         }else{
-            
             let alertController = UIAlertController(title: "Problème", message:
                 "Un champ n'a pas été remplis", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
-        
-        
+            
         }
-        
-        
-    }
+
 
 
     /*
@@ -163,5 +182,5 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Pass the selected object to the new view controller.
     }
     */
-
+}
 }

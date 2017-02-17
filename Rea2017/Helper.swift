@@ -229,6 +229,7 @@ class Helper{
                     
                 }
                 Constants.Aperos.tabEApero = tabApero
+
                 
                 //print(Constants.Aperos.tabEApero.count)
             }

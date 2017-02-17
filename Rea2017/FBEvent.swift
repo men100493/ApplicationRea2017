@@ -27,35 +27,35 @@ class FBEvent {
     //-------------------------------------
     // MARK: - Watch Event BDD
     //-------------------------------------
-    func observeEvent() -> [String: AnyObject]{
-        let dic = [String: AnyObject]()
-        let uid = FIRAuth.auth()?.currentUser?.uid
-        FIRDatabase.database().reference().child("FBEvent").child(uid!).observe(.value, with: { (snapshot) in
-           // print(snapshot)
-            let dic = snapshot.value as?  [String: AnyObject]
-            for event  in dic!{
-                let eventid = event.key as? String
+    func observeEvent(){
+        //let dic = [String: AnyObject]()
+        //let uid = FIRAuth.auth()?.currentUser?.uid
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
+        ref.child("FBevent").child(self.id).observe(.value, with: { (snapshot) in
+            print(snapshot)
+            let dic = snapshot.value as?  NSDictionary
+            print(dic)
+            if dic != nil {
+            
                 
-                let eventname = event.value["nom"] as? String
-                let eventdate = event.value["date"] as? String
+                    let eventname = dic?["name"] as? String
+                    let eventdate = dic?["date"] as? String
                 
-                if eventid != nil, eventname != nil, eventdate != nil{
-                    self.name = eventname
-                    self.date = eventdate
+                    if eventname != nil, eventdate != nil{
+                        self.name = eventname
+                        self.date = eventdate
                    
-                }
-                let eventAperos = event.value["Aperos"] as? [String: AnyObject]
-                for id in eventAperos!{
-                    self.tabAperoId.append(id.value as! String)
-                    
+                    }
+                if let eventAperos = dic?["Aperos"] as? [String: AnyObject]{
+                    for id in eventAperos{
+                        self.tabAperoId.append(id.key as! String)
+                    }
                 
-                }
-                
+            }
             }
 
         })
         //print(dic)
-        return dic
         
     }
     
@@ -107,7 +107,7 @@ class FBEvent {
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
         
-        let values = ["AperoId": apId, "AperoNom": apero.name ]
+        let values = ["AperoId": apId, "AperoNom": apero.name ,"userHost":Constants.Users.user?.id]
         
         let usersReference = ref.child("FBevent").child(self.id).child("Aperos").child(apId)
         
@@ -120,5 +120,7 @@ class FBEvent {
             print(values)
         }
     }
+    
+
 
 }

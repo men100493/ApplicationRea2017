@@ -26,6 +26,17 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventDescriptino: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        for event in Constants.Events.tabEvent{
+        
+            if event.id == eventId{
+            
+                self.event = event
+                self.event?.observeEvent()
+                Helper.getBDDAperos()
+                return
+                
+            }
+        }
         
         
 
@@ -35,11 +46,12 @@ class DetailEventViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if eventId != nil {
             
-            print(eventId)
+            print(eventId) 
             isSaveEventAsFav()
             getFBEventInfo()
             eventIdLabel.text = eventId
-            //event?.observeEvent()
+            
+            initView()
             
         }
         //initView()
@@ -49,7 +61,22 @@ class DetailEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initView(){
-
+        //listeAperosAssocie
+        
+        //recuperation des Apéros asso a l'event AFINIR MENES 
+        var listeEvent:String=""
+        for id in (self.event?.tabAperoId)! {
+            for apero in Constants.Aperos.tabEApero{
+                if id == apero.id{
+                    
+                    listeEvent += apero.name!
+                    listeEvent += "-/-"
+                
+                    listeAperosAssocie.text? = listeEvent
+                }
+            }
+            
+        }
     
     
     }
@@ -121,7 +148,7 @@ class DetailEventViewController: UIViewController {
             
             if snapshot.value  is NSNull{
                 self.isFav = false
-                 self.favBtn.setImage(UIImage(named: "addFavori"), for: UIControlState.normal)
+                self.favBtn.setImage(UIImage(named: "addFavori"), for: UIControlState.normal)
             }else{
                 self.isFav = true
                  self.favBtn.setImage(UIImage(named: "Favoris"), for: UIControlState.normal)
