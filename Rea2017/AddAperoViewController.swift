@@ -113,7 +113,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let id = NSUUID().uuidString
         let title = titleField.text!
         let decr = descrField.text
-        let event = eventField.text
+        let eventid = eventField.text
         let nbGuest = nbGuestField.text!
         let adress = adressField.text
         let start = startField.text
@@ -121,7 +121,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let cp = cpField.text
         
         
-        if !title.isEmpty, ((nbGuest != nil)) , !(adress?.isEmpty)!, !(event?.isEmpty)!{
+        if !title.isEmpty, ((nbGuest != nil)) , !(adress?.isEmpty)!, !(eventid?.isEmpty)!{
         
             titleField.text = ""
             descrField.text = ""
@@ -138,10 +138,10 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //            ref.child("Apero").child(id).setValue(apero)
             
             //let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
-            let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: event!, adresse: adress!, startTime: start!, endTime: end!, cp: cp!)
+            let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: eventid!, adresse: adress!, startTime: start!, endTime: end!, cp: cp!)
             
             if (Constants.Events.tabEvent.count != 0 ){
-                if let event = Constants.Events.tabEvent.first(where: { $0.id == event! }){
+                if let event = Constants.Events.tabEvent.first(where: { $0.id == eventid! }){
                     
                     aperosTab.saveAperoToBDD()
                     aperosTab.saveEventToApero(event: event)
@@ -153,7 +153,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
         }
         
-        }else if((event?.isEmpty)!){
+        }else if((eventid?.isEmpty)!){
             
             let alertController = UIAlertController(title: "Problème", message:
                 "Genre tu veux faire un Apero sans evenement ... poche à bière !", preferredStyle: UIAlertControllerStyle.alert)

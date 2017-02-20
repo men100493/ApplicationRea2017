@@ -217,7 +217,7 @@ class Helper{
                     let aperodescription = apero.value["description"] as? String
                     //let aperoadress = apero.value["adress"] as? String
                     
-                    if aperoname != nil , aperoevent != nil , aperoid != nil {
+                    if aperoname != nil, aperoid != nil {
                         let apero = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!)
                         tabApero.append(apero)
                         
@@ -229,7 +229,9 @@ class Helper{
                     
                 }
                 Constants.Aperos.tabEApero = tabApero
-
+                for ap in Constants.Aperos.tabEApero {
+                    print(ap.id)
+                }
                 
                 //print(Constants.Aperos.tabEApero.count)
             }

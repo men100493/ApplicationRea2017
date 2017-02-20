@@ -18,6 +18,7 @@ class DetailEventViewController: UIViewController {
     var event :FBEvent?
     var isFav :Bool = false
     
+    @IBOutlet weak var addApero: UIButton!
     @IBOutlet weak var eventIdLabel: UILabel!
 
     @IBOutlet weak var listeAperosAssocie: UILabel!
@@ -26,6 +27,10 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventDescriptino: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        addApero.layer.borderWidth = 0.5
+        addApero.layer.borderColor = UIColor.white.cgColor
+        
+
         for event in Constants.Events.tabEvent{
         
             if event.id == eventId{
@@ -45,7 +50,7 @@ class DetailEventViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         if eventId != nil {
-            
+            self.event?.observeEvent()
             print(eventId) 
             isSaveEventAsFav()
             getFBEventInfo()
@@ -63,20 +68,25 @@ class DetailEventViewController: UIViewController {
     func initView(){
         //listeAperosAssocie
         
-        //recuperation des Apéros asso a l'event AFINIR MENES 
+        //recuperation des Apéros asso a l'event AFINIR MENES
         var listeEvent:String=""
+        //print( Constants.Aperos.tabEApero)
         for id in (self.event?.tabAperoId)! {
+          print(id)
             for apero in Constants.Aperos.tabEApero{
                 if id == apero.id{
                     
                     listeEvent += apero.name!
-                    listeEvent += "-/-"
+                    listeEvent += "\n"
                 
-                    listeAperosAssocie.text? = listeEvent
                 }
+                
             }
             
+
         }
+        
+        listeAperosAssocie.text? = listeEvent
     
     
     }

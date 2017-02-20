@@ -105,15 +105,26 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func initHomeViewController(){
         
+        let imagePro = UIImage(named: "Profil") as UIImage?
+        
         if self.user != nil {
-            loginBtnOutlet.setTitle("Profil", for: .normal)
+            //loginBtnOutlet.setTitle("Profil", for: .normal)
+            loginBtnOutlet.setTitle("", for: .normal)
+            
+            loginBtnOutlet.setImage(imagePro, for: .normal)
+            
+            
             return
             
         }
         
         if Helper.isConnectToFacebook() {
             Helper.getUserFBData()
-            loginBtnOutlet.setTitle("Profil", for: .normal)
+            //loginBtnOutlet.setTitle("Profil", for: .normal)
+            loginBtnOutlet.setTitle("", for: .normal)
+            loginBtnOutlet.setImage(imagePro, for: .normal)
+            
+            
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)

@@ -63,10 +63,15 @@ class HomeViewController: UIViewController {
     //-------------------------------------
     
     func initHomeViewController(){
-
+        
+        
+        let imagePro = UIImage(named: "Profil") as UIImage?
         
         if self.user != nil {
-            loginBtnOutlet.setTitle("Profil", for: .normal)
+            //loginBtnOutlet.setTitle("Profil", for: .normal)
+            loginBtnOutlet.setTitle("", for: .normal)
+            
+            loginBtnOutlet.setImage(imagePro, for: .normal)
 
             
             return
@@ -74,8 +79,11 @@ class HomeViewController: UIViewController {
         }
         
         if Helper.isConnectToFacebook() {
-            
-            loginBtnOutlet.setTitle("Profil", for: .normal)
+            Helper.getUserFBData()
+            //loginBtnOutlet.setTitle("Profil", for: .normal)
+            loginBtnOutlet.setTitle("", for: .normal)
+            loginBtnOutlet.setImage(imagePro, for: .normal)
+
 
             return
         }

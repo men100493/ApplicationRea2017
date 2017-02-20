@@ -47,9 +47,12 @@ class FBEvent {
                    
                     }
                 if let eventAperos = dic?["Aperos"] as? [String: AnyObject]{
+                    var tabId = [String]()
                     for id in eventAperos{
-                        self.tabAperoId.append(id.key as! String)
+                        tabId.append(id.key as! String)
+                        //self.tabAperoId.append(id.key as! String)
                     }
+                    self.tabAperoId = tabId
                 
             }
             }
@@ -120,6 +123,8 @@ class FBEvent {
             print(values)
         }
     }
+    
+
     
 
 
