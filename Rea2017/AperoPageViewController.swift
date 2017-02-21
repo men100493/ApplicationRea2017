@@ -10,6 +10,7 @@ import UIKit
 
 class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableViewDelegate , UITableViewDataSource{
 
+    @IBOutlet weak var UserPresent: UILabel!
     @IBOutlet weak var predictiveTableView: UITableView!
     @IBOutlet weak var userAdd: UITextField!
 
