@@ -73,7 +73,7 @@ class ChatMessageViewController: UIViewController {
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)
-        
+        loginBtnOutlet.imageView?.image = nil 
         print("Utilisateur non connecté")
         
         

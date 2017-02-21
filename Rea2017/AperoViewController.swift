@@ -19,6 +19,9 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var ref:FIRDatabaseReference?
     var databaseHandle:FIRDatabaseHandle?
     var aperoData = [String]()
+    var aperoID = [String]()
+    var aperoView:Apero?
+    
     
     
     
@@ -40,11 +43,13 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         databaseHandle = ref?.child("Apero").observe(.childAdded, with: { (snapshot) in
             // let apero = snapshot.value["title"] as? String
             let value = snapshot.value as? NSDictionary
-            print(value)
+            //print(value)
             let aperotitle = value?["title"] as? String?
+            let aperoid = snapshot.key as? String?
             //let apero = snapshot.childSnapshot(forPath: "title").value as! String
             if let actualApero = aperotitle {
                 self.aperoData.append(actualApero!)
+                self.aperoID.append(aperoid!!)
                 self.aperoTableView.reloadData()
             }
         })
@@ -75,10 +80,24 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        let aperoid = aperoID[indexPath.row]
+        for apero in Constants.Aperos.tabEApero {
+            if (aperoid == apero.id){
+                self.aperoView = apero
+                print(apero.name)
+                //print("Menes Menes mens")
+                performSegue(withIdentifier: "aperoPageSegue", sender: nil)
+                
+            }
+        }
+
         
+        //if let event = Constants.Events.tabEvent.first(where: { $0.id == eventid! }){
         // Segue to the second view controller
-        print("Menes Menes mens")
-        performSegue(withIdentifier: "aperoPageSegue", sender: nil)
+       
+        
+        
     }
     
     
@@ -128,7 +147,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)
-        
+        loginBtnOutlet.imageView?.image = nil 
         print("Utilisateur non connecté")
         
         
@@ -164,8 +183,14 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
            print("new apéros")
         }
         
-        if segue.identifier == "aperosPageSegue" {
-            print("AAAAApéros")
+        if segue.identifier == "aperoPageSegue" {
+            //print("AAAAApéros")
+            if let AperoVC = segue.destination as? AperoPageViewController{
+                AperoVC.apero = self.aperoView
+
+            }
+            
+            //self.aperoView
         }
         
         

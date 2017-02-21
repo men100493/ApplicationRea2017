@@ -111,6 +111,7 @@ class Helper{
             print("Utilisateur connecté")
             Helper.getBDDEvents()
             Helper.getBDDAperos()
+            Helper.getBDDUser()
             Constants.Users.user?.getEventAsFav()
             return
             
@@ -122,6 +123,7 @@ class Helper{
             Helper.getUserFBData()
             Helper.getBDDEvents()
             Helper.getBDDAperos()
+            Helper.getBDDUser()
             Constants.Users.user?.getEventAsFav()
             print("Utilisateur connecté")
             return
@@ -274,6 +276,54 @@ class Helper{
         
 
     }
+    
+    //-------------------------------------
+    // MARK: - Get Event From DataBase
+    //-------------------------------------
+    
+    static func getBDDUser(){
+        var tabUser = [User]()
+        let refBDD = FIRDatabase.database().reference().child("users").observe(.value, with: { (snapshot) in
+            //print(snapshot)
+            if let dic = snapshot.value as?  [String: AnyObject] {
+                //print(dic)
+                for user  in dic{
+                    var userid = user.key as? String
+                    
+                    var usernom = user.value["nom"] as? String
+                    var usermail = user.value["email"] as? String
+                    var userFBid = user.value["fbid"] as? String
+                    //let useradd = user.value["adress"] as? String
+                    //let usermusic = user.value["music"] as? String
+                    var userprenom = user.value["prenom"] as? String
+                    
+                    if userid != nil , usernom != nil, usermail != nil{
+                        let user = User(nom: usernom!, pnom: userprenom!, email: usermail!, fbId: userid!)
+                        tabUser.append(user)
+                        //Constants.Events.tabEvent = tabEve
+                        //Constants.Events.addEvent(event)
+                        //print(event.date)
+                    }
+                    
+                    userid = nil
+                    usermail = nil
+                    userprenom = nil
+                    userFBid = nil
+                    usernom = nil
+                    
+                }
+                Constants.Users.tabUser = tabUser
+                //print(Constants.Events.tabEvent?.count)
+                //print(tabEve.count)
+                
+            }
+            
+        })
+    
+    
+    }
+    
+    
     
 
 }

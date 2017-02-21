@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)
-
+        loginBtnOutlet.imageView?.image = nil 
         print("Utilisateur non connecté")
         Helper.getBDDEvents()
         Helper.getBDDAperos()

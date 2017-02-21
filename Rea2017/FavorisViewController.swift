@@ -165,7 +165,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         loginBtnOutlet.setTitle("Login", for: .normal)
-        
+        loginBtnOutlet.imageView?.image = nil 
         print("Utilisateur non connecté")
         
         
