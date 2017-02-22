@@ -116,7 +116,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func getEvent(){
         if (user?.isConnectToFacebook())! {
-            Helper.getFBUserEvents()
+            Helper.getFBEvents()
         }
         
         //get event from BDD
@@ -176,14 +176,20 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func LoginOrProfile(_ sender: Any) {
         //self.performSegue(let lg = LoginViewController()
         
+        
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if loginBtnOutlet.titleLabel?.text == "Login" {
-            let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            self.present(vc, animated: true, completion: nil)
-        }
-        else{
+        if loginBtnOutlet.image(for: .normal) != nil  {
+            
             let vc : ProfilViewController = mainStoryboard.instantiateViewController(withIdentifier: "ProfilVC") as! ProfilViewController
             self.present(vc, animated: true, completion: nil)
+            
+        }
+        else{
+            
+            let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            self.present(vc, animated: true, completion: nil)
+            
+            
             
             
         }

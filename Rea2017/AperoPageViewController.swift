@@ -16,6 +16,8 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
 
     @IBOutlet weak var userView: UIView!
     
+    @IBOutlet weak var addUserBtn: UIButton!
+    @IBOutlet weak var addUserView: UIView!
     @IBOutlet weak var EventAperoLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
     
@@ -29,6 +31,9 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        addUserBtn.isHidden = true
+        addUserView.isHidden = true
+        view.bringSubview(toFront: addUserView)
         predictiveTableView.isHidden = true
         userAdd.delegate = self
         predictiveTableView.delegate = self
@@ -38,6 +43,9 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             if ((self.apero?.tabInvite) != nil){
                 tabInvite = (self.apero?.tabInvite)!
                 userPart()
+            }
+            if apero?.userHost?.id == Constants.Users.user?.id{
+                addUserBtn.isHidden = false
             }
         }
         // Do any additional setup after loading the view.
@@ -184,11 +192,12 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: nil))
             
                 self.present(alertController, animated: true, completion: nil)
-                //apero?.observeApero()
+                apero?.observeApero()
                 userAdd.text =  nil
                 view.endEditing(true)
                 //tabInvite = (self.apero?.tabInvite)!
                 userPart()
+                addUserView.isHidden = true
                 self.userAdd.resignFirstResponder()
                 predictiveTableView.isHidden = true
             }
@@ -202,6 +211,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     func userPart(){
         //var inviteText:String = ""
+        apero?.observeApero()
 
         tabInvite = (self.apero?.tabInvite)!
         var i = 0
@@ -230,6 +240,15 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         let vc : OtherUserViewController = mainStoryboard.instantiateViewController(withIdentifier: "OtherUserVC") as! OtherUserViewController
         vc.otherUser = self.tabInvite[sender.tag]
         self.present(vc, animated: true, completion: nil)
+    }
+    @IBAction func addUserToEvent(_ sender: Any) {
+         addUserView.isHidden = false
+        
+        
+    }
+    @IBAction func addUserQuit(_ sender: Any) {
+         addUserView.isHidden = true
+        
     }
     /*
     // MARK: - Navigation

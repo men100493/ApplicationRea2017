@@ -17,11 +17,14 @@ class DetailEventViewController: UIViewController {
     var eventId:String?
     var event :FBEvent?
     var isFav :Bool = false
+
+    var tabApero = [Apero]()
     
+    @IBOutlet weak var listeAperoView: UIView!
     @IBOutlet weak var addApero: UIButton!
     @IBOutlet weak var eventIdLabel: UILabel!
 
-    @IBOutlet weak var listeAperosAssocie: UILabel!
+    //@IBOutlet weak var listeAperosAssocie: UILabel!
     @IBOutlet weak var addAperosBtn: UILabel!
     @IBOutlet weak var eventname: UILabel!
     @IBOutlet weak var eventDescriptino: UILabel!
@@ -67,27 +70,38 @@ class DetailEventViewController: UIViewController {
     }
     func initView(){
         //listeAperosAssocie
-        
+        var temptab = [Apero]()
+        var i = 0
         //recuperation des Apéros asso a l'event AFINIR MENES
-        var listeEvent:String=""
+        
         //print( Constants.Aperos.tabEApero)
         for id in (self.event?.tabAperoId)! {
           print(id)
             for apero in Constants.Aperos.tabEApero{
                 if id == apero.id{
-                    
-                    listeEvent += apero.name!
-                    listeEvent += "\n"
-                
+                    temptab.append(apero)
+                    let button = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
+                    button.setTitle(apero.name, for: .normal)
+                    button.tag = i
+                    button.addTarget(self, action: #selector(self.showApero), for: UIControlEvents.touchUpInside)
+//                    listeEvent += apero.name!
+//                    listeEvent += "\n"
+                    listeAperoView.addSubview(button)
+                    i = i + 1
                 }
                 
             }
             
 
         }
-        
-        listeAperosAssocie.text? = listeEvent
+        tabApero = temptab
+
     
+    
+    }
+    
+    func showApero(sender:UIButton!){
+        performSegue(withIdentifier: "showAperoSegue", sender: self.tabApero[sender.tag])
     
     }
     func getFBEventInfo(){
@@ -193,6 +207,13 @@ class DetailEventViewController: UIViewController {
             if eventIdLabel.text != nil {
                 destVC.evenId = eventIdLabel.text
             }
+            
+        }
+        
+        if segue.identifier == "showAperoSegue" {
+            
+            let destVC = segue.destination as! AperoPageViewController
+            destVC.apero = sender as? Apero
             
         }
 

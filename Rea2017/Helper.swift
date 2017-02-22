@@ -121,10 +121,10 @@ class Helper{
             print("Utilisateur connecté a FB")
             // Création de l'utisateur et Connection a Facebook
             Helper.getUserFBData()
-            Helper.getFBUserEvents()
             Helper.getBDDEvents()
             Helper.getBDDAperos()
             Helper.getBDDUser()
+            Helper.getFBEvents()
             Constants.Users.user?.getEventAsFav()
             print("Utilisateur connecté")
             return
@@ -149,6 +149,62 @@ class Helper{
     }
     
     
+    static func getFBEvents(){
+        Helper.getFBLyonEvents()
+    }
+    //-------------------------------------
+    // MARK: - Get FaceBook Lyon EVent
+    //-------------------------------------
+    
+    static func getFBLyonEvents() {
+        
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
+        
+        if (FBSDKAccessToken.current()) != nil {
+            
+            FBSDKGraphRequest.init(graphPath: "/search",
+                                   parameters: ["q": "Lyon","type": "event",]).start { (connection, result, error) in
+                                    //print("Wesh")
+                                    
+                                    if error != nil {
+                                        print("Failed looser fuck graph request" )
+                                        return
+                                    }
+                                    //print(result)
+                                    
+                                    //Recuperation des Evenement FB
+                                    let resultat = result as? NSDictionary
+                                    if let eventData = resultat?["data"] as? [Dictionary<String,AnyObject>]{
+                                        //print(eventData)
+                                        for event in eventData {
+                                            // Access event data
+                                            let eventid = event["id"] as? String
+                                            let eventname = event["name"] as? String
+                                            let eventdate = event["start_time"] as? String
+                                            //print(eventname)
+                                            let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                                            let isSet = event.isSetInBDD()
+                                            if isSet == false  {
+                                                //Ajout a la bdd
+                                                
+                                                event.saveEventToDataBase()
+                                                //print("BDDDDDDDDDDDDDd")
+                                            }
+                                            
+                                            
+                                            
+                                        }
+                                    }
+                                    
+            }
+        }
+    }
+    
+
+    
     //-------------------------------------
     // MARK: - Get FaceBook User EVent
     //-------------------------------------
@@ -160,10 +216,10 @@ class Helper{
         
 
         
-        if (FBSDKAccessToken.current()) != nil {
+        if (FBSDKAccessToken.current()) != nil , Constants.Users.user != nil {
             
-            FBSDKGraphRequest.init(graphPath: "/search",
-                                   parameters: ["q": "Lyon","type": "event",]).start { (connection, result, error) in
+            FBSDKGraphRequest.init(graphPath: "/me/events",
+                                   parameters: ["fields": "id,name,start_time",]).start { (connection, result, error) in
                 //print("Wesh")
                 
                 if error != nil {
@@ -171,7 +227,6 @@ class Helper{
                     return
                 }
                 //print(result)
-
                 //Recuperation des Evenement FB
                                     let resultat = result as? NSDictionary
                                     if let eventData = resultat?["data"] as? [Dictionary<String,AnyObject>]{

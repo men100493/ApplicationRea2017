@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         Helper.initViewController()
-        Helper.getFBUserEvents()
+        Helper.getFBEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,13 +104,18 @@ class HomeViewController: UIViewController {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if loginBtnOutlet.image(for: .normal)! == nil  {
-            let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-            self.present(vc, animated: true, completion: nil)
-        }
-        else{
+        if loginBtnOutlet.image(for: .normal) != nil  {
+            
             let vc : ProfilViewController = mainStoryboard.instantiateViewController(withIdentifier: "ProfilVC") as! ProfilViewController
             self.present(vc, animated: true, completion: nil)
+            
+        }
+        else{
+            
+            let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            self.present(vc, animated: true, completion: nil)
+            
+            
             
             
         }
