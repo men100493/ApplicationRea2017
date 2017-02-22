@@ -42,7 +42,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/AddAperoViewController.swift"
-                  timestampString = "509477633.999263"
+                  timestampString = "509478719.245504"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
@@ -57,7 +57,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/AddAperoViewController.swift"
-                  timestampString = "509477634.000403"
+                  timestampString = "509478719.246721"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
@@ -154,7 +154,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/AddAperoViewController.swift"
-                  timestampString = "509477634.0122"
+                  timestampString = "509478719.258838"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "124"
@@ -169,7 +169,7 @@
                   moduleName = "Rea2017"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msimeu/Documents/Re%CC%81alisation/Rea2017/Rea2017/AddAperoViewController.swift"
-                  timestampString = "509477634.01337"
+                  timestampString = "509478719.260213"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "124"
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Rea2017/Apero.swift"
-            timestampString = "509465163.52723"
+            timestampString = "509478524.339783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "addUser(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -240,6 +240,22 @@
             startingLineNumber = "219"
             endingLineNumber = "219"
             landmarkName = "getFBUserEvents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rea2017/Apero.swift"
+            timestampString = "509478334.011195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "nbInviteAdd()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

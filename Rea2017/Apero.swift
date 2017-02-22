@@ -154,6 +154,25 @@ class Apero: NSObject {
 
         
     }
+    func nbInviteAdd(){
+        if var nb = Int(self.nbInvite!) {
+            nb = nb + 1
+            self.nbInvite = String(nb)
+            self.saveAperoToBDD()
+        }
+    }
+    
+    func  nbIvitePop(){
+        if var nb = Int(self.nbInvite!) {
+            nb = nb - 1
+            self.nbInvite = String(nb)
+            self.saveAperoToBDD()
+        }
+    
+    }
+    
+    
+
     
     func addUser(user: User){
         //AJouter a la BDD
@@ -172,11 +191,14 @@ class Apero: NSObject {
                 return
             }
             print(values)
+            self.nbInviteAdd()
             self.observeApero()
         }
+       
     }
     
     func popUser(user:User){
+        //supprimer un ellement  de la BDD + nbInvitPop
         
         
     }

@@ -21,6 +21,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var EventAperoLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
     
+    @IBOutlet weak var nbInvitLabel: UILabel!
     var apero : Apero?
     var tabPreditive = Constants.Users.tabUser
     var autoCompletename = [String]()
@@ -47,6 +48,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             if apero?.userHost?.id == Constants.Users.user?.id{
                 addUserBtn.isHidden = false
             }
+            
         }
         // Do any additional setup after loading the view.
     }
@@ -59,6 +61,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
 
             AperoNameLabel.text = apero?.name
             EventAperoLabel.text = apero?.eventFb
+            nbInvitLabel.text = apero?.nbInvite
             
             
         }
@@ -241,6 +244,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         vc.otherUser = self.tabInvite[sender.tag]
         self.present(vc, animated: true, completion: nil)
     }
+    
     @IBAction func addUserToEvent(_ sender: Any) {
          addUserView.isHidden = false
         

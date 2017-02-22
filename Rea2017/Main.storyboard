@@ -300,6 +300,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wZ-sc-9zc" userLabel="nbInvite">
+                                <rect key="frame" x="16" y="130" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYa-d2-7fW">
                                 <rect key="frame" x="16" y="100" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -315,6 +322,7 @@
                         <outlet property="EventAperoLabel" destination="WYa-d2-7fW" id="ML6-Ft-OBX"/>
                         <outlet property="addUserBtn" destination="Vts-Yp-6nr" id="Ud8-SO-Rpm"/>
                         <outlet property="addUserView" destination="IsG-D6-Peb" id="CLE-25-1r1"/>
+                        <outlet property="nbInvitLabel" destination="7wZ-sc-9zc" id="7Bs-us-QkV"/>
                         <outlet property="predictiveTableView" destination="g4b-0G-qXp" id="3f5-wu-IUW"/>
                         <outlet property="userAdd" destination="qmH-yO-MHt" id="wyO-qe-n6F"/>
                         <outlet property="userView" destination="7Un-op-0Wv" id="28I-Kv-WWl"/>
@@ -324,24 +332,6 @@
                 <exit id="xqn-aH-a7q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-365.625" y="70.774647887323951"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="65y-zj-yjP">
-            <objects>
-                <viewController id="kPe-uc-n6w" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JJO-mT-FxL"/>
-                        <viewControllerLayoutGuide type="bottom" id="z6U-8G-0g0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NRL-7C-Sbm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l7w-5F-tHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="381" y="72"/>
         </scene>
         <!--Detail Event View Controller-->
         <scene sceneID="HqV-Sj-rET">
