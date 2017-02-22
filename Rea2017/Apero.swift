@@ -48,7 +48,7 @@ class Apero: NSObject {
     
     
     
-    func observeEvent(){
+    func observeApero(){
         //let dic = [String: AnyObject]()
         //let uid = FIRAuth.auth()?.currentUser?.uid
         //AFINIR MENES
@@ -64,24 +64,40 @@ class Apero: NSObject {
             if dic != nil {
                 
                // let values = ["id":self.id, "title": self.name, "description": self.descrip, "FBEventId": self.eventFb, "nbGuest": self.nbInvite!, "address":self.adresse, "commence a": self.start, "fini a": self.end!, "cp": self.cp!, "UserHostId":(userHost?.id!)! as String] as [String : Any]
-                let aperoname = dic?["name"] as? String
-                let aperodescr = dic?["description"] as? String
-                let aperonb = dic?["nbGuest"] as? String
-                let aperostart = dic?["commence a"] as? String
-                
-                
-                if aperoname != nil, aperodescr != nil{
+                if let aperoname = dic?["name"] as? String{
                     self.name = aperoname
-                    self.descrip = aperodescr
-                    
                 }
+                if let aperodescr = dic?["description"] as? String{
+                    self.descrip = aperodescr
+                }
+                if let aperonb = dic?["nbGuest"] as? String {
+                    self.nbInvite = aperonb
+                }
+                
+                if let aperostart = dic?["commence a"] as? String {
+                    self.start = aperostart
+                }
+                if let aperoend = dic?["fini a"] as? String {
+                    self.end = aperoend
+                }
+                
                 if let aperoInvite = dic?["Invite"] as? [String: AnyObject]{
                     var tabUser = [String]()
                     for apero in aperoInvite{
-                        tabUser.append(apero.key )
+                        tabUser.append(apero.key)
+                        print(apero.key)
                         //self.tabAperoId.append(id.key as! String)
                     }
                     self.tabInviteId = tabUser
+                    var tabUser2 = [User]()
+                    for user in Constants.Users.tabUser {
+                        for id in self.tabInviteId {
+                            if user.id == id {
+                                tabUser2.append(user)
+                            }
+                        }
+                    }
+                    self.tabInvite = tabUser2
                     
                 }
             }
@@ -152,10 +168,11 @@ class Apero: NSObject {
         
         usersReference.updateChildValues(values) { (err, data) in
             if err != nil {
-                print("Failed to create add event ", err ?? "")
+                print("Failed to create new user for this event ", err ?? "")
                 return
             }
             print(values)
+            self.observeApero()
         }
     }
     

@@ -152,6 +152,45 @@
             </objects>
             <point key="canvasLocation" x="290.625" y="-870.42253521126759"/>
         </scene>
+        <!--Other User View Controller-->
+        <scene sceneID="eI1-hH-KBz">
+            <objects>
+                <viewController storyboardIdentifier="OtherUserVC" id="2EW-Ub-f0s" customClass="OtherUserViewController" customModule="Rea2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mib-rR-UcJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="mks-hg-JUK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qvh-1M-6PN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM0-jr-weA">
+                                <rect key="frame" x="16" y="102" width="288" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOZ-Dc-U3o">
+                                <rect key="frame" x="274" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <segue destination="Zc5-9y-nHV" kind="unwind" unwindAction="unwindFromOtherUserWithSender:" id="2pd-rY-MkI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="userNameLabel" destination="mM0-jr-weA" id="hzf-Cf-Hoq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xm-Sy-KTs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zc5-9y-nHV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-414.375" y="49.647887323943664"/>
+        </scene>
         <!--Apero Page View Controller-->
         <scene sceneID="Squ-pb-nKR">
             <objects>
@@ -164,6 +203,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Un-op-0Wv">
+                                <rect key="frame" x="0.0" y="400" width="320" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB4-7i-9WD">
                                 <rect key="frame" x="266" y="28" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,13 +264,6 @@
                                     <outlet property="delegate" destination="L9g-89-DgG" id="6lS-4M-1UZ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-Tx-fdP">
-                                <rect key="frame" x="16" y="398" width="288" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ajouter User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ5-Qz-k9I">
                                 <rect key="frame" x="16" y="155" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,9 +277,9 @@
                     <connections>
                         <outlet property="AperoNameLabel" destination="6NL-Bs-tHw" id="xIM-mU-i7Q"/>
                         <outlet property="EventAperoLabel" destination="WYa-d2-7fW" id="ML6-Ft-OBX"/>
-                        <outlet property="UserPresent" destination="uLe-Tx-fdP" id="sK6-kH-hfb"/>
                         <outlet property="predictiveTableView" destination="g4b-0G-qXp" id="3f5-wu-IUW"/>
                         <outlet property="userAdd" destination="qmH-yO-MHt" id="wyO-qe-n6F"/>
+                        <outlet property="userView" destination="7Un-op-0Wv" id="28I-Kv-WWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJZ-Kv-EUp" userLabel="First Responder" sceneMemberID="firstResponder"/>

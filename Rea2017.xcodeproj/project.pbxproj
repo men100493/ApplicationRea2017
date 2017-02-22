@@ -11,6 +11,7 @@
 		0028E7A71E4CA07400E99101 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028E7A61E4CA07400E99101 /* Helper.swift */; };
 		0028E7AA1E4CA07E00E99101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */; };
 		0028E7AB1E4CA07E00E99101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0028E7A91E4CA07E00E99101 /* Main.storyboard */; };
+		004E4D761E5DBE9500DE1168 /* OtherUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E4D751E5DBE9500DE1168 /* OtherUserViewController.swift */; };
 		005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005616DB1E48ABEF00F15664 /* AppDelegate.swift */; };
 		005616E61E48ABEF00F15664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005616E51E48ABEF00F15664 /* Assets.xcassets */; };
 		0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0056170E1E48AF1C00F15664 /* LoginViewController.swift */; };
@@ -56,6 +57,7 @@
 		0028E7A61E4CA07400E99101 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0028E7A81E4CA07E00E99101 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0028E7A91E4CA07E00E99101 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		004E4D751E5DBE9500DE1168 /* OtherUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUserViewController.swift; sourceTree = "<group>"; };
 		005616D81E48ABEF00F15664 /* Rea2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rea2017.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005616DB1E48ABEF00F15664 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005616E51E48ABEF00F15664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				00B4C48D1E531674003082E9 /* DetailEventViewController.swift */,
 				9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */,
 				007F210D1E54DD9600E291DA /* AperoPageViewController.swift */,
+				004E4D751E5DBE9500DE1168 /* OtherUserViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				0056170F1E48AF1C00F15664 /* LoginViewController.swift in Sources */,
 				005617111E48B0E200F15664 /* User.swift in Sources */,
 				0088709F1E5358630081771B /* Apero.swift in Sources */,
+				004E4D761E5DBE9500DE1168 /* OtherUserViewController.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 				007C89E51E48F7E200487EF0 /* FavorisViewController.swift in Sources */,
 			);

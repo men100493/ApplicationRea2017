@@ -99,8 +99,10 @@ class FBEvent {
                 print("Failed to create add event ", err ?? "")
                 return
             }
+            
             //print(values)
         }
+        //self.observeEvent()
     }
     
     func saveAperoToEvent(apero: Apero) {

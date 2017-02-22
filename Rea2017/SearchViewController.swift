@@ -32,6 +32,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
         super.viewDidLoad()
         user = Constants.Users.user
         Helper.initViewController()
+        Helper.getFBUserEvents()
         Helper.getBDDAperos()
         //searchTableView.delegate = self
         //searchTableView.dataSource = self
@@ -44,10 +45,10 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
             self.searchArray.append(event.name!)
             self.searchArrayid.append(event.id)
         }
-        for apero in Constants.Aperos.tabEApero{
-            self.searchArray.append(apero.name!)
-            self.searchArrayid.append(apero.id)
-        }
+//        for apero in Constants.Aperos.tabEApero{
+//            self.searchArray.append(apero.name!)
+//            self.searchArrayid.append(apero.id)
+//        }
         
         
         //let appDelegate = UIAdelegate as! AppDelegate

@@ -30,10 +30,10 @@ class ProfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+       
         
         //Constants.Users.user?.getFBPicture()
+        Constants.Users.user?.observeUser()
         var userID = Constants.Users.user?.id
         var pictureFB = Constants.Users.user?.photoProfilUrl
         //profilPicture.image = pictureFB
@@ -50,8 +50,16 @@ class ProfilViewController: UIViewController {
         profilPicture.layer.borderWidth = 0.3
         profilPicture.layer.borderColor =  UIColor.white.cgColor
         
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        Constants.Users.user?.getUserApero()
+        let tabApero = Constants.Users.user?.tabApero
+        print( tabApero?.count)
+        
+
     }
 
     override func didReceiveMemoryWarning() {

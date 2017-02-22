@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         Helper.initViewController()
+        Helper.getFBUserEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,8 +88,10 @@ class HomeViewController: UIViewController {
 
             return
         }
+        loginBtnOutlet.setImage(nil, for: .normal)
         loginBtnOutlet.setTitle("Login", for: .normal)
-        loginBtnOutlet.imageView?.image = nil 
+        loginBtnOutlet.setTitleColor(UIColor.white, for: .normal)
+        
         print("Utilisateur non connecté")
         Helper.getBDDEvents()
         Helper.getBDDAperos()
@@ -101,7 +104,7 @@ class HomeViewController: UIViewController {
         //self.performSegue(let lg = LoginViewController()
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if loginBtnOutlet.titleLabel?.text == "Login" {
+        if loginBtnOutlet.image(for: .normal)! == nil  {
             let vc : LoginViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             self.present(vc, animated: true, completion: nil)
         }

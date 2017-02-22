@@ -10,10 +10,11 @@ import UIKit
 
 class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableViewDelegate , UITableViewDataSource{
 
-    @IBOutlet weak var UserPresent: UILabel!
+    //@IBOutlet weak var UserPresent: UILabel!
     @IBOutlet weak var predictiveTableView: UITableView!
     @IBOutlet weak var userAdd: UITextField!
 
+    @IBOutlet weak var userView: UIView!
     
     @IBOutlet weak var EventAperoLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
@@ -21,22 +22,37 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     var apero : Apero?
     var tabPreditive = Constants.Users.tabUser
     var autoCompletename = [String]()
+    var userSeleted: User?
+    var tabInvite = [User]()
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         predictiveTableView.isHidden = true
         userAdd.delegate = self
         predictiveTableView.delegate = self
         print( tabPreditive.count)
-
+        if self.apero != nil {
+            self.apero?.observeApero()
+            if ((self.apero?.tabInvite) != nil){
+                tabInvite = (self.apero?.tabInvite)!
+                userPart()
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if self.apero != nil {
+            //self.apero?.observeApero()
+            userPart()
+            tabInvite = (self.apero?.tabInvite)!
+
             AperoNameLabel.text = apero?.name
             EventAperoLabel.text = apero?.eventFb
+            
+            
         }
     }
 
@@ -64,6 +80,14 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         let selected = self.tabPreditive[indexPath.row].nom! + " " + self.tabPreditive[indexPath.row].pnom!
         userAdd.text = selected
+        userSeleted = self.tabPreditive[indexPath.row]
+        tabPreditive = Constants.Users.tabUser
+        predictiveTableView.isHidden = true
+        userAdd.isSelected = false
+        self.userAdd.resignFirstResponder()
+        self.predictiveTableView.reloadData()
+        
+        
     }
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.userAdd.resignFirstResponder()
@@ -87,25 +111,34 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     func searchAutocompleteEntriesWithSubstring(substring: String)
     {
-        autoCompletename.removeAll(keepingCapacity: false)
         
-        for user in tabPreditive
-        {
-            var myString = user.nom as NSString!
-            var substringRange :NSRange! = myString!.range(of: substring)
-            
-            if (substringRange.location  == 0)
+        let length = substring.characters.count
+        if length >= 3 {
+            self.tabPreditive.removeAll(keepingCapacity: false)
+            for user in Constants.Users.tabUser
             {
-                autoCompletename.append(myString as! String)
+                let myString = user.nom as NSString!
+                let myString2 = user.pnom as NSString!
+                //let substringRange :NSRange! = myString!.range(of: substring)
+                let sub = myString?.substring(to: length)
+                let sub2 = myString2?.substring(to: length)
+                if (sub?.lowercased()  == substring.lowercased()) || (sub2?.lowercased()  == substring.lowercased())
+                {
+                tabPreditive.append(user)
             }
-        }
+            }
         
         predictiveTableView.reloadData()
+        }else{
+            self.tabPreditive = Constants.Users.tabUser
+            predictiveTableView.reloadData()
+        }
     }
 
     @IBAction func AddUserToEvent(_ sender: Any) {
-        
-        if (userAdd.text?.isEmpty)! {
+        predictiveTableView.isHidden = true
+        userAdd.isSelected = false
+        if (userAdd.text?.isEmpty)! && (self.userSeleted != nil ) {
             
             
             let alertController = UIAlertController(title: "Problème", message:
@@ -115,9 +148,88 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             self.present(alertController, animated: true, completion: nil)
 
         
+        }else if userSeleted?.id == apero?.userHost?.id{
+            let alertController = UIAlertController(title: "Problème", message:
+                "Tu es hote de cette soirée tu ne peux pas t'inviter", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+
+        
         }else{
+            var bool = false
+            for user in (apero?.tabInvite)!{
+                if userSeleted?.id! == user.id{
+                
+                    bool = true
+                }
+            
+            }
+            
+            if bool{
+                
+                let alertController = UIAlertController(title: "Problème", message:
+                    "utilisateur déja invité", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+
+            
+            
+            }else{
+                apero?.addUser(user: userSeleted!)
+                let alertController = UIAlertController(title: "Ajout utilisateur", message:
+                "Utilisateur Ajouté", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: nil))
+            
+                self.present(alertController, animated: true, completion: nil)
+                //apero?.observeApero()
+                userAdd.text =  nil
+                view.endEditing(true)
+                //tabInvite = (self.apero?.tabInvite)!
+                userPart()
+                self.userAdd.resignFirstResponder()
+                predictiveTableView.isHidden = true
+            }
+            
+
             //AZZZYYYY j'ai la flème
         }
+        userPart()
+
+    }
+    
+    func userPart(){
+        //var inviteText:String = ""
+
+        tabInvite = (self.apero?.tabInvite)!
+        var i = 0
+        
+        for invite in tabInvite {
+            let inviteText: String = invite.nom!
+            
+            let buttonUser = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
+            buttonUser.setTitle(inviteText, for: .normal)
+            buttonUser.tag = i
+            buttonUser.backgroundColor = UIColor(cgColor: UIColor.black.cgColor)
+            buttonUser.addTarget(self, action: #selector(self.showUserProfile), for: UIControlEvents.touchUpInside)
+            
+            self.userView.addSubview(buttonUser)
+            i += 1
+        }
+        //UserPresent.text = inviteText
+    
+    }
+    
+    func showUserProfile(sender:UIButton!) {
+        let title = sender.title(for: .normal)
+        //print(title)
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc : OtherUserViewController = mainStoryboard.instantiateViewController(withIdentifier: "OtherUserVC") as! OtherUserViewController
+        vc.otherUser = self.tabInvite[sender.tag]
+        self.present(vc, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -128,5 +240,17 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindFromOtherUser(sender: UIStoryboardSegue) {
+        
+        if sender.source is OtherUserViewController {
+            
+            print("BAck From other Profile")
+            
+            
+            
+        }
+    }
+
 
 }

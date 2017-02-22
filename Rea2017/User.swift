@@ -25,6 +25,7 @@ class User: NSObject {
     var fbId:  String?
     var googleId:  String?
     var photoProfilUrl: String?
+    var tabApero: [Apero]?
 
     
    
@@ -267,6 +268,23 @@ class User: NSObject {
             
         })
 
+    }
+    
+    
+    func getUserApero(){
+        var tab = [Apero]()
+        let tabAP = Constants.Aperos.tabEApero
+        for apero in tabAP{
+            apero.observeApero()
+            for id in apero.tabInviteId{
+                if id == self.id{
+                    tab.append(apero)
+                }
+            }
+            
+        }
+        self.tabApero = tab
+        
     }
     
    }
