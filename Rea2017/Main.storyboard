@@ -207,39 +207,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="570"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COg-qj-0Fs">
-                                        <rect key="frame" x="266" y="28" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Quit"/>
-                                        <connections>
-                                            <action selector="addUserQuit:" destination="L9g-89-DgG" eventType="touchUpInside" id="Cg8-mN-ydU"/>
-                                        </connections>
-                                    </button>
                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SK2-HZ-oIC">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="570"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfT-lM-Ngn" userLabel="AddUser">
-                                        <rect key="frame" x="8" y="165" width="304" height="239"/>
+                                        <rect key="frame" x="8" y="147" width="304" height="257"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COg-qj-0Fs">
+                                                <rect key="frame" x="266" y="8" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Quit"/>
+                                                <connections>
+                                                    <action selector="addUserQuit:" destination="L9g-89-DgG" eventType="touchUpInside" id="Cg8-mN-ydU"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ajouter User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ5-Qz-k9I">
-                                                <rect key="frame" x="20" y="10" width="96" height="21"/>
+                                                <rect key="frame" x="14" y="32" width="96" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmH-yO-MHt">
-                                                <rect key="frame" x="20" y="39" width="242" height="30"/>
+                                                <rect key="frame" x="14" y="61" width="242" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xz-sP-gfb">
-                                                <rect key="frame" x="266" y="39" width="30" height="30"/>
+                                                <rect key="frame" x="260" y="61" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="add"/>
                                                 <connections>
@@ -247,7 +247,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g4b-0G-qXp">
-                                                <rect key="frame" x="20" y="74" width="242" height="128"/>
+                                                <rect key="frame" x="14" y="96" width="242" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -321,11 +321,13 @@
                         <outlet property="AperoNameLabel" destination="6NL-Bs-tHw" id="xIM-mU-i7Q"/>
                         <outlet property="EventAperoLabel" destination="WYa-d2-7fW" id="ML6-Ft-OBX"/>
                         <outlet property="addUserBtn" destination="Vts-Yp-6nr" id="Ud8-SO-Rpm"/>
+                        <outlet property="addUserInView" destination="9Xz-sP-gfb" id="XAm-DV-VKL"/>
                         <outlet property="addUserView" destination="IsG-D6-Peb" id="CLE-25-1r1"/>
                         <outlet property="nbInvitLabel" destination="7wZ-sc-9zc" id="7Bs-us-QkV"/>
                         <outlet property="predictiveTableView" destination="g4b-0G-qXp" id="3f5-wu-IUW"/>
                         <outlet property="userAdd" destination="qmH-yO-MHt" id="wyO-qe-n6F"/>
                         <outlet property="userView" destination="7Un-op-0Wv" id="28I-Kv-WWl"/>
+                        <segue destination="Dld-Fm-qSn" kind="show" identifier="showEventSegue" id="XTI-cF-wch"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJZ-Kv-EUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -606,6 +608,32 @@
                                     <action selector="LoginOrProfile:" destination="R7o-sJ-sEH" eventType="touchUpInside" id="fTo-lF-7AN"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-Zn-6hP">
+                                <rect key="frame" x="16" y="198" width="288" height="321"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeCell" id="TAg-XM-I2x">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TAg-XM-I2x" id="JZk-cn-SUO">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="R7o-sJ-sEH" id="FYb-gA-E8a"/>
+                                    <outlet property="delegate" destination="R7o-sJ-sEH" id="n8I-zH-hFi"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Evenements" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gTr-QH-odc">
+                                <rect key="frame" x="16" y="166" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.13725490196078433" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -613,12 +641,15 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="homeTableView" destination="bOo-Zn-6hP" id="4Je-yB-Khv"/>
                         <outlet property="loginBtnOutlet" destination="f06-GL-4w2" id="m02-U2-1SC"/>
+                        <outlet property="searchTextField" destination="gTr-QH-odc" id="Zal-7u-cze"/>
+                        <segue destination="Dld-Fm-qSn" kind="show" identifier="HomeToEventSegue" id="epj-Dw-EzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnc-g7-J9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1678" y="-870"/>
+            <point key="canvasLocation" x="-1678.125" y="-870.42253521126759"/>
         </scene>
         <!--Config Profil View Controller-->
         <scene sceneID="Aun-pY-fNn">
@@ -1060,8 +1091,8 @@
         <image name="side-menu" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Agb-Xb-wmH"/>
-        <segue reference="6wd-WM-yrQ"/>
         <segue reference="xXy-p5-abW"/>
+        <segue reference="epj-Dw-EzR"/>
+        <segue reference="6wd-WM-yrQ"/>
     </inferredMetricsTieBreakers>
 </document>

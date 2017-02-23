@@ -34,7 +34,7 @@ class FBEvent {
         ref.child("FBevent").child(self.id).observe(.value, with: { (snapshot) in
             print(snapshot)
             let dic = snapshot.value as?  NSDictionary
-            print(dic)
+            //print(dic ?? "")
             if dic != nil {
             
                 
@@ -107,12 +107,15 @@ class FBEvent {
     
     func saveAperoToEvent(apero: Apero) {
         
+        
+        apero.saveEventToApero(event: self)
+        
         let apId = apero.id
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
         
-        let values = ["AperoId": apId, "AperoNom": apero.name ,"userHost":Constants.Users.user?.id]
+        let values = ["AperoId": apId, "AperoNom": apero.name ,"userHost":Constants.Users.user?.id as Any] as [String : Any]
         
         let usersReference = ref.child("FBevent").child(self.id).child("Aperos").child(apId)
         
@@ -123,6 +126,7 @@ class FBEvent {
                 return
             }
             print(values)
+            self.observeEvent()
         }
     }
     

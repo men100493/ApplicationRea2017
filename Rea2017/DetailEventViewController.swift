@@ -76,9 +76,10 @@ class DetailEventViewController: UIViewController {
         
         //print( Constants.Aperos.tabEApero)
         for id in (self.event?.tabAperoId)! {
-          print(id)
+          //print(id)
             for apero in Constants.Aperos.tabEApero{
                 if id == apero.id{
+                    self.event?.saveAperoToEvent(apero: apero)
                     temptab.append(apero)
                     let button = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
                     button.setTitle(apero.name, for: .normal)

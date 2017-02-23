@@ -16,6 +16,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
 
     @IBOutlet weak var userView: UIView!
     
+    @IBOutlet weak var addUserInView: UIButton!
     @IBOutlet weak var addUserBtn: UIButton!
     @IBOutlet weak var addUserView: UIView!
     @IBOutlet weak var EventAperoLabel: UILabel!
@@ -27,11 +28,12 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     var autoCompletename = [String]()
     var userSeleted: User?
     var tabInvite = [User]()
-    
+    var eventId: FBEvent?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        addUserInView.isEnabled = false
         addUserBtn.isHidden = true
         addUserView.isHidden = true
         view.bringSubview(toFront: addUserView)
@@ -62,9 +64,24 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             AperoNameLabel.text = apero?.name
             EventAperoLabel.text = apero?.eventFb
             nbInvitLabel.text = apero?.nbInvite
+            for event in Constants.Events.tabEvent {
+                if event.id == self.apero?.eventFb {
+                    self.eventId = event
+                    EventAperoLabel.text =  event.name
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.goToEventPage))
+                    EventAperoLabel.isUserInteractionEnabled = true
+                    EventAperoLabel.addGestureRecognizer(tap)
+                    
+                }
+            }
             
             
         }
+    }
+    
+    func goToEventPage(){
+          performSegue(withIdentifier: "showEventSegue", sender: self.eventId)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,7 +125,12 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-         predictiveTableView.isHidden = false
+        self.predictiveTableView.isHidden = false
+        self.addUserInView.isEnabled = true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -149,65 +171,79 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBAction func AddUserToEvent(_ sender: Any) {
         predictiveTableView.isHidden = true
         userAdd.isSelected = false
-        if (userAdd.text?.isEmpty)! && (self.userSeleted != nil ) {
-            
-            
-            let alertController = UIAlertController(title: "Problème", message:
-                "Le champ n'a pas été remplis", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
-
         
-        }else if userSeleted?.id == apero?.userHost?.id{
+        if (apero?.name.isEmpty)! || (apero?.id.isEmpty)! || (apero?.eventFb?.isEmpty)! {
+            
             let alertController = UIAlertController(title: "Problème", message:
-                "Tu es hote de cette soirée tu ne peux pas t'inviter", preferredStyle: UIAlertControllerStyle.alert)
+                "Votre Apero n'est pas valide dsl 'no body is perfect' ", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
-            
-
         
         }else{
-            var bool = false
-            for user in (apero?.tabInvite)!{
-                if userSeleted?.id! == user.id{
+            
+            if (userAdd.text?.isEmpty)! || (self.userSeleted != nil ) {
                 
-                    bool = true
-                }
-            
-            }
-            
-            if bool{
                 
                 let alertController = UIAlertController(title: "Problème", message:
-                    "utilisateur déja invité", preferredStyle: UIAlertControllerStyle.alert)
+                    "Le champ n'a pas été remplis", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
                 
                 self.present(alertController, animated: true, completion: nil)
-
-            
-            
-            }else{
-                apero?.addUser(user: userSeleted!)
-                let alertController = UIAlertController(title: "Ajout utilisateur", message:
-                "Utilisateur Ajouté", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: nil))
-            
+                
+                
+            }else if userSeleted?.id == apero?.userHost?.id{
+                let alertController = UIAlertController(title: "Problème", message:
+                    "Tu es hote de cette soirée tu ne peux pas t'inviter", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
                 self.present(alertController, animated: true, completion: nil)
-                apero?.observeApero()
-                userAdd.text =  nil
-                view.endEditing(true)
-                //tabInvite = (self.apero?.tabInvite)!
-                userPart()
-                addUserView.isHidden = true
-                self.userAdd.resignFirstResponder()
-                predictiveTableView.isHidden = true
+                
+                
+                
+            }else{
+                var bool = false
+                for user in (apero?.tabInvite)!{
+                    if userSeleted?.id! == user.id{
+                        
+                        bool = true
+                    }
+                    
+                }
+                
+                if bool{
+                    
+                    let alertController = UIAlertController(title: "Problème", message:
+                        "utilisateur déja invité", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                    
+                }else{
+                    apero?.addUser(user: userSeleted!)
+                    let alertController = UIAlertController(title: "Ajout utilisateur", message:
+                        "Utilisateur Ajouté", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    apero?.observeApero()
+                    userAdd.text =  nil
+                    view.endEditing(true)
+                    //tabInvite = (self.apero?.tabInvite)!
+                    userPart()
+                    addUserView.isHidden = true
+                    self.userAdd.resignFirstResponder()
+                    predictiveTableView.isHidden = true
+                }
+                
+                
+                //AZZZYYYY j'ai la flème
             }
-            
-
-            //AZZZYYYY j'ai la flème
+        
         }
+
         userPart()
 
     }
@@ -247,11 +283,15 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     @IBAction func addUserToEvent(_ sender: Any) {
          addUserView.isHidden = false
+        self.addUserInView.isEnabled = false
+        self.predictiveTableView.isHidden  = true
         
         
     }
     @IBAction func addUserQuit(_ sender: Any) {
          addUserView.isHidden = true
+        self.addUserInView.isEnabled = false
+        self.predictiveTableView.isHidden  = true
         
     }
     /*
@@ -274,6 +314,24 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
 
-
+        
+        if segue.identifier == "showEventSegue" {
+            
+            let destVC = segue.destination as! DetailEventViewController
+            destVC.event = self.eventId
+            destVC.eventId = self.eventId?.id
+        }
+        
+    }
+    
+    
+    
 }
+
+
+
+

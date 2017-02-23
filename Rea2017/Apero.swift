@@ -11,9 +11,9 @@ import Firebase
 
 class Apero: NSObject {
     var id: String
-    var name: String? = nil
+    var name: String
     //var date: String? = nil
-    var nbInvite: String? = nil
+    var nbInvite: String
     var adresse: String? = nil
     var descrip: String? = nil
     var eventFb: String? = nil
@@ -80,6 +80,9 @@ class Apero: NSObject {
                 if let aperoend = dic?["fini a"] as? String {
                     self.end = aperoend
                 }
+                if let aperofb = dic?["FBEventId"] as? String {
+                    self.eventFb = aperofb
+                }
                 
                 if let aperoInvite = dic?["Invite"] as? [String: AnyObject]{
                     var tabUser = [String]()
@@ -114,7 +117,7 @@ class Apero: NSObject {
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
         
-        let values = ["id":self.id, "title": self.name, "description": self.descrip, "FBEventId": self.eventFb, "nbGuest": self.nbInvite!, "address":self.adresse, "commence a": self.start, "fini a": self.end!, "cp": self.cp!, "UserHostId":(userHost?.id!)! as String] as [String : Any]
+        let values = ["id":self.id, "title": self.name, "description": self.descrip!, "FBEventId": self.eventFb!, "nbGuest": self.nbInvite, "address":self.adresse!, "commence a": self.start!, "fini a": self.end!, "cp": self.cp!, "UserHostId":(userHost?.id!)! as String] as [String : Any]
         
         let usersReference = ref.child("Apero").child(self.id)
         
@@ -129,12 +132,13 @@ class Apero: NSObject {
     }
     
     func saveEventToApero(event: FBEvent) {
+        if eventFb == nil {
         
         let eventId =  event.id
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
-        
+        self.eventFb = eventId
         let values = ["FBEventId": eventId ]
         
         let usersReference = ref.child("Apero").child(self.id)
@@ -147,15 +151,15 @@ class Apero: NSObject {
             }
             print(values)
         }
-        
+        self.observeApero()
         //Ecrire sur la BBD de L'event l'id de l'apéros associer GOOD LUCK
         
-        event.saveAperoToEvent(apero: self)
-
+        //event.saveAperoToEvent(apero: self)
+        }
         
     }
     func nbInviteAdd(){
-        if var nb = Int(self.nbInvite!) {
+        if var nb = Int(self.nbInvite) {
             nb = nb + 1
             self.nbInvite = String(nb)
             self.saveAperoToBDD()
@@ -163,7 +167,7 @@ class Apero: NSObject {
     }
     
     func  nbIvitePop(){
-        if var nb = Int(self.nbInvite!) {
+        if var nb = Int(self.nbInvite) {
             nb = nb - 1
             self.nbInvite = String(nb)
             self.saveAperoToBDD()

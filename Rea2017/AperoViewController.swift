@@ -146,8 +146,9 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             return
         }
+        loginBtnOutlet.setImage(nil, for: .normal)
         loginBtnOutlet.setTitle("Login", for: .normal)
-        loginBtnOutlet.imageView?.image = nil 
+        loginBtnOutlet.setTitleColor(UIColor.white, for: .normal)
         print("Utilisateur non connecté")
         
         
