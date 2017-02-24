@@ -169,6 +169,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     }
 
     @IBAction func AddUserToEvent(_ sender: Any) {
+        self.userAdd.resignFirstResponder()
         predictiveTableView.isHidden = true
         userAdd.isSelected = false
         
@@ -182,7 +183,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         
         }else{
             
-            if (userAdd.text?.isEmpty)! || (self.userSeleted != nil ) {
+            if (userAdd.text?.isEmpty)! {
                 
                 
                 let alertController = UIAlertController(title: "Problème", message:

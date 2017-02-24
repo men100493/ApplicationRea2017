@@ -24,6 +24,10 @@
 		007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F210D1E54DD9600E291DA /* AperoPageViewController.swift */; };
 		0088709F1E5358630081771B /* Apero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088709E1E5358630081771B /* Apero.swift */; };
 		00B4C48E1E531674003082E9 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B4C48D1E531674003082E9 /* DetailEventViewController.swift */; };
+		00BB0B621E5F2F3200F11670 /* Dolce_Vita.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00BB0B5E1E5F2F3200F11670 /* Dolce_Vita.ttf */; };
+		00BB0B631E5F2F3200F11670 /* Dolce_Vita_Heavy_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00BB0B5F1E5F2F3200F11670 /* Dolce_Vita_Heavy_Bold.ttf */; };
+		00BB0B641E5F2F3200F11670 /* Dolce_Vita_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00BB0B601E5F2F3200F11670 /* Dolce_Vita_Light.ttf */; };
+		00BB0B671E60856A00F11670 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB0B661E60856A00F11670 /* HomeTableViewCell.swift */; };
 		00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */; };
 		00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */; };
 		00BBA2321E4DF12F0022FB84 /* FBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA2311E4DF12F0022FB84 /* FBEvent.swift */; };
@@ -77,6 +81,10 @@
 		00A45B311E5B368200FA27D9 /* Akkurat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akkurat-Light.ttf"; sourceTree = "<group>"; };
 		00ABB3E01E560DBC002EDD2C /* aqua.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aqua.ttf; sourceTree = "<group>"; };
 		00B4C48D1E531674003082E9 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
+		00BB0B5E1E5F2F3200F11670 /* Dolce_Vita.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dolce_Vita.ttf; sourceTree = "<group>"; };
+		00BB0B5F1E5F2F3200F11670 /* Dolce_Vita_Heavy_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dolce_Vita_Heavy_Bold.ttf; sourceTree = "<group>"; };
+		00BB0B601E5F2F3200F11670 /* Dolce_Vita_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dolce_Vita_Light.ttf; sourceTree = "<group>"; };
+		00BB0B661E60856A00F11670 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		00BBA22D1E4CC1870022FB84 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
 		00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00BBA2311E4DF12F0022FB84 /* FBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBEvent.swift; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 				005617101E48B0E200F15664 /* User.swift */,
 				00BBA2311E4DF12F0022FB84 /* FBEvent.swift */,
 				0088709E1E5358630081771B /* Apero.swift */,
+				00BB0B661E60856A00F11670 /* HomeTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -210,10 +219,21 @@
 		00ABB3DF1E560DAD002EDD2C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				00BB0B5D1E5F2F3200F11670 /* Dolce_Vita */,
 				00A45B311E5B368200FA27D9 /* Akkurat-Light.ttf */,
 				00ABB3E01E560DBC002EDD2C /* aqua.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		00BB0B5D1E5F2F3200F11670 /* Dolce_Vita */ = {
+			isa = PBXGroup;
+			children = (
+				00BB0B5E1E5F2F3200F11670 /* Dolce_Vita.ttf */,
+				00BB0B5F1E5F2F3200F11670 /* Dolce_Vita_Heavy_Bold.ttf */,
+				00BB0B601E5F2F3200F11670 /* Dolce_Vita_Light.ttf */,
+			);
+			path = Dolce_Vita;
 			sourceTree = "<group>";
 		};
 		70046648A9F6431A0AFD1BB3 /* Pods */ = {
@@ -364,7 +384,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */,
+				00BB0B641E5F2F3200F11670 /* Dolce_Vita_Light.ttf in Resources */,
+				00BB0B631E5F2F3200F11670 /* Dolce_Vita_Heavy_Bold.ttf in Resources */,
 				0028E7AB1E4CA07E00E99101 /* Main.storyboard in Resources */,
+				00BB0B621E5F2F3200F11670 /* Dolce_Vita.ttf in Resources */,
 				005616E61E48ABEF00F15664 /* Assets.xcassets in Resources */,
 				0028E7AA1E4CA07E00E99101 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -535,6 +558,7 @@
 				007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */,
 				912C65DC1E5072130045B5CB /* AddAperoViewController.swift in Sources */,
 				001385A31E4B6A57002F8CBA /* ProfilViewController.swift in Sources */,
+				00BB0B671E60856A00F11670 /* HomeTableViewCell.swift in Sources */,
 				00BBA22E1E4CC1870022FB84 /* ChatMessageViewController.swift in Sources */,
 				007C89E71E48F7FC00487EF0 /* SearchViewController.swift in Sources */,
 				00D151F71E51C2D20073BDFA /* Constant.swift in Sources */,

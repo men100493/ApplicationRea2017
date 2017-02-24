@@ -104,7 +104,9 @@ class Helper{
     
 
     static func initViewController(){
-        
+        for event in Constants.Events.tabEvent {
+            event.getCoverURL()
+        }
         
         
         if Constants.Users.user != nil {
@@ -184,13 +186,31 @@ class Helper{
                                             let eventid = event["id"] as? String
                                             let eventname = event["name"] as? String
                                             let eventdate = event["start_time"] as? String
-                                            //print(eventname)
-                                            let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
-                                            let isSet = event.isSetInBDD()
+                                            
+                                            //let eventcover = event["cover"] as? NSDictionary
+                            
+                                            let eventplace = event["place"] as? NSDictionary
+                                            
+                                            
+                                            var  event :FBEvent?
+                                            if let place:String = eventplace?["name"] as! String {
+                                                print( place)
+                                                event = FBEvent(id: eventid!, name: eventname! , date: eventdate!,place: place)
+                                                
+                                            
+                                            }else{
+                                                event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                                            }
+                                            
+                                            event?.getCoverURL()
+
+                                            //print(eventplace)
+                                            let isSet = event?.isSetInBDD()
                                             if isSet == false  {
                                                 //Ajout a la bdd
                                                 
-                                                event.saveEventToDataBase()
+                                                event?.saveEventToDataBase()
+                                                
                                                 //print("BDDDDDDDDDDDDDd")
                                             }
                                             
@@ -288,9 +308,7 @@ class Helper{
                     
                 }
                 Constants.Aperos.tabEApero = tabApero
-                for ap in Constants.Aperos.tabEApero {
-                    print(ap.id)
-                }
+                
                 
                 //print(Constants.Aperos.tabEApero.count)
             }
@@ -313,9 +331,12 @@ class Helper{
                     
                     let eventname = event.value["name"] as? String
                     let eventdate = event.value["date"] as? String
+                    let eventplace = event.value["place"] as? String
                     
-                    if eventid != nil , eventname != nil, eventdate != nil{
-                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+                    
+                    if eventid != nil , eventname != nil, eventdate != nil, eventplace != nil {
+                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!,place: eventplace!)
+                        event.getCoverURL()
                         tabEve.append(event)
                         //Constants.Events.tabEvent = tabEve
                         //Constants.Events.addEvent(event)
@@ -380,11 +401,13 @@ class Helper{
     
     }
     
+
+    
     
     
 
 }
-        
-        
-        
-       
+
+
+
+

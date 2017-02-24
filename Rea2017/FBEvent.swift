@@ -9,12 +9,15 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import FBSDKCoreKit
 
 
 class FBEvent {
     let id: String
     var name: String?
     var date: String?
+    var place: String?
+    var coverUrlFB: String? = nil
     var tabAperoId = [String]()
    
     init(id:String, name: String, date: String) {
@@ -22,6 +25,14 @@ class FBEvent {
         self.name = name
         self.date = date
     }
+    
+    init(id:String, name: String, date: String , place:String) {
+        self.id = id
+        self.name = name
+        self.date = date
+        self.place = place
+    }
+    
     
     
     //-------------------------------------
@@ -89,7 +100,16 @@ class FBEvent {
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
         
-        let values = ["name": self.name ,"date": self.date]
+        var values = ["name": self.name ,"date": self.date]
+        
+        
+        if self.place != nil  {
+            values["place"] = self.place
+        }
+        
+        if self.coverUrlFB != nil  {
+            values["coverUrl"] = self.coverUrlFB
+        }
         
         let usersReference = ref.child("FBevent").child(self.id)
         
@@ -128,6 +148,37 @@ class FBEvent {
             print(values)
             self.observeEvent()
         }
+    }
+    
+    func getCoverURL() {
+        //var urlfinale:String? = nil
+        let graph = self.id
+        FBSDKGraphRequest.init(graphPath: graph,
+                               parameters: ["fields": "id,cover",]).start { (connection, result, error) in
+                                //print("Wesh")
+                                //print(result)
+                                if error != nil {
+                                    print("Failed looser fuck graph request", error )
+                                    return
+                                }
+
+                                
+                                let resultat = result as? NSDictionary
+                                if let cover = (resultat?["cover"] as? NSDictionary)?["source"]{
+                                    let coverUrl = cover as?  String
+                                    //print(coverUrl)
+                                     self.coverUrlFB = coverUrl
+                                    
+                                }
+
+                                
+                                
+        }
+        
+
+
+    
+    
     }
     
 

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 struct Constants {
     
     static let appName: String = "Sounds Meetings"
@@ -35,6 +37,12 @@ struct Constants {
     struct Aperos{
         
         static var tabEApero = [Apero]()
+
+    }
+    struct Color {
+        static let  rougeDeClaudius:UIColor = UIColor(colorLiteralRed: 246.0, green: 36.0, blue: 89.0, alpha: 1.0)
+        
+        static let  jauneDeClaudius:UIColor = UIColor(colorLiteralRed: 245.0, green: 215.0, blue: 110.0, alpha: 1.0)
 
     }
     

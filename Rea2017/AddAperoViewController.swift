@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import MapKit
 
 class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -121,7 +122,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let cp = cpField.text
         
         
-        if !title.isEmpty, ((nbGuest != nil)) , !(adress?.isEmpty)!, !(eventid?.isEmpty)!{
+        if !title.isEmpty, !nbGuest.isEmpty , !(adress?.isEmpty)!, !(eventid?.isEmpty)!{
         
             titleField.text = ""
             descrField.text = ""

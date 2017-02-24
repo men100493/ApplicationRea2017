@@ -16,12 +16,14 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     var tableHome = [FBEvent]()
     
     
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var loginBtnOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
@@ -41,6 +43,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     
     override func viewDidAppear(_ animated: Bool)
     {
+       
         
         getMusicevent()
         initHomeViewController()
@@ -57,15 +60,18 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         let imageName = "RechercheEve"
         let imageHome = UIImage(named: imageName)
         let imageView = UIImageView(image: imageHome!)
-        imageView.frame = CGRect(x: (self.view.frame.size.width/2)-50, y: (self.view.frame.size.height/7)-50, width: 100 , height:100 )
+        imageView.frame = CGRect(x: (self.view.frame.size.width/2)-40, y: (self.view.frame.size.height/5)-40, width: 80 , height:80 )
         view.addSubview(imageView)
         
-        let fdColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0).cgColor
-        searchTextField.layer.borderWidth = 1.0
-        searchTextField.layer.backgroundColor = fdColor
-        searchTextField.layer.borderColor = UIColor.white.cgColor
-        searchTextField.borderStyle = UITextBorderStyle.roundedRect
-        searchTextField.textColor = UIColor.black
+        //let fdColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0).cgColor
+        searchTextField.layer.borderWidth = 0
+        searchTextField.layer.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0).cgColor
+        //searchTextField.layer.borderColor = UIColor.white.cgColor
+        //searchTextField.borderStyle = UITextBorderStyle.roundedRect
+        searchTextField.textColor = UIColor.white
+        
+        searchView.layer.borderWidth = 1.0
+        searchView.layer.borderColor = UIColor.white.cgColor
         
     }
 
@@ -104,9 +110,25 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         return tableHome.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell  = UITableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = self.tableHome[indexPath.row].name!
+        var cell  = HomeTableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as UITableViewCell as! HomeTableViewCell
+        
+        
+        print(self.tableHome[indexPath.row].coverUrlFB)
+        
+        let coverUrl = self.tableHome[indexPath.row].coverUrlFB
+        
+        if coverUrl != nil {
+            cell.TitleLabel?.isHidden = true
+            let url = NSURL(string: coverUrl!)
+            let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            cell.bgCell.image = UIImage(data: data! as Data)
+        
+        }else{
+            cell.TitleLabel?.text = self.tableHome[indexPath.row].name!
+        }
+
+        
         return cell
 
     }
@@ -126,9 +148,18 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     }
     
     //TextField
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField.text?.isEmpty)! || (textField.text?.characters.count)! <= 3{
+            getMusicevent()
+            homeTableView.reloadData()
+            
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.searchTextField.resignFirstResponder()
+        homeTableView.reloadData()
         return true
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -187,13 +218,13 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         
         let imagePro = UIImage(named: "Profil") as UIImage?
         getMusicevent()
-        
+        loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
         if self.user != nil {
             //loginBtnOutlet.setTitle("Profil", for: .normal)
             loginBtnOutlet.setTitle("", for: .normal)
             
             loginBtnOutlet.setImage(imagePro, for: .normal)
-
+            loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
 
             
             return
@@ -205,7 +236,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
             //loginBtnOutlet.setTitle("Profil", for: .normal)
             loginBtnOutlet.setTitle("", for: .normal)
             loginBtnOutlet.setImage(imagePro, for: .normal)
-
+            loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
 
 
             return
@@ -213,6 +244,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         loginBtnOutlet.setImage(nil, for: .normal)
         loginBtnOutlet.setTitle("Login", for: .normal)
         loginBtnOutlet.setTitleColor(UIColor.white, for: .normal)
+        loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
 
         
         print("Utilisateur non connecté")

@@ -115,9 +115,61 @@ class Apero: NSObject {
         
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
+        //Problème d'ajout d'utlisaeut a un evenement 
+        
+        var values:[String : Any]
+        
+       
+            values = ["id":self.id]
+            
+            if !self.name.isEmpty {
+                values["title"] = self.name
+                
+            }
+            if !self.nbInvite.isEmpty {
+                values["nbGuest"] = self.nbInvite
+                
+            }
+            
+            if !self.description.isEmpty {
+                values["description"] = self.descrip
+                
+            }
+            
+            if !(self.eventFb?.isEmpty)! {
+                values["FBEventId"] = self.eventFb
+                
+            }
+            
+            
+            if !(self.adresse?.isEmpty)! {
+                values["address"] = self.adresse
+                
+            }
+            
+            if !(self.start?.isEmpty)! {
+                values["commence a"] = self.start
+                
+            }
+            
+            if !(self.end?.isEmpty)! {
+                values["fini a"] = self.end
+                
+            }
+            
+            if !(self.cp?.isEmpty)! {
+                values["cp"] = self.cp
+                
+            }
+
         
         
-        let values = ["id":self.id, "title": self.name, "description": self.descrip!, "FBEventId": self.eventFb!, "nbGuest": self.nbInvite, "address":self.adresse!, "commence a": self.start!, "fini a": self.end!, "cp": self.cp!, "UserHostId":(userHost?.id!)! as String] as [String : Any]
+            
+        
+        
+        
+        
+        
         
         let usersReference = ref.child("Apero").child(self.id)
         

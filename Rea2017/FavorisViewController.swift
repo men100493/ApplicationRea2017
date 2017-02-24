@@ -144,7 +144,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     func initHomeViewController(){
         
         let imagePro = UIImage(named: "Profil") as UIImage?
-        
+        loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
         if self.user != nil {
             //loginBtnOutlet.setTitle("Profil", for: .normal)
             loginBtnOutlet.setTitle("", for: .normal)

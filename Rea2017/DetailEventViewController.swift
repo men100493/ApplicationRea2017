@@ -24,10 +24,17 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var addApero: UIButton!
     @IBOutlet weak var eventIdLabel: UILabel!
 
+    @IBOutlet weak var coverimage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var calendarImageView: UIImageView!
     //@IBOutlet weak var listeAperosAssocie: UILabel!
     @IBOutlet weak var addAperosBtn: UILabel!
     @IBOutlet weak var eventname: UILabel!
     @IBOutlet weak var eventDescriptino: UILabel!
+    var styleMusical:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addApero.layer.borderWidth = 0.5
@@ -54,10 +61,9 @@ class DetailEventViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if eventId != nil {
             self.event?.observeEvent()
-            print(eventId) 
+            //print(eventId)
             isSaveEventAsFav()
             getFBEventInfo()
-            eventIdLabel.text = eventId
             
             initView()
             
@@ -69,10 +75,21 @@ class DetailEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initView(){
+        //DATA INCRMENTS
+        dateLabel.text = event?.date
+        placeLabel.text = event?.place
+        
+        //Date View
+        //dateView.layer.borderWidth = 1.0
+        dateView.tintColor = Constants.Color.jauneDeClaudius
+        //dateView.layer.borderColor =  Constants.Color.jauneDeClaudius.cgColor
+        dateView.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        calendarImageView.tintColor = Constants.Color.jauneDeClaudius
+        
         //listeAperosAssocie
         var temptab = [Apero]()
         var i = 0
-        //recuperation des Apéros asso a l'event AFINIR MENES
+
         
         //print( Constants.Aperos.tabEApero)
         for id in (self.event?.tabAperoId)! {
@@ -112,7 +129,7 @@ class DetailEventViewController: UIViewController {
             let graph = eventId
             
             FBSDKGraphRequest.init(graphPath: graph,
-                                   parameters: ["fields": "id,place,name,start_time,ticket_uri,interested_count,description",]).start { (connection, result, error) in
+                                   parameters: ["fields": "id,place,name,start_time,ticket_uri,interested_count,description,cover",]).start { (connection, result, error) in
                                     //print("Wesh")
                                     print(result)
                                     let resultat = result as? NSDictionary
@@ -126,7 +143,17 @@ class DetailEventViewController: UIViewController {
                                     self.eventDescriptino.text = eventDescription
                                             let eventticket = resultat?["ticket_uri"] as? String
                                             let eventInteret = resultat?["interested_count"] as? String
-                                            print(eventplace)
+                                            //print(eventplace)
+                                    
+                                            if let cover = (resultat?["cover"] as? NSDictionary)?["source"]{
+                                                var coverUrl = cover as?  String
+                                                print(coverUrl)
+                                                
+                                                let url = NSURL(string: coverUrl!)
+                                                let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                                                self.coverimage.image = UIImage(data: data! as Data)
+                                                
+                                            }
                                             
                                             
                                         
