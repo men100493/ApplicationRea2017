@@ -21,13 +21,17 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var titleField: UITextField!
     @IBOutlet var startField: UITextField!
     @IBOutlet var endField: UITextField!
-    @IBOutlet var cpField: UITextField!
+    //@IBOutlet var cpField: UITextField!
+    @IBOutlet weak var addBtn: UIButton!
     
     var ref : FIRDatabaseReference!
-    var evenId: String?
+    var eventId: String?
+    var event: FBEvent?
     var user:User?
     var guests = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    let tabEvent = Constants.Events.tabEvent
     var guestPicker = UIPickerView()
+    var eventPicker = UIPickerView()
     let timePickerS = UIDatePicker()
     let timePickerE = UIDatePicker()
 
@@ -44,7 +48,11 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         user = Constants.Users.user
         guestPicker.delegate = self
         guestPicker.dataSource = self
+        eventPicker.delegate = self
+        eventPicker.dataSource = self
+        self.addBtn.isEnabled = false
         
+        eventField.inputView = eventPicker
         nbGuestField.inputView = guestPicker
         
         createTimePicker()
@@ -55,6 +63,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -62,8 +71,15 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     override func viewDidAppear(_ animated: Bool) {
-        if evenId != nil {
-            eventField.text = evenId
+        
+        if eventId != nil {
+            for event in Constants.Events.tabEvent{
+                if event.id == eventId{
+                    eventField.text = event.name
+                
+                }
+            }
+            
         }
     }
     override func didReceiveMemoryWarning() {
@@ -76,15 +92,36 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return guests.count
+        if pickerView == guestPicker {
+            return guests.count
+        }else{
+            return tabEvent.count
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return guests[row]
+        
+        
+        if pickerView == guestPicker {
+            return guests[row]
+        }else{
+            return tabEvent[row].name
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        nbGuestField.text = guests[row]
+        if pickerView == guestPicker {
+            nbGuestField.text = guests[row]
+        }else{
+             eventField.text = tabEvent[row].name
+             eventId = tabEvent[row].id
+        }
+        if (!(eventField.text?.isEmpty)! && !(nbGuestField.text?.isEmpty)!){
+            addBtn.isEnabled = true
+        }else{
+            addBtn.isEnabled = false
+        }
         self.view.endEditing(false)
     }
     
@@ -110,19 +147,20 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.view.endEditing(true)
     }
     
+    
+    
     @IBAction func AddApero(_ sender: Any) {
         let id = NSUUID().uuidString
         let title = titleField.text!
         let decr = descrField.text
-        let eventid = eventField.text
+        let eventid = eventId
         let nbGuest = nbGuestField.text!
-        let adress = adressField.text
+        let adress = adressField.text!
         let start = startField.text
         let end = endField.text
-        let cp = cpField.text
         
         
-        if !title.isEmpty, !nbGuest.isEmpty , !(adress?.isEmpty)!, !(eventid?.isEmpty)!{
+        if !title.isEmpty, !nbGuest.isEmpty , !(adress.isEmpty), !(eventid?.isEmpty)!{
         
             titleField.text = ""
             descrField.text = ""
@@ -131,7 +169,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             adressField.text = ""
             startField.text = ""
             endField.text = ""
-            cpField.text = ""
+            //cpField.text = ""
         
 //                ref = FIRDatabase.database().reference()
         
@@ -139,13 +177,14 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //            ref.child("Apero").child(id).setValue(apero)
             
             //let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
-            let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: eventid!, adresse: adress!, startTime: start!, endTime: end!, cp: cp!)
+            let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: eventid!, adresse: adress, startTime: start!, endTime: end!)
             
             if (Constants.Events.tabEvent.count != 0 ){
                 if let event = Constants.Events.tabEvent.first(where: { $0.id == eventid! }){
                     
                     aperosTab.saveAperoToBDD()
-                    aperosTab.saveEventToApero(event: event)
+                    //aperosTab.saveEventToApero(event: event)
+                    event.saveAperoToEvent(apero: aperosTab)
                     event.tabAperoId.append(aperosTab.id)
                     
             }
@@ -171,7 +210,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.present(alertController, animated: true, completion: nil)
             
         }
-
+ }
 
 
     /*
@@ -183,5 +222,5 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Pass the selected object to the new view controller.
     }
     */
-}
+
 }

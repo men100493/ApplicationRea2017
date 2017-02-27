@@ -60,23 +60,30 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             //self.apero?.observeApero()
             userPart()
             tabInvite = (self.apero?.tabInvite)!
+            setContent()
 
-            AperoNameLabel.text = apero?.name
-            EventAperoLabel.text = apero?.eventFb
-            nbInvitLabel.text = apero?.nbInvite
-            for event in Constants.Events.tabEvent {
-                if event.id == self.apero?.eventFb {
-                    self.eventId = event
-                    EventAperoLabel.text =  event.name
-                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.goToEventPage))
-                    EventAperoLabel.isUserInteractionEnabled = true
-                    EventAperoLabel.addGestureRecognizer(tap)
-                    
-                }
-            }
             
             
         }
+    }
+    
+    func setContent(){
+        
+        AperoNameLabel.text = apero?.name
+        EventAperoLabel.text = apero?.eventFb
+        nbInvitLabel.text = apero?.nbInvite
+        for event in Constants.Events.tabEvent {
+            if event.id == self.apero?.eventFb {
+                self.eventId = event
+                EventAperoLabel.text =  event.name
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.goToEventPage))
+                EventAperoLabel.isUserInteractionEnabled = true
+                EventAperoLabel.addGestureRecognizer(tap)
+                
+            }
+        }
+
+    
     }
     
     func goToEventPage(){
@@ -226,27 +233,35 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                     apero?.addUser(user: userSeleted!)
                     let alertController = UIAlertController(title: "Ajout utilisateur", message:
                         "Utilisateur Ajouté", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: nil))
+                    alertController.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default,handler: addUserHandler))
                     
                     self.present(alertController, animated: true, completion: nil)
-                    apero?.observeApero()
+                    
                     userAdd.text =  nil
                     view.endEditing(true)
                     //tabInvite = (self.apero?.tabInvite)!
-                    userPart()
+                    
                     addUserView.isHidden = true
                     self.userAdd.resignFirstResponder()
                     predictiveTableView.isHidden = true
+                    
                 }
-                
-                
+                        
                 //AZZZYYYY j'ai la flème
             }
         
         }
 
-        userPart()
 
+    }
+    
+    func addUserHandler(alert: UIAlertAction!){
+        
+        apero?.observeApero()
+        setContent()
+        userPart()
+    
+    
     }
     
     func userPart(){
@@ -258,8 +273,25 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         
         for invite in tabInvite {
             let inviteText: String = invite.nom!
+            if  invite.photoProfilUrl != nil {
+                let photoInvite:String = invite.photoProfilUrl!
+                let url = NSURL(string: photoInvite)
+                let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                //UIImage(data: data! as Data)
+                let image = UIImage(data: data! as Data)
+                let imageView = UIImageView(image: image!)
+                imageView.frame = CGRect(x: 20+(100*i), y: 10, width: 80, height: 80)
+                imageView.layer.cornerRadius = 40
+                imageView.layer.masksToBounds = true
+                imageView.layer.borderWidth = 0.3
+                imageView.layer.borderColor =  UIColor.white.cgColor
+                self.userView.addSubview(imageView)
             
-            let buttonUser = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
+            }
+            
+
+
+            let buttonUser = UIButton(frame: CGRect(x: 20+(100*i), y: 80, width: 80, height: 20))
             buttonUser.setTitle(inviteText, for: .normal)
             buttonUser.tag = i
             buttonUser.backgroundColor = UIColor(cgColor: UIColor.black.cgColor)

@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         let loginButton = FBSDKLoginButton()
         
         view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 16, y:view.frame.height/4 , width: view.frame.width - 32, height: 50)
+        loginButton.frame = CGRect(x: 16, y:view.frame.height*3/4 , width: view.frame.width - 32, height: 50)
         
         
         loginButton.delegate = self

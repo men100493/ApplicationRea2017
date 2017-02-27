@@ -19,7 +19,7 @@ class Apero: NSObject {
     var eventFb: String? = nil
     var start: String? = nil
     var end: String? = nil
-    var cp : String? = nil
+    //var cp : String? = nil
     var userHost: User? = Constants.Users.user
     var tabInvite = [User]()
     var tabInviteId = [String]()
@@ -32,7 +32,7 @@ class Apero: NSObject {
         self.descrip = descrip
     }
     
-    init(id: String, name:String,nbInvite:String,descrip: String, eventFB: String, adresse: String, startTime:String,endTime: String,cp:String) {
+    init(id: String, name:String,nbInvite:String,descrip: String, eventFB: String, adresse: String, startTime:String,endTime: String) {
         self.id = id
         self.name = name
         self.nbInvite = nbInvite
@@ -42,7 +42,7 @@ class Apero: NSObject {
         self.adresse = adresse
         self.start = startTime
         self.end = endTime
-        self.cp = cp
+       
     }
     
     
@@ -67,6 +67,9 @@ class Apero: NSObject {
                 if let aperoname = dic?["name"] as? String{
                     self.name = aperoname
                 }
+                if let add = dic?["address"] as? String{
+                    self.adresse = add
+                }
                 if let aperodescr = dic?["description"] as? String{
                     self.descrip = aperodescr
                 }
@@ -83,6 +86,7 @@ class Apero: NSObject {
                 if let aperofb = dic?["FBEventId"] as? String {
                     self.eventFb = aperofb
                 }
+               
                 
                 if let aperoInvite = dic?["Invite"] as? [String: AnyObject]{
                     var tabUser = [String]()
@@ -157,11 +161,7 @@ class Apero: NSObject {
                 
             }
             
-            if !(self.cp?.isEmpty)! {
-                values["cp"] = self.cp
-                
-            }
-
+        
         
         
             
@@ -212,7 +212,7 @@ class Apero: NSObject {
     }
     func nbInviteAdd(){
         if var nb = Int(self.nbInvite) {
-            nb = nb + 1
+            nb = nb - 1
             self.nbInvite = String(nb)
             self.saveAperoToBDD()
         }
@@ -220,7 +220,7 @@ class Apero: NSObject {
     
     func  nbIvitePop(){
         if var nb = Int(self.nbInvite) {
-            nb = nb - 1
+            nb = nb + 1
             self.nbInvite = String(nb)
             self.saveAperoToBDD()
         }

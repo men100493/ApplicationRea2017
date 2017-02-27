@@ -19,6 +19,7 @@ class DetailEventViewController: UIViewController {
     var isFav :Bool = false
 
     var tabApero = [Apero]()
+    @IBOutlet weak var styleMusical: UILabel!
     
     @IBOutlet weak var listeAperoView: UIView!
     @IBOutlet weak var addApero: UIButton!
@@ -33,7 +34,7 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var addAperosBtn: UILabel!
     @IBOutlet weak var eventname: UILabel!
     @IBOutlet weak var eventDescriptino: UILabel!
-    var styleMusical:String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,7 @@ class DetailEventViewController: UIViewController {
             getFBEventInfo()
             
             initView()
-            
+            getStyle()
         }
         //initView()
     }
@@ -75,6 +76,7 @@ class DetailEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initView(){
+        event?.observeEvent()
         //DATA INCRMENTS
         dateLabel.text = event?.date
         placeLabel.text = event?.place
@@ -117,7 +119,24 @@ class DetailEventViewController: UIViewController {
     
     
     }
+    func getStyle(){
+        let des:String = eventDescriptino.text!
+        print(des)
+        if (des.lowercased().contains("hip-hop")){
+            styleMusical.text = "hip-hop"
+        }else if (des.lowercased().contains("techno")){
+            styleMusical.text = "Techno"
+        }else if (des.lowercased().contains("trance")){
+            styleMusical.text = "Trance"
+        }else if (des.lowercased().contains("acid")){
+            styleMusical.text = "Acid"
+        }else if (des.lowercased().contains("house")){
+            styleMusical.text = "House"
+        }else{
+            styleMusical.text = "Autre"
+        }
     
+    }
     func showApero(sender:UIButton!){
         performSegue(withIdentifier: "showAperoSegue", sender: self.tabApero[sender.tag])
     
@@ -141,6 +160,8 @@ class DetailEventViewController: UIViewController {
                                             let eventdate = resultat?["start_time"] as? String
                                             let eventDescription = resultat?["description"] as? String
                                     self.eventDescriptino.text = eventDescription
+                                    self.getStyle()
+                                    
                                             let eventticket = resultat?["ticket_uri"] as? String
                                             let eventInteret = resultat?["interested_count"] as? String
                                             //print(eventplace)
@@ -161,7 +182,7 @@ class DetailEventViewController: UIViewController {
                                     
                                     
         }
-            
+       
             
     }
         
@@ -232,9 +253,7 @@ class DetailEventViewController: UIViewController {
         if segue.identifier == "aperoSegue2" {
             print("new apéros")
             let destVC = segue.destination as! AddAperoViewController
-            if eventIdLabel.text != nil {
-                destVC.evenId = eventIdLabel.text
-            }
+            destVC.eventId = event?.id
             
         }
         
