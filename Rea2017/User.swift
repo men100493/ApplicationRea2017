@@ -41,7 +41,7 @@ class User: NSObject {
         //self.ref =  FIRDatabase.database().reference()
     }
     
-    init(nom: String, pnom: String, email:  String, fbId: String,imageUrl :String ) {
+    init(nom: String, pnom: String, email:  String, fbId: String,naiss: String ) {
         //let uuid = NSUUID().uuidString
         self.id = fbId
         self.nom = nom
@@ -49,7 +49,7 @@ class User: NSObject {
         self.email = email
         self.fbId = fbId
         self.googleId = nil
-        self.photoProfilUrl = imageUrl
+        self.naiss = naiss
         //self.ref =  FIRDatabase.database().reference()
     }
 

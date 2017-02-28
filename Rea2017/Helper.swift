@@ -385,7 +385,8 @@ class Helper{
                     var usernaiss = user.value["naiss"] as? String
                     
                     if userid != nil , usernom != nil, usermail != nil{
-                        let user = User(nom: usernom!, pnom: userprenom!, email: usermail!, fbId: userFBid!, imageUrl: userphoto!, naiss: usernaiss!)
+                        let user = User(nom: usernom!, pnom: userprenom!, email: usermail!, fbId: userFBid!, naiss: usernaiss!)
+                        user.getFBUptade()
                         tabUser.append(user)
                         //Constants.Events.tabEvent = tabEve
                         //Constants.Events.addEvent(event)

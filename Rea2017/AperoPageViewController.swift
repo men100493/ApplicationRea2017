@@ -13,6 +13,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     //@IBOutlet weak var UserPresent: UILabel!
     @IBOutlet weak var predictiveTableView: UITableView!
     @IBOutlet weak var userAdd: UITextField!
+    @IBOutlet weak var placeAperoLabel: UILabel!
 
     @IBOutlet weak var userView: UIView!
     
@@ -24,6 +25,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var ageHoteLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
     
+    @IBOutlet weak var profilImageView: UIImageView!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var descriptionAperoLabel: UILabel!
     @IBOutlet weak var dateEventLabel: UILabel!
@@ -52,9 +54,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 tabInvite = (self.apero?.tabInvite)!
                 userPart()
             }
-            if apero?.userHostid == Constants.Users.user?.id{
-                addUserBtn.isHidden = false
-            }
+            
             
         }
         // Do any additional setup after loading the view.
@@ -73,10 +73,16 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     }
     
     func setContent(){
+        print(Constants.Users.user?.id)
+        if apero?.userHostid == Constants.Users.user?.id{
+            addUserBtn.isHidden = false
+        }
         
         for user in Constants.Users.tabUser {
+            
         
             if user.id == apero?.userHostid {
+                user.getFBUptade()
                 AperoNameLabel.text = user.pnom! + " " + user.nom!
                 ageHoteLabel.text = user.naiss
                 let naiss = user.naiss?.components(separatedBy: "/")
@@ -88,8 +94,22 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 ageHoteLabel.text = String(age) + " ans"
                 
                 
+                if let pictureFB = user.photoProfilUrl {
+                    let url = NSURL(string: pictureFB)
+                    let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                    profilImageView.image = UIImage(data: data! as Data)
+                    profilImageView.layer.cornerRadius = 40
+                    profilImageView.layer.masksToBounds = true
+                    //profilImageView.layer.borderWidth = 0.3
+                    //profilImageView.layer.borderColor =  UIColor.white.cgColor
+                
+                }
+                
+                
             }
         }
+        
+        placeAperoLabel.text = apero?.adresse
 
         descriptionAperoLabel.text = apero?.descrip
         //EventAperoLabel.text = apero?.eventFb
@@ -101,11 +121,34 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             if event.id == self.apero?.eventFb {
                 self.eventId = event
                 //Recuperer l'image de fond
-                //Date de l'event
+                //Date de l'event$
+                let d = event.date
+                let da = d?.components(separatedBy: "T")
+                //print(date?[0])
                 
-                let date = event.date
-                dateEventLabel.text = date
+                let date = da?[0].components(separatedBy: "-")
+                //"yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                 
+                let j = date?[2]
+                var m = date?[1]
+                let a = date?[0]
+                
+                
+                switch Int(m!) {
+                case _ where  Int(m!) == 1:
+                    m = "janvier"
+                case _ where  Int(m!) == 2:
+                    m = "fevrier"
+                case _ where  Int(m!) == 3:
+                    m = "mars"
+                case _ where  Int(m!) == 4:
+                    m = "avril"
+            
+                default:
+                    m = "décembre"
+                }
+
+                dateEventLabel.text = j! + " " + m! + " " +  a!
                 let coverUrl = event.coverUrlFB
                 if coverUrl != nil {
                     let url = NSURL(string: coverUrl!)
