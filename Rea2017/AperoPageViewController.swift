@@ -25,6 +25,8 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var ageHoteLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
     
+    @IBOutlet weak var placeLeftView: UIView!
+    @IBOutlet weak var participantView: UIView!
     @IBOutlet weak var profilImageView: UIImageView!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var descriptionAperoLabel: UILabel!
@@ -109,13 +111,26 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             }
         }
         
+        
+        
         placeAperoLabel.text = apero?.adresse
 
         descriptionAperoLabel.text = apero?.descrip
         //EventAperoLabel.text = apero?.eventFb
         if ((apero?.nbInvite)! != nil){
             nbInvitLabel.text = (apero?.nbInvite)! + " Places"
+            
+            if let nb = Int ((apero?.nbInvite)!){
+                for i in 0 ... nb {
+                    
+                }
+            
+            }
+            
+            
         }
+        
+        
         
         for event in Constants.Events.tabEvent {
             if event.id == self.apero?.eventFb {
@@ -366,7 +381,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 imageView.layer.masksToBounds = true
                 imageView.layer.borderWidth = 0.3
                 imageView.layer.borderColor =  UIColor.white.cgColor
-                self.userView.addSubview(imageView)
+                self.participantView.addSubview(imageView)
             
             }
             
@@ -378,7 +393,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             buttonUser.backgroundColor = UIColor(cgColor: UIColor.black.cgColor)
             buttonUser.addTarget(self, action: #selector(self.showUserProfile), for: UIControlEvents.touchUpInside)
             
-            self.userView.addSubview(buttonUser)
+            self.participantView.addSubview(buttonUser)
             i += 1
         }
         //UserPresent.text = inviteText

@@ -104,7 +104,7 @@ class DetailEventViewController: UIViewController, UITableViewDelegate , UITable
         
         //listeAperosAssocie
         var temptab = [Apero]()
-        var i = 0
+        //var i = 0
 
         
         //print( Constants.Aperos.tabEApero)
@@ -116,14 +116,6 @@ class DetailEventViewController: UIViewController, UITableViewDelegate , UITable
                     self.event?.saveAperoToEvent(apero: apero)
                     
                     temptab.append(apero)
-                    let button = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
-                    button.setTitle(apero.name, for: .normal)
-                    button.tag = i
-                    //button.addTarget(self, action: #selector(self.showApero), for: UIControlEvents.touchUpInside)
-//                    listeEvent += apero.name!
-//                    listeEvent += "\n"
-                    listeAperoView.addSubview(button)
-                    i = i + 1
                 }
                 
             }

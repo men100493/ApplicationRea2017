@@ -365,7 +365,7 @@
                                             <segue destination="xqn-aH-a7q" kind="unwind" unwindAction="unwindFromAperoPageWithSender:" id="YnJ-SI-5ip"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-yn-fdJ">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-yn-fdJ">
                                         <rect key="frame" x="172" y="282" width="146" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
@@ -386,26 +386,27 @@
                                 <rect key="frame" x="0.0" y="357" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-5m-Kv9">
-                                        <rect key="frame" x="125" y="-38" width="70" height="70"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-h2-hBz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ds-5W-OsZ" userLabel="Place">
-                                        <rect key="frame" x="174" y="90" width="146" height="21"/>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nb Personne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ds-5W-OsZ" userLabel="Place">
+                                        <rect key="frame" x="174" y="78" width="146" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Il reste" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1w-Mx-HiC" userLabel="Label">
-                                        <rect key="frame" x="174" y="61" width="146" height="21"/>
+                                        <rect key="frame" x="174" y="58" width="146" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ils Participent à l'apéros" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0A-hE-aM7" userLabel="Label">
-                                        <rect key="frame" x="17" y="141" width="113" height="58"/>
+                                        <rect key="frame" x="43" y="50" width="113" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -419,11 +420,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer copie" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-Vr-z9p">
-                                        <rect key="frame" x="17" y="95" width="35" height="38"/>
+                                        <rect key="frame" x="0.0" y="60" width="35" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-5m-Kv9">
+                                        <rect key="frame" x="125" y="-38" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axS-1r-eiA">
+                                        <rect key="frame" x="0.0" y="107" width="156" height="106"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQ4-yo-eXm" userLabel="Place restante">
+                                        <rect key="frame" x="164" y="107" width="156" height="106"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vts-Yp-6nr">
-                                        <rect key="frame" x="290" y="155" width="30" height="30"/>
+                                        <rect key="frame" x="282" y="175" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="add"/>
                                         <connections>
@@ -447,7 +462,9 @@
                         <outlet property="descriptionAperoLabel" destination="Qy2-gR-e6g" id="Jfb-1g-aq5"/>
                         <outlet property="eventImageView" destination="K0b-Tb-iZ5" id="2Lt-8m-XqC"/>
                         <outlet property="nbInvitLabel" destination="3ds-5W-OsZ" id="FWR-h0-EJv"/>
+                        <outlet property="participantView" destination="axS-1r-eiA" id="BJf-1o-V5j"/>
                         <outlet property="placeAperoLabel" destination="UAB-tx-IKs" id="8DN-Ie-VXy"/>
+                        <outlet property="placeLeftView" destination="HQ4-yo-eXm" id="61s-th-QpG"/>
                         <outlet property="predictiveTableView" destination="g4b-0G-qXp" id="3f5-wu-IUW"/>
                         <outlet property="profilImageView" destination="1BP-0c-JWE" id="VQP-TR-D9i"/>
                         <outlet property="userAdd" destination="qmH-yO-MHt" id="wyO-qe-n6F"/>
@@ -538,7 +555,7 @@
                                 </subviews>
                                 <color key="tintColor" red="0.96078431369999995" green="0.84313725490000002" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OB8-xQ-Pud">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OB8-xQ-Pud" userLabel="Music View">
                                 <rect key="frame" x="164" y="142" width="140" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -646,6 +663,10 @@
                                 <color key="textColor" red="0.50588235294117645" green="0.81176470588235294" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="6Jo-hb-qUx">
+                                <rect key="frame" x="154" y="350" width="10" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176469999999" green="0.12549019610000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1400,7 +1421,7 @@ Tu seras désormais certain d’être toujours avec quelqu’un pour partager un
         <image name="volume-control copie" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Agb-Xb-wmH"/>
+        <segue reference="7Fw-aD-Jvx"/>
         <segue reference="xXy-p5-abW"/>
         <segue reference="6wd-WM-yrQ"/>
     </inferredMetricsTieBreakers>
