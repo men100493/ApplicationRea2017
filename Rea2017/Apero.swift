@@ -24,11 +24,11 @@ class Apero: NSObject {
     var tabInvite = [User]()
     var tabInviteId = [String]()
     
-    init(id: String, name:String,nbInvite:String,descrip: String) {
+    init(id: String, name:String,nbInvite:String,descrip: String, adresse : String) {
         self.id = id
         self.name = name
         self.nbInvite = nbInvite
-        //self.adresse = adresse
+        self.adresse = adresse
         self.descrip = descrip
     }
     

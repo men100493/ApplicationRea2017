@@ -301,10 +301,10 @@ class Helper{
                     let aperoevent = apero.value["event"] as? String
                     let aperoinvite = apero.value["nbGuest"] as? String
                     let aperodescription = apero.value["description"] as? String
-                    //let aperoadress = apero.value["adress"] as? String
+                    let aperoadress = apero.value["address"] as? String
                     
                     if aperoname != nil, aperoid != nil {
-                        let apero = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!)
+                        let apero = Apero(id: aperoid!, name: aperoname!, nbInvite: aperoinvite!,  descrip: aperodescription!, adresse: aperoadress!)
                         tabApero.append(apero)
                         
                         //Constants.Aperos.tabEApero? = tabApero

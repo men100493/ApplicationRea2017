@@ -38,7 +38,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WYe-de-2CT">
                                 <rect key="frame" x="16" y="73" width="288" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" id="nNd-um-dFS">
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
@@ -118,7 +118,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l9l-p1-C9D">
                                 <rect key="frame" x="0.0" y="65" width="320" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aperoCell" id="wj0-mx-qGk">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -322,21 +322,21 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wZ-sc-9zc" userLabel="Avis">
-                                        <rect key="frame" x="82" y="196" width="72" height="21"/>
+                                        <rect key="frame" x="82" y="211" width="72" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYa-d2-7fW" userLabel="Age">
-                                        <rect key="frame" x="8" y="196" width="66" height="21"/>
+                                        <rect key="frame" x="8" y="211" width="66" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NL-Bs-tHw">
-                                        <rect key="frame" x="8" y="167" width="146" height="21"/>
+                                        <rect key="frame" x="8" y="182" width="146" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <color key="textColor" red="0.93657946589999996" green="0.84618300199999996" blue="0.48742237690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -350,8 +350,8 @@
                                         <color key="textColor" red="0.50588235290000005" green="0.81176470590000005" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-gR-e6g" userLabel="Description">
-                                        <rect key="frame" x="162" y="165" width="146" height="131"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-gR-e6g" userLabel="Description">
+                                        <rect key="frame" x="162" y="165" width="146" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.50588235290000005" green="0.81176470590000005" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -366,13 +366,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQP-yn-fdJ">
-                                        <rect key="frame" x="162" y="304" width="146" height="30"/>
+                                        <rect key="frame" x="172" y="282" width="146" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <state key="normal" title="Contacter"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1BP-0c-JWE">
-                                        <rect key="frame" x="41" y="79" width="80" height="80"/>
+                                        <rect key="frame" x="45" y="87" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Message" translatesAutoresizingMaskIntoConstraints="NO" id="Blu-XM-S7z">
+                                        <rect key="frame" x="153" y="272" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -382,6 +386,10 @@
                                 <rect key="frame" x="0.0" y="357" width="320" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-5m-Kv9">
+                                        <rect key="frame" x="125" y="-38" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ds-5W-OsZ" userLabel="Place">
                                         <rect key="frame" x="174" y="90" width="146" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -404,14 +412,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Palce" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-tx-IKs" userLabel="Location">
-                                        <rect key="frame" x="8" y="23" width="304" height="21"/>
+                                        <rect key="frame" x="8" y="32" width="304" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                         <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer copie" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-Vr-z9p">
+                                        <rect key="frame" x="17" y="95" width="35" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vts-Yp-6nr">
-                                        <rect key="frame" x="282" y="23" width="30" height="30"/>
+                                        <rect key="frame" x="290" y="155" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="add"/>
                                         <connections>
@@ -548,24 +560,80 @@
                                 <rect key="frame" x="0.0" y="394" width="320" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-MD-tSv">
+                                        <rect key="frame" x="123" y="16" width="197" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AperoCell" rowHeight="50" id="0OC-uv-TUn" customClass="AperoTableViewCell" customModule="Rea2017" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="197" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0OC-uv-TUn" id="c5m-yW-fnn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmc-K0-AB9">
+                                                            <rect key="frame" x="8" y="0.0" width="119" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="15"/>
+                                                            <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lieu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-cQ-pco">
+                                                            <rect key="frame" x="8" y="22" width="112" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="12"/>
+                                                            <color key="textColor" red="0.12941176469999999" green="0.12549019610000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="QLk-si-0mS">
+                                                            <rect key="frame" x="128" y="9" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAt-24-G89">
+                                                            <rect key="frame" x="166" y="14" width="23" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.50588235290000005" green="0.81176470590000005" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="PalceLabel" destination="eOg-cQ-pco" id="Jvy-v0-ocy"/>
+                                                    <outlet property="TitleLabel" destination="pmc-K0-AB9" id="mh7-Fv-wc7"/>
+                                                    <outlet property="nbRestantLabel" destination="LAt-24-G89" id="KCU-NT-EDg"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6H-UZ-AKX">
-                                        <rect key="frame" x="152" y="0.0" width="168" height="174"/>
+                                        <rect key="frame" x="0.0" y="73" width="152" height="101"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ils font un apéro" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHI-zQ-0Kc">
-                                        <rect key="frame" x="54" y="0.0" width="77" height="58"/>
+                                        <rect key="frame" x="38" y="0.0" width="77" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="16"/>
                                         <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yeu-Vf-tfc">
-                                        <rect key="frame" x="0.0" y="57" width="131" height="1"/>
+                                        <rect key="frame" x="0.0" y="57" width="115" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.12941176469999999" green="0.12549019610000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer copie" translatesAutoresizingMaskIntoConstraints="NO" id="bwg-Vf-pSA">
-                                        <rect key="frame" x="11" y="8" width="35" height="38"/>
+                                        <rect key="frame" x="0.0" y="8" width="35" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up" translatesAutoresizingMaskIntoConstraints="NO" id="SCO-oS-dA2">
+                                        <rect key="frame" x="123" y="3" width="10" height="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="Gtc-07-veg">
+                                        <rect key="frame" x="123" y="156" width="10" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -591,6 +659,7 @@
                         <outlet property="eventDescriptino" destination="i16-an-3RX" id="ITX-yM-xiB"/>
                         <outlet property="eventname" destination="wA0-VU-a3P" id="fxA-0U-Lsm"/>
                         <outlet property="favBtn" destination="jWh-i8-F9g" id="G4t-U4-rhj"/>
+                        <outlet property="inviteTableView" destination="sfH-MD-tSv" id="cvW-C3-xyh"/>
                         <outlet property="listeAperoView" destination="o6H-UZ-AKX" id="yWS-uL-Vp5"/>
                         <outlet property="placeLabel" destination="ejr-BT-VId" id="o4H-0N-jVk"/>
                         <outlet property="styleMusical" destination="MAi-Pb-qGy" id="1le-MB-Cox"/>
@@ -772,7 +841,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-Zn-6hP">
                                 <rect key="frame" x="16" y="244" width="288" height="275"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="1" reuseIdentifier="HomeCell" rowHeight="100" id="TAg-XM-I2x" customClass="HomeTableViewCell" customModule="Rea2017" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="100"/>
@@ -1322,13 +1391,17 @@ Tu seras désormais certain d’être toujours avec quelqu’un pour partager un
         <image name="addFavori" width="24" height="18"/>
         <image name="beer copie" width="20" height="20"/>
         <image name="calendar-2 copie" width="28" height="28"/>
+        <image name="down" width="10" height="8"/>
         <image name="fond-co" width="368" height="568"/>
+        <image name="placeholder" width="95" height="95"/>
         <image name="side-menu" width="24" height="25"/>
+        <image name="teamwork" width="68" height="68"/>
+        <image name="up" width="10" height="8"/>
         <image name="volume-control copie" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Am-8I-J3Q"/>
-        <segue reference="Zta-ZI-yKD"/>
-        <segue reference="XTI-cF-wch"/>
+        <segue reference="Agb-Xb-wmH"/>
+        <segue reference="xXy-p5-abW"/>
+        <segue reference="6wd-WM-yrQ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import Firebase
 
 
-class DetailEventViewController: UIViewController {
+class DetailEventViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
     @IBOutlet weak var favBtn: UIButton!
     var eventId:String?
@@ -19,6 +19,7 @@ class DetailEventViewController: UIViewController {
     var isFav :Bool = false
 
     var tabApero = [Apero]()
+    var selected:Apero? = nil
     @IBOutlet weak var styleMusical: UILabel!
     
     @IBOutlet weak var listeAperoView: UIView!
@@ -35,12 +36,22 @@ class DetailEventViewController: UIViewController {
     @IBOutlet weak var eventname: UILabel!
     @IBOutlet weak var eventDescriptino: UILabel!
 
+    @IBOutlet weak var inviteTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addApero.layer.borderWidth = 0.5
         addApero.layer.borderColor = UIColor.white.cgColor
         
+        inviteTableView.delegate = self
+        inviteTableView.dataSource = self
+        
+        //print( Constants.Aperos.tabEApero)
+        
+        for app in tabApero {
+            app.observeApero()
+        }
+
 
         for event in Constants.Events.tabEvent{
         
@@ -68,6 +79,8 @@ class DetailEventViewController: UIViewController {
             
             initView()
             getStyle()
+            
+        
         }
         //initView()
     }
@@ -76,6 +89,7 @@ class DetailEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func initView(){
+        inviteTableView.backgroundColor = UIColor.clear
         event?.observeEvent()
         //DATA INCRMENTS
         dateLabel.text = event?.date
@@ -98,12 +112,14 @@ class DetailEventViewController: UIViewController {
           //print(id)
             for apero in Constants.Aperos.tabEApero{
                 if id == apero.id{
+                    apero.observeApero()
                     self.event?.saveAperoToEvent(apero: apero)
+                    
                     temptab.append(apero)
                     let button = UIButton(frame: CGRect(x: 20+(100*i), y: 10, width: 75, height: 30))
                     button.setTitle(apero.name, for: .normal)
                     button.tag = i
-                    button.addTarget(self, action: #selector(self.showApero), for: UIControlEvents.touchUpInside)
+                    //button.addTarget(self, action: #selector(self.showApero), for: UIControlEvents.touchUpInside)
 //                    listeEvent += apero.name!
 //                    listeEvent += "\n"
                     listeAperoView.addSubview(button)
@@ -115,8 +131,7 @@ class DetailEventViewController: UIViewController {
 
         }
         tabApero = temptab
-
-    
+        inviteTableView.reloadData()
     
     }
     func getStyle(){
@@ -145,10 +160,53 @@ class DetailEventViewController: UIViewController {
         }
         
     }
-    func showApero(sender:UIButton!){
-        performSegue(withIdentifier: "showAperoSegue", sender: self.tabApero[sender.tag])
+    
+    
+    //-------------------------------------
+    // MARK: - TableVIew Handler
+    //-------------------------------------
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return tabApero.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = AperoTableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "AperoCell", for: indexPath) as UITableViewCell as! AperoTableViewCell
+        cell.TitleLabel?.text = tabApero[indexPath.row].name
+        let adress: String = self.tabApero[indexPath.row].adresse!
+        let nb: String = self.tabApero[indexPath.row].nbInvite
+        if !adress.isEmpty {
+            cell.PalceLabel?.text = adress
+        }
+        if !nb.isEmpty  {
+            cell.nbRestantLabel?.text = nb
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.selected = self.tabApero[indexPath.row]
+        showApero()
+        
     
     }
+    
+    //-------------------------------------
+    func showApero(){
+        performSegue(withIdentifier: "showAperoSegue", sender: selected)
+        selected = nil
+    
+    }
+    
+    
+    
+    
+    
+    
     func getFBEventInfo(){
         
         if (FBSDKAccessToken.current()) != nil , Constants.Users.user != nil {
@@ -183,6 +241,7 @@ class DetailEventViewController: UIViewController {
                                                 self.coverimage.image = UIImage(data: data! as Data)
                                                 
                                             }
+                                   // self.inviteTableView.reloadData()
                                             
                                             
                                         
