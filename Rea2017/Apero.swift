@@ -20,7 +20,7 @@ class Apero: NSObject {
     var start: String? = nil
     var end: String? = nil
     //var cp : String? = nil
-    var userHost: User? = Constants.Users.user
+    var userHostid: String? = nil
     var tabInvite = [User]()
     var tabInviteId = [String]()
     
@@ -86,7 +86,11 @@ class Apero: NSObject {
                 if let aperofb = dic?["FBEventId"] as? String {
                     self.eventFb = aperofb
                 }
-               
+                if let id = dic?["HostId"] as? String {
+                    self.userHostid = id
+                    
+                }
+                
                 
                 if let aperoInvite = dic?["Invite"] as? [String: AnyObject]{
                     var tabUser = [String]()
@@ -124,7 +128,7 @@ class Apero: NSObject {
         var values:[String : Any]
         
        
-            values = ["id":self.id]
+            values = ["id":self.id,"HostId": (Constants.Users.user?.id)! as String]
             
             if !self.name.isEmpty {
                 values["title"] = self.name

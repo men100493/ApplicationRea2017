@@ -21,6 +21,7 @@ class User: NSObject {
     var id: String?
     var pnom: String?
     var nom: String?
+    var naiss: String?
     var email: String?
     var fbId:  String?
     var googleId:  String?
@@ -51,6 +52,20 @@ class User: NSObject {
         self.photoProfilUrl = imageUrl
         //self.ref =  FIRDatabase.database().reference()
     }
+
+    
+    init(nom: String, pnom: String, email:  String, fbId: String,imageUrl :String , naiss: String) {
+        //let uuid = NSUUID().uuidString
+        self.id = fbId
+        self.nom = nom
+        self.pnom = pnom
+        self.email = email
+        self.fbId = fbId
+        self.googleId = nil
+        self.photoProfilUrl = imageUrl
+        self.naiss = naiss
+        //self.ref =  FIRDatabase.database().reference()
+    }
     
     init(nom: String, pnom: String, email:  String, googleId: String ) {
         //let uuid = NSUUID().uuidString
@@ -63,6 +78,41 @@ class User: NSObject {
         //self.ref =  FIRDatabase.database().reference()
     }
     
+    
+    func getFBUptade() {
+        if (FBSDKAccessToken.current()) != nil{
+            
+            FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large),birthday"]).start { (connection, result, error) in
+                //print("Wesh")
+                
+                if error != nil {
+                    print("Failed looser  fuck graph request" )
+                    return
+                }
+                
+                let usrDict = result as! [String : AnyObject]
+                if let profilePictureURLStr = (usrDict["picture"]!["data"]!! as! [String : AnyObject])["url"]{
+                    self.photoProfilUrl = profilePictureURLStr as! String
+                }
+                let userid = usrDict["id"] as! String
+                if let userName = usrDict["last_name"] {
+                    self.nom = userName as? String
+                }
+                if let userFName = usrDict["first_name"]{
+                    self.pnom = userFName as! String
+                }
+                if let userMail = usrDict["email"] {
+                    self.email = userMail as! String
+                }
+                if let usernaiss = usrDict["birthday"] {
+                    self.naiss = usernaiss as! String
+                }
+                self.saveUserToDataBase()
+                
+            }
+        }
+
+    }
     
     func isConnectToFacebook() -> Bool{
         if fbId == nil {
@@ -128,7 +178,7 @@ class User: NSObject {
         
         let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
         
-        let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId]
+        let values = ["uid": self.id ,"nom": self.nom ,"prenom": self.pnom ,"email": self.email,"fbid": self.fbId,"gid": self.googleId,"naiss": self.naiss,"PhotoUrl": self.photoProfilUrl]
         
         let usersReference = ref.child("users").child(self.id!)
 

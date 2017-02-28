@@ -18,7 +18,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var eventField: UITextField!
     @IBOutlet var nbGuestField: UITextField!
     @IBOutlet var adressField: UITextField!
-    @IBOutlet var titleField: UITextField!
+    //@IBOutlet var titleField: UITextField!
     @IBOutlet var startField: UITextField!
     @IBOutlet var endField: UITextField!
     //@IBOutlet var cpField: UITextField!
@@ -117,7 +117,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
              eventField.text = tabEvent[row].name
              eventId = tabEvent[row].id
         }
-        if (!(eventField.text?.isEmpty)! && !(nbGuestField.text?.isEmpty)!){
+        if (!(eventField.text?.isEmpty)! && !(nbGuestField.text?.isEmpty)! ){
             addBtn.isEnabled = true
         }else{
             addBtn.isEnabled = false
@@ -151,7 +151,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func AddApero(_ sender: Any) {
         let id = NSUUID().uuidString
-        let title = titleField.text!
+        let title = (Constants.Users.user?.pnom)! + " " + (Constants.Users.user?.nom)!
         let decr = descrField.text
         let eventid = eventId
         let nbGuest = nbGuestField.text!
@@ -162,7 +162,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         if !title.isEmpty, !nbGuest.isEmpty , !(adress.isEmpty), !(eventid?.isEmpty)!{
         
-            titleField.text = ""
+            //titleField.text = ""
             descrField.text = ""
             eventField.text = ""
             nbGuestField.text = ""

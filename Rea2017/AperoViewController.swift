@@ -138,7 +138,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if Helper.isConnectToFacebook() {
-            Helper.getUserFBData()
+            //Helper.getUserFBData()
             //loginBtnOutlet.setTitle("Profil", for: .normal)
             loginBtnOutlet.setTitle("", for: .normal)
             loginBtnOutlet.setImage(imagePro, for: .normal)

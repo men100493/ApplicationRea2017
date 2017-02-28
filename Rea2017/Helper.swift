@@ -51,50 +51,55 @@ class Helper{
     
     static func getUserFBData() {
         
-        if (FBSDKAccessToken.current()) != nil{
         
-        FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"]).start { (connection, result, error) in
-            //print("Wesh")
+            if (FBSDKAccessToken.current()) != nil{
+                
+                FBSDKGraphRequest.init(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large),birthday"]).start { (connection, result, error) in
+                    print(result)
+                    
+                    if error != nil {
+                        print("Failed looser  fuck graph request" )
+                        return
+                    }
+                    
+                    let usrDict = result as! [String : AnyObject]
+                    let profilePictureURLStr = (usrDict["picture"]!["data"]!! as! [String : AnyObject])["url"]
+                    let userid = usrDict["id"] as! String
+                    let userName = usrDict["last_name"] as! String
+                    let userFName = usrDict["first_name"] as! String
+                    let userMail = usrDict["email"] as! String
+                    let usernaiss = usrDict["birthday"] as! String
+                    //let profilPic = usrDict["picture"]!["data"]! as! [String : AnyObject])["url"]as! String
+                    //(data["picture"]!["data"]!! as! [String : AnyObject])["url"]as! String
+                    //let profilPic = usrDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("data"") as! String
+                    print(usernaiss)
+                    //print(userName)
+                    
+                    
+                    
+                    //Création de l'utilsateur FB
+                    
+                    let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String,naiss: usernaiss)
+                    //let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String)
+                    
+                    //Firebase Setup
+                    let accesToken = FBSDKAccessToken.current()
+                    let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
+                    userFB.conectToFireBase(credentials: credentials)
+                    userFB.saveUserToDataBase()
+                    
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    Constants.Users.user = userFB
+                    print(Constants.Users.user?.id)
+                    Constants.Users.user?.getEventAsFav()
+                    //Constants.Users.user?.getFBPicture()
+                    
+                }
+                
             
-            if error != nil {
-                print("Failed looser  fuck graph request" )
-                return
-            }
-            
-            let usrDict = result as! [String : AnyObject]
-            let profilePictureURLStr = (usrDict["picture"]!["data"]!! as! [String : AnyObject])["url"]
-            let userid = usrDict["id"] as! String
-            let userName = usrDict["last_name"] as! String
-            let userFName = usrDict["first_name"] as! String
-            let userMail = usrDict["email"] as! String
-            
-            //let profilPic = usrDict["picture"]!["data"]! as! [String : AnyObject])["url"]as! String
-            //(data["picture"]!["data"]!! as! [String : AnyObject])["url"]as! String
-            //let profilPic = usrDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("data"") as! String
-            print(profilePictureURLStr)
-            //print(userName)
-            
-            
-            
-            //Création de l'utilsateur FB
-            
-            let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String)
-            
-            
-            //Firebase Setup
-            let accesToken = FBSDKAccessToken.current()
-            let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accesToken?.tokenString)!)
-            userFB.conectToFireBase(credentials: credentials)
-            userFB.saveUserToDataBase()
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            Constants.Users.user = userFB
-            Constants.Users.user?.getEventAsFav()
-            //Constants.Users.user?.getFBPicture()
-            
-            }
-            
+        
         }
+        
     }
     
     
@@ -111,6 +116,7 @@ class Helper{
         
         if Constants.Users.user != nil {
             print("Utilisateur connecté")
+            Constants.Users.user?.getFBUptade()
             Helper.getBDDEvents()
             Helper.getBDDAperos()
             Helper.getBDDUser()
@@ -120,9 +126,10 @@ class Helper{
         }
         
         if Helper.isConnectToFacebook() {
+            Constants.Users.user?.getFBUptade()
             print("Utilisateur connecté a FB")
             // Création de l'utisateur et Connection a Facebook
-            Helper.getUserFBData()
+            //Helper.getUserFBData()
             Helper.getBDDEvents()
             Helper.getBDDAperos()
             Helper.getBDDUser()
@@ -374,9 +381,11 @@ class Helper{
                     //let useradd = user.value["adress"] as? String
                     //let usermusic = user.value["music"] as? String
                     var userprenom = user.value["prenom"] as? String
+                    var userphoto = user.value["PhotoUrl"] as? String
+                    var usernaiss = user.value["naiss"] as? String
                     
                     if userid != nil , usernom != nil, usermail != nil{
-                        let user = User(nom: usernom!, pnom: userprenom!, email: usermail!, fbId: userid!)
+                        let user = User(nom: usernom!, pnom: userprenom!, email: usermail!, fbId: userFBid!, imageUrl: userphoto!, naiss: usernaiss!)
                         tabUser.append(user)
                         //Constants.Events.tabEvent = tabEve
                         //Constants.Events.addEvent(event)
@@ -388,6 +397,8 @@ class Helper{
                     userprenom = nil
                     userFBid = nil
                     usernom = nil
+                    usernaiss = nil
+                    userphoto = nil
                     
                 }
                 Constants.Users.tabUser = tabUser

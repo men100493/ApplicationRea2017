@@ -30,25 +30,17 @@ class ProfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
+    
+        Constants.Users.user?.getFBUptade()
         //Constants.Users.user?.getFBPicture()
         Constants.Users.user?.observeUser()
         var userID = Constants.Users.user?.id
-        var pictureFB = Constants.Users.user?.photoProfilUrl
+       
         //profilPicture.image = pictureFB
-        print(pictureFB)
+        //print(pictureFB)
         nomLabelOutlet.text = Constants.Users.user?.nom
         prenomLabelOutlet.text = Constants.Users.user?.pnom
         
-        
-        let url = NSURL(string: pictureFB!)
-        let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
-        profilPicture.image = UIImage(data: data! as Data)
-        profilPicture.layer.cornerRadius = 40
-        profilPicture.layer.masksToBounds = true
-        profilPicture.layer.borderWidth = 0.3
-        profilPicture.layer.borderColor =  UIColor.white.cgColor
         
         // Do any additional setup after loading the view.
     }
@@ -58,6 +50,16 @@ class ProfilViewController: UIViewController {
         Constants.Users.user?.getUserApero()
         let tabApero = Constants.Users.user?.tabApero
         print( tabApero?.count)
+        //Photo Profils
+        var pictureFB = Constants.Users.user?.photoProfilUrl
+        let url = NSURL(string: pictureFB!)
+        let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        profilPicture.image = UIImage(data: data! as Data)
+        profilPicture.layer.cornerRadius = 40
+        profilPicture.layer.masksToBounds = true
+        profilPicture.layer.borderWidth = 0.3
+        profilPicture.layer.borderColor =  UIColor.white.cgColor
+
         
 
     }
@@ -72,6 +74,7 @@ class ProfilViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         Constants.Users.user?.logout()
         Constants.Users.user = nil
+        
         // this is an instance function
         self.performSegue(withIdentifier: "LogoutOfProfil", sender: nil)
         

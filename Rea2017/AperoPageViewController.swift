@@ -19,9 +19,14 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var addUserInView: UIButton!
     @IBOutlet weak var addUserBtn: UIButton!
     @IBOutlet weak var addUserView: UIView!
-    @IBOutlet weak var EventAperoLabel: UILabel!
+    
+    @IBOutlet weak var avisHoteLabel: UILabel!
+    @IBOutlet weak var ageHoteLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
     
+    @IBOutlet weak var eventImageView: UIImageView!
+    @IBOutlet weak var descriptionAperoLabel: UILabel!
+    @IBOutlet weak var dateEventLabel: UILabel!
     @IBOutlet weak var nbInvitLabel: UILabel!
     var apero : Apero?
     var tabPreditive = Constants.Users.tabUser
@@ -47,7 +52,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 tabInvite = (self.apero?.tabInvite)!
                 userPart()
             }
-            if apero?.userHost?.id == Constants.Users.user?.id{
+            if apero?.userHostid == Constants.Users.user?.id{
                 addUserBtn.isHidden = false
             }
             
@@ -69,16 +74,49 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     func setContent(){
         
-        AperoNameLabel.text = apero?.name
-        EventAperoLabel.text = apero?.eventFb
-        nbInvitLabel.text = apero?.nbInvite
+        for user in Constants.Users.tabUser {
+        
+            if user.id == apero?.userHostid {
+                AperoNameLabel.text = user.pnom! + " " + user.nom!
+                ageHoteLabel.text = user.naiss
+                let naiss = user.naiss?.components(separatedBy: "/")
+                let date = Date()
+                let calendar = Calendar.current
+                
+                let yearAct = calendar.component(.year, from: date)
+                let age = Int(yearAct) - Int((naiss?[2])!)!
+                ageHoteLabel.text = String(age) + " ans"
+                
+                
+            }
+        }
+
+        descriptionAperoLabel.text = apero?.descrip
+        //EventAperoLabel.text = apero?.eventFb
+        if ((apero?.nbInvite)! != nil){
+            nbInvitLabel.text = (apero?.nbInvite)! + " Places"
+        }
+        
         for event in Constants.Events.tabEvent {
             if event.id == self.apero?.eventFb {
                 self.eventId = event
-                EventAperoLabel.text =  event.name
-                let tap = UITapGestureRecognizer(target: self, action: #selector(self.goToEventPage))
-                EventAperoLabel.isUserInteractionEnabled = true
-                EventAperoLabel.addGestureRecognizer(tap)
+                //Recuperer l'image de fond
+                //Date de l'event
+                
+                let date = event.date
+                dateEventLabel.text = date
+                
+                let coverUrl = event.coverUrlFB
+                if coverUrl != nil {
+                    let url = NSURL(string: coverUrl!)
+                    let data = NSData(contentsOf: url! as URL)
+                    eventImageView.image = UIImage(data: data! as Data)
+                }
+                
+//                EventAperoLabel.text =  event.name
+//                let tap = UITapGestureRecognizer(target: self, action: #selector(self.goToEventPage))
+//                EventAperoLabel.isUserInteractionEnabled = true
+//                EventAperoLabel.addGestureRecognizer(tap)
                 
             }
         }
@@ -200,7 +238,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 self.present(alertController, animated: true, completion: nil)
                 
                 
-            }else if userSeleted?.id == apero?.userHost?.id{
+            }else if userSeleted?.id == apero?.userHostid{
                 let alertController = UIAlertController(title: "Problème", message:
                     "Tu es hote de cette soirée tu ne peux pas t'inviter", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))

@@ -120,22 +120,30 @@ class DetailEventViewController: UIViewController {
     
     }
     func getStyle(){
-        let des:String = eventDescriptino.text!
-        print(des)
-        if (des.lowercased().contains("hip-hop")){
-            styleMusical.text = "hip-hop"
-        }else if (des.lowercased().contains("techno")){
-            styleMusical.text = "Techno"
-        }else if (des.lowercased().contains("trance")){
-            styleMusical.text = "Trance"
-        }else if (des.lowercased().contains("acid")){
-            styleMusical.text = "Acid"
-        }else if (des.lowercased().contains("house")){
-            styleMusical.text = "House"
+        if !(eventDescriptino.text?.isEmpty)!{
+            let des:String = (eventDescriptino.text)!
+            print(des)
+            if (des.lowercased().contains("hip-hop")){
+                styleMusical.text = "hip-hop"
+            }else if (des.lowercased().contains("rap")){
+                styleMusical.text = "Rap"
+            }else if (des.lowercased().contains("techno")){
+                styleMusical.text = "Techno"
+            }else if (des.lowercased().contains("trance")){
+                styleMusical.text = "Trance"
+            }else if (des.lowercased().contains("acid")){
+                styleMusical.text = "Acid"
+            }else if (des.lowercased().contains("house")){
+                styleMusical.text = "House"
+            }else{
+                styleMusical.text = "Autre"
+            }
+
+        
         }else{
             styleMusical.text = "Autre"
         }
-    
+        
     }
     func showApero(sender:UIButton!){
         performSegue(withIdentifier: "showAperoSegue", sender: self.tabApero[sender.tag])

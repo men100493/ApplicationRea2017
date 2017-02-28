@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignIn
         
         
         loginButton.delegate = self
-        loginButton.readPermissions = ["email", "public_profile", "user_friends", "user_events"]
+        loginButton.readPermissions = ["email", "public_profile", "user_friends", "user_events","user_birthday"]
     }
     
     

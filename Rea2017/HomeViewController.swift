@@ -214,7 +214,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     //-------------------------------------
     
     func initHomeViewController(){
-        
+        self.user = Constants.Users.user
         
         let imagePro = UIImage(named: "Profil") as UIImage?
         getMusicevent()
@@ -230,8 +230,10 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
             return
             
         }
+        print(Constants.Users.user?.nom)
         
-        if Helper.isConnectToFacebook() {
+        
+        if FBSDKAccessToken.current() != nil {
             Helper.getUserFBData()
             //loginBtnOutlet.setTitle("Profil", for: .normal)
             loginBtnOutlet.setTitle("", for: .normal)
