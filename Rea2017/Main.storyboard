@@ -337,7 +337,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-gR-e6g" userLabel="Description">
                                                 <rect key="frame" x="162" y="165" width="146" height="99"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Akkurat-Light" family="Akkurat-Light" pointSize="17"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.81176470590000005" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -354,6 +354,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
                                                 <state key="normal" title="Contacter"/>
+                                                <connections>
+                                                    <action selector="contactBtnAction:" destination="L9g-89-DgG" eventType="touchUpInside" id="JPq-OZ-X5l"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1BP-0c-JWE">
                                                 <rect key="frame" x="45" y="87" width="80" height="80"/>
@@ -369,8 +372,8 @@
                                             <constraint firstAttribute="height" constant="360" id="SBF-2F-363"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Un-op-0Wv">
-                                        <rect key="frame" x="0.0" y="358" width="320" height="213"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Un-op-0Wv">
+                                        <rect key="frame" x="0.0" y="358" width="320" height="238"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-h2-hBz">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
@@ -403,7 +406,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Palce" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-tx-IKs" userLabel="Location">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlAce" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-tx-IKs" userLabel="Location">
                                                 <rect key="frame" x="8" y="32" width="304" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
@@ -418,16 +421,6 @@
                                                 <rect key="frame" x="125" y="-38" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axS-1r-eiA">
-                                                <rect key="frame" x="0.0" y="107" width="156" height="106"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQ4-yo-eXm" userLabel="Place restante">
-                                                <rect key="frame" x="164" y="61" width="156" height="152"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vts-Yp-6nr">
                                                 <rect key="frame" x="282" y="175" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -436,6 +429,16 @@
                                                     <action selector="addUserToEvent:" destination="L9g-89-DgG" eventType="touchUpInside" id="BIs-KS-bPT"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axS-1r-eiA">
+                                                <rect key="frame" x="0.0" y="124" width="156" height="106"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQ4-yo-eXm" userLabel="Place restante">
+                                                <rect key="frame" x="164" y="78" width="156" height="152"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.50588235290000005" green="0.81176470590000005" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -443,13 +446,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-yV-Zsh">
-                                        <rect key="frame" x="0.0" y="571" width="320" height="331"/>
+                                        <rect key="frame" x="0.0" y="598" width="320" height="304"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPf-M2-k34">
-                                                <rect key="frame" x="73" y="8" width="174" height="30"/>
+                                                <rect key="frame" x="23" y="8" width="275" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="18"/>
                                                 <color key="textColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -473,12 +476,18 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm4-2t-zLP">
                                                 <rect key="frame" x="42" y="228" width="237" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Envoyer la demande"/>
+                                                <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
+                                                <state key="normal" title="Envoyer la demande">
+                                                    <color key="titleColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8H-YH-Gqj">
                                                 <rect key="frame" x="42" y="266" width="237" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Partager l'apero"/>
+                                                <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="17"/>
+                                                <state key="normal" title="Partager l'apero">
+                                                    <color key="titleColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -517,6 +526,7 @@
                         <outlet property="addUserView" destination="IsG-D6-Peb" id="CLE-25-1r1"/>
                         <outlet property="ageHoteLabel" destination="WYa-d2-7fW" id="jl6-ws-1tf"/>
                         <outlet property="avisHoteLabel" destination="7wZ-sc-9zc" id="EZn-fx-bJd"/>
+                        <outlet property="contactBtn" destination="fQP-yn-fdJ" id="boA-fZ-cu9"/>
                         <outlet property="dateEventLabel" destination="Eqn-Sc-GPa" id="jwT-GD-gG9"/>
                         <outlet property="descriptionAperoLabel" destination="Qy2-gR-e6g" id="Jfb-1g-aq5"/>
                         <outlet property="eventImageView" destination="K0b-Tb-iZ5" id="2Lt-8m-XqC"/>
@@ -531,6 +541,7 @@
                         <outlet property="userAdd" destination="qmH-yO-MHt" id="wyO-qe-n6F"/>
                         <outlet property="userView" destination="7Un-op-0Wv" id="28I-Kv-WWl"/>
                         <segue destination="Dld-Fm-qSn" kind="show" identifier="showEventSegue" id="XTI-cF-wch"/>
+                        <segue destination="D22-EQ-Ta1" kind="show" identifier="chat2Segue" id="d4B-Tk-a9H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJZ-Kv-EUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1411,7 +1422,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Egh-cR-LIk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9hv-Ij-SBQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10E-M3-nTK">
@@ -1428,11 +1439,11 @@
                                             <segue destination="i7k-T0-mae" kind="unwind" unwindAction="unwindFromChatWithSender:" id="oeH-e4-yPa"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de l'apero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOf-kj-u8B">
-                                        <rect key="frame" x="102" y="21" width="117" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de l'apero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOf-kj-u8B">
+                                        <rect key="frame" x="46" y="21" width="228" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="DolceVitaHeavy-Bold" family="Dolce Vita Heavy" pointSize="16"/>
+                                        <color key="textColor" red="0.12941176469999999" green="0.12549019610000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1449,7 +1460,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceY-HH-pwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i7k-T0-mae" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2181" y="-870"/>
+            <point key="canvasLocation" x="2180.625" y="-870.42253521126759"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SVQ-pI-UtV">
@@ -1553,6 +1564,7 @@ Tu seras désormais certain d’être toujours avec quelqu’un pour partager un
     <inferredMetricsTieBreakers>
         <segue reference="Zta-ZI-yKD"/>
         <segue reference="4Am-8I-J3Q"/>
+        <segue reference="d4B-Tk-a9H"/>
         <segue reference="XTI-cF-wch"/>
     </inferredMetricsTieBreakers>
 </document>

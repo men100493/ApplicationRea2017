@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableViewDelegate , UITableViewDataSource{
 
@@ -26,6 +27,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var AperoNameLabel: UILabel!
     @IBOutlet weak var listeTitreLabel: UILabel!
     
+    @IBOutlet weak var contactBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var placeLeftView: UIView!
     @IBOutlet weak var participantView: UIView!
@@ -35,6 +37,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var dateEventLabel: UILabel!
     @IBOutlet weak var nbInvitLabel: UILabel!
     var apero : Apero?
+    var host:User?
     var tabPreditive = Constants.Users.tabUser
     var autoCompletename = [String]()
     var userSeleted: User?
@@ -80,14 +83,16 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     func setContent(){
         print(Constants.Users.user?.id)
-//        if apero?.userHostid == Constants.Users.user?.id{
-//            addUserBtn.isHidden = false
-//        }
-//        
+        if apero?.userHostid == Constants.Users.user?.id{
+            contactBtn.isEnabled = true
+            //addUserBtn.isHidden = false
+        }
+//
         for user in Constants.Users.tabUser {
             
         
             if user.id == apero?.userHostid {
+                host = user
                 user.getFBUptade()
                 AperoNameLabel.text = user.pnom! + " " + user.nom!
                 ageHoteLabel.text = user.naiss
@@ -401,6 +406,9 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         var i = 0
         
         for invite in tabInvite {
+            if invite.id == Constants.Users.user?.id{
+                contactBtn.isEnabled = true
+            }
             let inviteText: String = invite.nom!
             if  invite.photoProfilUrl != nil {
                 let photoInvite:String = invite.photoProfilUrl!
@@ -456,6 +464,13 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         self.predictiveTableView.isHidden  = true
         
     }
+    
+    @IBAction func contactBtnAction(_ sender: Any) {
+        
+        //Go to message View
+         performSegue(withIdentifier: "chat2Segue", sender: nil)
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -479,6 +494,13 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "chat2Segue" {
+            let destVC = segue.destination as! ChatViewController
+            destVC.channel = apero
+            destVC.channelRef = FIRDatabase.database().reference().child("Apero").child((apero?.id)!)
+            destVC.titreChat = apero?.name
+            destVC.senderDisplayName = Constants.Users.user?.pnom
+        }
 
         
         if segue.identifier == "showEventSegue" {
