@@ -60,6 +60,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     override func viewDidAppear(_ animated: Bool)
     {
+        super.viewDidAppear(animated)
         initHomeViewController()
     }
     override func didReceiveMemoryWarning() {

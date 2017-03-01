@@ -44,9 +44,10 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     override func viewDidAppear(_ animated: Bool)
     {
        
-        
+        super.viewDidAppear(animated)
         getMusicevent()
         initHomeViewController()
+        self.homeTableView.reloadData()
 
     }
     
