@@ -34,8 +34,9 @@ class DetailEventViewController: UIViewController, UITableViewDelegate , UITable
     //@IBOutlet weak var listeAperosAssocie: UILabel!
     @IBOutlet weak var addAperosBtn: UILabel!
     @IBOutlet weak var eventname: UILabel!
-    @IBOutlet weak var eventDescriptino: UILabel!
+    //@IBOutlet weak var eventDescriptino: UILabel!
 
+    @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet weak var inviteTableView: UITableView!
     
     override func viewDidLoad() {
@@ -127,8 +128,8 @@ class DetailEventViewController: UIViewController, UITableViewDelegate , UITable
     
     }
     func getStyle(){
-        if !(eventDescriptino.text?.isEmpty)!{
-            let des:String = (eventDescriptino.text)!
+        if (eventDescription.text != nil ){
+            let des:String = (eventDescription.text)!
             print(des)
             if (des.lowercased().contains("hip-hop")){
                 styleMusical.text = "hip-hop"
@@ -217,7 +218,9 @@ class DetailEventViewController: UIViewController, UITableViewDelegate , UITable
                                     self.eventname.text = eventname
                                             let eventdate = resultat?["start_time"] as? String
                                             let eventDescription = resultat?["description"] as? String
-                                    self.eventDescriptino.text = eventDescription
+                                    //self.eventDescriptino.text = eventDescription
+                                    
+                                    self.eventDescription.text = eventDescription
                                     self.getStyle()
                                     
                                             let eventticket = resultat?["ticket_uri"] as? String

@@ -7,25 +7,48 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
-class ChatMessageViewController: UIViewController {
+
+
+class ChatMessageViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var loginBtnOutlet: UIButton!
     var user:User?
+
+    var ref:FIRDatabaseReference?
+    var databaseHandle:FIRDatabaseHandle?
+    var tabApero = [Apero]()
+    var channel:Apero?
     
+    @IBOutlet weak var chatTableview: UITableView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initHomeViewController()
+        
+        chatTableview.delegate = self
+        chatTableview.dataSource = self
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
+        tabApero = [Apero]()
+        for apero in Constants.Aperos.tabEApero {
+            tabApero.append(apero)
+            
+        }
+        chatTableview.reloadData()
         
+
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool)
     {
+        super.viewDidAppear(animated)
         initHomeViewController()
+        
         
         
     }
@@ -33,8 +56,30 @@ class ChatMessageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //-------------------------------------
+    // MARK: - TableVIew HAndler
+    //-------------------------------------
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tabApero.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell")
+        cell?.textLabel?.text = tabApero[indexPath.row].name
+        return cell!
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("TG")
+        channel = tabApero[indexPath.row]
+        performSegue(withIdentifier: "chatSegue", sender: nil)
+    }
     /*
      // MARK: - Navigation
      
@@ -134,6 +179,32 @@ class ChatMessageViewController: UIViewController {
             
             
         }
+    }
+    
+    @IBAction func unwindFromChat(sender: UIStoryboardSegue) {
+        
+        if sender.source is ChatViewController {
+            
+            print("BAck From Chat")
+            
+            
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "chatSegue" {
+            let destVC = segue.destination as! ChatViewController
+            destVC.channel = channel
+            destVC.channelRef = FIRDatabase.database().reference().child("Apero").child((channel?.id)!)
+            destVC.titreChat = channel?.name
+            destVC.senderDisplayName = Constants.Users.user?.pnom
+        }
+        
+        
+        
     }
     
 }

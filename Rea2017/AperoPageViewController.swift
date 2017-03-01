@@ -24,7 +24,9 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var avisHoteLabel: UILabel!
     @IBOutlet weak var ageHoteLabel: UILabel!
     @IBOutlet weak var AperoNameLabel: UILabel!
+    @IBOutlet weak var listeTitreLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var placeLeftView: UIView!
     @IBOutlet weak var participantView: UIView!
     @IBOutlet weak var profilImageView: UIImageView!
@@ -68,6 +70,8 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             userPart()
             tabInvite = (self.apero?.tabInvite)!
             setContent()
+            scrollView.contentSize.height = 900
+            
 
             
             
@@ -76,10 +80,10 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     
     func setContent(){
         print(Constants.Users.user?.id)
-        if apero?.userHostid == Constants.Users.user?.id{
-            addUserBtn.isHidden = false
-        }
-        
+//        if apero?.userHostid == Constants.Users.user?.id{
+//            addUserBtn.isHidden = false
+//        }
+//        
         for user in Constants.Users.tabUser {
             
         
@@ -94,7 +98,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 let yearAct = calendar.component(.year, from: date)
                 let age = Int(yearAct) - Int((naiss?[2])!)!
                 ageHoteLabel.text = String(age) + " ans"
-                
+                listeTitreLabel.text = "La liste de " +  user.pnom!
                 
                 if let pictureFB = user.photoProfilUrl {
                     let url = NSURL(string: pictureFB)
@@ -121,8 +125,29 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             nbInvitLabel.text = (apero?.nbInvite)! + " Places"
             
             if let nb = Int ((apero?.nbInvite)!){
-                for i in 0 ... nb {
+                var y = 0
+                var x = 10
+                for i in 0 ... nb-1 {
                     
+                    if i%3 == 0{
+                        y = y + 40
+                        x = 10
+                    }else{
+                        x = x + 40
+                    }
+                    //placeLeftview
+                    
+                    let userImage = UIImage(named: "user")
+                    let userView = UIImageView(image: userImage)
+                    userView.frame = CGRect(x: x, y: y, width: 30, height: 30)
+
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(addUserTapped))
+                    userView.addGestureRecognizer(tap)
+                    userView.isUserInteractionEnabled = true
+                    self.placeLeftView.addSubview(userView)
+                    
+                   
+
                 }
             
             }
@@ -181,7 +206,15 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
 
     
     }
+    func addUserTapped(){
+        
+        if apero?.userHostid == Constants.Users.user?.id{
+            self.addUserBtn.sendActions(for: .touchUpInside)
+            
+        }
+        
     
+    }
     func goToEventPage(){
           performSegue(withIdentifier: "showEventSegue", sender: self.eventId)
     

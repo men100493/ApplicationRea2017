@@ -32,6 +32,7 @@
 		00BBA2301E4CC2BB0022FB84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */; };
 		00BBA2321E4DF12F0022FB84 /* FBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA2311E4DF12F0022FB84 /* FBEvent.swift */; };
 		00BD3F221E65C66A006DC8A6 /* AperoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD3F211E65C66A006DC8A6 /* AperoTableViewCell.swift */; };
+		00BD3F241E66E90A006DC8A6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD3F231E66E90A006DC8A6 /* ChatViewController.swift */; };
 		00D151F71E51C2D20073BDFA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D151F61E51C2D20073BDFA /* Constant.swift */; };
 		7195D65D27F5CFB058421266 /* Pods_Rea2017UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9427BAA607901D91DDCE988 /* Pods_Rea2017UITests.framework */; };
 		907597558A3638B0D716805B /* Pods_Rea2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0A911EEAF425E5C948C37F /* Pods_Rea2017.framework */; };
@@ -90,6 +91,7 @@
 		00BBA22F1E4CC2BB0022FB84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00BBA2311E4DF12F0022FB84 /* FBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBEvent.swift; sourceTree = "<group>"; };
 		00BD3F211E65C66A006DC8A6 /* AperoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoTableViewCell.swift; sourceTree = "<group>"; };
+		00BD3F231E66E90A006DC8A6 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		00D151F61E51C2D20073BDFA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1680BFD9000AFFFC7B93A555 /* Pods-Rea2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017Tests/Pods-Rea2017Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5A37697484D14A74ECC4669B /* Pods-Rea2017UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rea2017UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rea2017UITests/Pods-Rea2017UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				9151901F1E549BF1001D1F13 /* ConfigProfilViewController.swift */,
 				007F210D1E54DD9600E291DA /* AperoPageViewController.swift */,
 				004E4D751E5DBE9500DE1168 /* OtherUserViewController.swift */,
+				00BD3F231E66E90A006DC8A6 /* ChatViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 			files = (
 				007C89E31E48F13700487EF0 /* HomeViewController.swift in Sources */,
 				0028E7A71E4CA07400E99101 /* Helper.swift in Sources */,
+				00BD3F241E66E90A006DC8A6 /* ChatViewController.swift in Sources */,
 				00BBA2321E4DF12F0022FB84 /* FBEvent.swift in Sources */,
 				007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */,
 				912C65DC1E5072130045B5CB /* AddAperoViewController.swift in Sources */,

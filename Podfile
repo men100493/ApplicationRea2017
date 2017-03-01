@@ -19,6 +19,7 @@ target 'Rea2017' do
   #pod 'CCAutocomplete'
   #pod 'GoogleMaps'
 
+  pod 'JSQMessagesViewController'
   target 'Rea2017Tests' do
     inherit! :search_paths
     # Pods for testing

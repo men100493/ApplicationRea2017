@@ -65,7 +65,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>aqua.ttf</string>
+		<string>Akkurat-Light.ttf</string>
+		<string>Dolce_Vita_Light.ttf</string>
+		<string>Dolce_Vita_Heavy_Bold.ttf</string>
+		<string>Dolce_Vita.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -75,6 +78,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Cette application a besoin d&apos;acceder a tes photos SVP</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Cette application a besoin d&apos;acceder a ton appareil photo SVP</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
