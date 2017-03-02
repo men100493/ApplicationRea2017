@@ -36,6 +36,29 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
     @IBOutlet weak var descriptionAperoLabel: UILabel!
     @IBOutlet weak var dateEventLabel: UILabel!
     @IBOutlet weak var nbInvitLabel: UILabel!
+    
+    
+    @IBOutlet weak var boissonView: UIView!
+    @IBOutlet weak var NourritureView: UIView!
+    
+    @IBOutlet weak var nbVinLabel: UILabel!
+
+    @IBOutlet weak var nbAlcoolLabel: UILabel!
+    @IBOutlet weak var nbBiereLabel: UILabel!
+    
+    @IBOutlet weak var nbAlcoolBtn: UIButton!
+    @IBOutlet weak var nbBiereBtn: UIButton!
+    @IBOutlet weak var nbVinBtn: UIButton!
+    
+    
+    @IBOutlet weak var nbPizzaLabel: UILabel!
+    @IBOutlet weak var nbPizzaBtn: UIButton!
+    @IBOutlet weak var nbChipsLabel: UILabel!
+    @IBOutlet weak var nbChipsBtn: UIButton!
+    @IBOutlet weak var nbPlatsLabel: UILabel!
+    @IBOutlet weak var nbPlatsBtn: UIButton!
+    
+    
     var apero : Apero?
     var host:User?
     var tabPreditive = Constants.Users.tabUser
@@ -129,7 +152,13 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
         if ((apero?.nbInvite)! != nil){
             nbInvitLabel.text = (apero?.nbInvite)! + " Places"
             
-            if let nb = Int ((apero?.nbInvite)!){
+            if var nb = Int ((apero?.nbInvite)!){
+                if nb < 0 {
+                    nb = 0
+                }else{
+                    if nb > 9 {
+                        nb = 9
+                    }
                 var y = 0
                 var x = 10
                 for i in 0 ... nb-1 {
@@ -151,7 +180,7 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                     userView.isUserInteractionEnabled = true
                     self.placeLeftView.addSubview(userView)
                     
-                   
+                    }
 
                 }
             
@@ -208,9 +237,115 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 
             }
         }
+        
+        //SET UP COURSES
+        nbVinBtn.isEnabled = false
+        nbBiereBtn.isEnabled = false
+
+        nbAlcoolBtn.isEnabled = false
+        nbPizzaBtn.isEnabled = false
+
+        nbChipsBtn.isEnabled = false
+        nbPlatsBtn.isEnabled = false
+
+        
+        
+        
 
     
     }
+    func setUpCourses(){
+        
+        for (key, value) in (apero?.tabCourse)!{
+            if key == "vin" {
+                nbVinLabel.text = NSString(format:"%i", value) as String
+                nbVinBtn.isEnabled = true
+                if value == 0 {
+                    nbVinBtn.isEnabled = false
+                }
+            }
+            if key == "biere" {
+                nbBiereLabel.text = NSString(format:"%i", value) as String
+                nbBiereBtn.isEnabled = true
+                if value == 0 {
+                    nbBiereBtn.isEnabled = false
+                }
+            }
+            if key == "alcoolF" {
+                nbAlcoolLabel.text = NSString(format:"%i", value) as String
+                nbBiereBtn.isEnabled = true
+                if value == 0 {
+                    nbAlcoolBtn.isEnabled = false
+                }
+            }
+            
+            
+            if key == "pizza" {
+                nbPizzaLabel.text = NSString(format:"%i", value) as String
+                nbPizzaBtn.isEnabled = true
+                if value == 0 {
+                    nbPizzaBtn.isEnabled = false
+                }
+            }
+            if key == "chips" {
+                nbChipsLabel.text = NSString(format:"%i", value) as String
+                nbChipsBtn.isEnabled = true
+                if value == 0 {
+                    nbChipsBtn.isEnabled = false
+                }
+            }
+            if key == "plats" {
+                nbPlatsLabel.text = NSString(format:"%i", value) as String
+                nbPlatsBtn.isEnabled = true
+                if value == 0 {
+                    nbPlatsBtn.isEnabled = false
+                }
+            }
+
+            
+        }
+        
+
+    
+    }
+    
+    @IBAction func addVin(_ sender: Any) {
+        var nb = (Int((nbVinBtn.titleLabel?.text)!)! as Int)
+        if nb < Int((nbVinLabel?.text)!)!{
+                nb = nb + 1
+        }else{
+            nb = 0
+        
+        }
+        apero?.addCourse(nom: "vin", value: (apero?.tabCourse["vin"])! - 1)
+        setUpCourses()
+        nbVinBtn.titleLabel?.text = NSString(format:"%i", nb) as String
+        //Penser a l'associer à la personne connecter
+    }
+    @IBAction func addBiere(_ sender: Any) {
+        
+        apero?.addCourse(nom: "biere", value: (apero?.tabCourse["biere"])! - 1)
+        setUpCourses()
+
+    }
+    @IBAction func addAlcool(_ sender: Any) {
+        apero?.addCourse(nom: "alcoolF", value: (apero?.tabCourse["alcoolF"])! - 1)
+        setUpCourses()
+    }
+    
+    @IBAction func addPizza(_ sender: Any) {
+        apero?.addCourse(nom: "pizza", value: (apero?.tabCourse["pizza"])! - 1)
+        setUpCourses()
+    }
+    @IBAction func addChips(_ sender: Any) {
+        apero?.addCourse(nom: "chips", value: (apero?.tabCourse["chips"])! - 1)
+        setUpCourses()
+    }
+    @IBAction func addPlats(_ sender: Any) {
+        apero?.addCourse(nom: "plats", value: (apero?.tabCourse["plats"])! - 1)
+        setUpCourses()
+    }
+    
     func addUserTapped(){
         
         if apero?.userHostid == Constants.Users.user?.id{

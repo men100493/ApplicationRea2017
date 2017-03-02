@@ -76,9 +76,30 @@ class ChatMessageViewController: UIViewController ,UITableViewDelegate, UITableV
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        var valid = true
         print("TG")
         channel = tabApero[indexPath.row]
-        performSegue(withIdentifier: "chatSegue", sender: nil)
+        
+        if channel?.userHostid == Constants.Users.user?.id {
+            valid = true
+        }
+        for id in (channel?.tabInvite)! {
+            if id.id == Constants.Users.user?.id {
+              valid = true
+            }
+        }
+        
+        if valid == true {
+            performSegue(withIdentifier: "chatSegue", sender: nil)
+        
+        }else{
+            let alertController = UIAlertController(title: "Problème", message:
+                "Vous ne faite pas parti de cette apéros", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        
+        }
     }
     /*
      // MARK: - Navigation

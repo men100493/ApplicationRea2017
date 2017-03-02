@@ -37,22 +37,35 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
         aperoTableView.delegate = self
         aperoTableView.dataSource = self
         
-        //set the firebase reference
-        ref = FIRDatabase.database().reference()
+//        //set the firebase reference
+//        ref = FIRDatabase.database().reference()
+//        
+//        databaseHandle = ref?.child("Apero").observe(.childAdded, with: { (snapshot) in
+//            // let apero = snapshot.value["title"] as? String
+//            let value = snapshot.value as? NSDictionary
+//            //print(value)
+//            let aperotitle = value?["title"] as? String?
+//            let aperoid = snapshot.key as? String?
+//            //let apero = snapshot.childSnapshot(forPath: "title").value as! String
+//            if aperotitle != nil {
+//                if let actualApero = aperotitle {
+//                    self.aperoData.append(actualApero!)
+//                    self.aperoID.append(aperoid!!)
+//                    self.aperoTableView.reloadData()
+//                }
+//            
+//            }
+//            
+//            
+//            
+//        })
         
-        databaseHandle = ref?.child("Apero").observe(.childAdded, with: { (snapshot) in
-            // let apero = snapshot.value["title"] as? String
-            let value = snapshot.value as? NSDictionary
-            //print(value)
-            let aperotitle = value?["title"] as? String?
-            let aperoid = snapshot.key as? String?
-            //let apero = snapshot.childSnapshot(forPath: "title").value as! String
-            if let actualApero = aperotitle {
-                self.aperoData.append(actualApero!)
-                self.aperoID.append(aperoid!!)
-                self.aperoTableView.reloadData()
-            }
-        })
+        for apero in Constants.Aperos.tabEApero {
+            self.aperoData.append(apero.name)
+            self.aperoID.append(apero.id)
+            self.aperoTableView.reloadData()
+        
+        }
         
         
         

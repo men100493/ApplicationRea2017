@@ -47,8 +47,12 @@ class FBEvent {
             let dic = snapshot.value as?  NSDictionary
             //print(dic ?? "")
             if dic != nil {
-            
                 
+
+                if let eventplace = dic?["place"] as? String {
+                    self.place = eventplace
+                }
+
                     let eventname = dic?["name"] as? String
                     let eventdate = dic?["date"] as? String
                 

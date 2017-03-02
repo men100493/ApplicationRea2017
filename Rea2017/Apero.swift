@@ -23,6 +23,7 @@ class Apero: NSObject {
     var userHostid: String? = nil
     var tabInvite = [User]()
     var tabInviteId = [String]()
+    var tabCourse = [String : Int]()
     
     init(id: String, name:String,nbInvite:String,descrip: String, adresse : String) {
         self.id = id
@@ -90,7 +91,13 @@ class Apero: NSObject {
                     self.userHostid = id
                     
                 }
-                
+                if let course = dic?["Courses"] as? [String: Int] {
+                    for ( key, value ) in course {
+                        self.tabCourse[key] = value
+                        
+                    }
+                    
+                }
                 
                 if let aperoInvite = dic?["Invite"] as? [String: AnyObject]{
                     var tabUser = [String]()
@@ -128,8 +135,13 @@ class Apero: NSObject {
         var values:[String : Any]
         
        
-            values = ["id":self.id,"HostId": (Constants.Users.user?.id)! as String]
+            values = ["id":self.id]
+        
+        
+        if !(self.userHostid?.isEmpty)! {
+            values["HostId"] = (Constants.Users.user?.id)!
             
+        }
             if !self.name.isEmpty {
                 values["title"] = self.name
                 
@@ -167,11 +179,7 @@ class Apero: NSObject {
             
         
         
-        
-            
-        
-        
-        
+   
         
         
         
@@ -184,6 +192,9 @@ class Apero: NSObject {
                 return
             }
             print(values)
+        }
+        for( key, value ) in tabCourse{
+            self.addCourse(nom: key, value: value)
         }
     }
     
@@ -255,6 +266,28 @@ class Apero: NSObject {
             self.observeApero()
         }
        
+    }
+    func addCourse(nom :String , value: Int){
+        //AJouter a la BDD
+        
+        let ref = FIRDatabase.database().reference(fromURL: "https://rea2017-f0ba6.firebaseio.com/")
+        
+        
+        let values = [nom : value]
+        
+        let usersReference = ref.child("Apero").child(self.id).child("Courses")
+        
+        
+        usersReference.updateChildValues(values) { (err, data) in
+            if err != nil {
+                print("Failed to create new user for this event ", err ?? "")
+                return
+            }
+            print(values)
+            self.tabCourse[nom] = value
+
+        }
+        
     }
     
     func popUser(user:User){

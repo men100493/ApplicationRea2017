@@ -24,11 +24,24 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     //@IBOutlet var cpField: UITextField!
     @IBOutlet weak var addBtn: UIButton!
     
+    @IBOutlet weak var BoissView: UIView!
+    @IBOutlet weak var NourrView: UIView!
+    @IBOutlet weak var ListeBoiss: UILabel!
+    @IBOutlet weak var ListeNour: UILabel!
+    @IBOutlet weak var listeCoursesView: UIView!
+    @IBOutlet weak var dateEventField: UITextField!
+    
+    @IBOutlet weak var lieuEventField: UITextField!
+    
+    @IBOutlet weak var profilImageView: UIImageView!
+    @IBOutlet weak var eventImageView: UIImageView!
+    
+    @IBOutlet weak var nomHoteLabel: UILabel!
     var ref : FIRDatabaseReference!
     var eventId: String?
     var event: FBEvent?
     var user:User?
-    var guests = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    var guests = ["1", "2", "3", "4", "5", "6", "7", "8", "9","10","11"]
     let tabEvent = Constants.Events.tabEvent
     var guestPicker = UIPickerView()
     var eventPicker = UIPickerView()
@@ -36,7 +49,12 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     let timePickerE = UIDatePicker()
 
     
-    
+    var vinVal:Int?
+    var biereVal:Int?
+    var alcFortVal:Int?
+    var pizzaVal:Int?
+    var chipsVal:Int?
+    var platVal:Int?
     
     
     
@@ -57,13 +75,18 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         createTimePicker()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (dismissKeyboard))
+        let tapCourse: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (goToCourseVC))
+        listeCoursesView.addGestureRecognizer(tapCourse)
         view.addGestureRecognizer(tap)
 
 
         // Do any additional setup after loading the view.
     }
     
-    
+    func goToCourseVC(){
+        print("Wesh")
+        performSegue(withIdentifier: "listeCourseSegue", sender: nil)
+    }
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
@@ -73,6 +96,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidAppear(_ animated: Bool) {
         
         if eventId != nil {
+            setContent()
             for event in Constants.Events.tabEvent{
                 if event.id == eventId{
                     eventField.text = event.name
@@ -80,7 +104,39 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 }
             }
             
+            
         }
+    }
+    
+    func setContent(){
+        if let pictureFB = user?.photoProfilUrl {
+            let url = NSURL(string: pictureFB)
+            let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            profilImageView.image = UIImage(data: data! as Data)
+            profilImageView.layer.cornerRadius = 40
+            profilImageView.layer.masksToBounds = true
+            //profilImageView.layer.borderWidth = 0.3
+            //profilImageView.layer.borderColor =  UIColor.white.cgColor
+            
+        }
+        
+        let coverUrl = event?.coverUrlFB
+        if coverUrl != nil {
+            let url = NSURL(string: coverUrl!)
+            let data = NSData(contentsOf: url! as URL)
+            eventImageView.image = UIImage(data: data! as Data)
+        }
+        
+        nomHoteLabel.text = (Constants.Users.user?.pnom)! + " " +  (Constants.Users.user?.nom)!
+        
+        BoissView.layer.borderWidth = 1.0
+        BoissView.layer.borderColor = UIColor(ciColor: .black()).cgColor
+        NourrView.layer.borderWidth = 1.0
+        NourrView.layer.borderColor = UIColor(ciColor: .black()).cgColor
+
+
+    
+    
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -115,7 +171,11 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             nbGuestField.text = guests[row]
         }else{
              eventField.text = tabEvent[row].name
+            let date:String = tabEvent[row].date!
+            dateEventField.text = date
+            lieuEventField.text  = tabEvent[row].place
              eventId = tabEvent[row].id
+            setContent()
         }
         if (!(eventField.text?.isEmpty)! && !(nbGuestField.text?.isEmpty)! ){
             addBtn.isEnabled = true
@@ -179,15 +239,25 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             //let aperoForTab = Apero(id: id, name: title, nbInvite: nbGuest!, descrip: decr!)
             let aperosTab = Apero(id: id, name: title, nbInvite: nbGuest, descrip: decr!, eventFB: eventid!, adresse: adress, startTime: start!, endTime: end!)
             
+            
+            if aperosTab != nil {
+                aperosTab.addCourse(nom: "vin", value: vinVal!)
+                aperosTab.addCourse(nom: "biere", value: biereVal!)
+                aperosTab.addCourse(nom: "alcoolF", value: alcFortVal!)
+                aperosTab.addCourse(nom: "pizza", value: pizzaVal!)
+                aperosTab.addCourse(nom: "chips", value: chipsVal!)
+                aperosTab.addCourse(nom: "plats", value: platVal!)
+
+            }
             if (Constants.Events.tabEvent.count != 0 ){
                 if let event = Constants.Events.tabEvent.first(where: { $0.id == eventid! }){
                     
                     aperosTab.saveAperoToBDD()
                     //aperosTab.saveEventToApero(event: event)
+                    
                     event.saveAperoToEvent(apero: aperosTab)
                     event.tabAperoId.append(aperosTab.id)
-                    
-            }
+                                }
             Constants.Aperos.tabEApero.append(aperosTab)
             self.dismiss(animated: true, completion: nil)
                 
@@ -222,5 +292,62 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "listeCourseSegue" {
+            print("new Courses")
+            let destVC = segue.destination as! ListeCoursesViewController
+            if vinVal == nil {
+                vinVal = 0
+            }
+            if biereVal == nil {
+                biereVal = 0
+            }
+            if alcFortVal == nil {
+                alcFortVal = 0
+            }
+            if pizzaVal == nil {
+                pizzaVal = 0
+            }
+            if chipsVal == nil {
+                chipsVal = 0
+            }
+            if platVal == nil {
+                platVal = 0
+            }
+            destVC.vinVal = vinVal
+            destVC.biereVal = biereVal
+            destVC.alcFortVal = alcFortVal
+            destVC.pizzaVal = pizzaVal
+            destVC.chipsVal = chipsVal
+            destVC.platVal = platVal
+            
+            
+            
+            
+        }
+        
+    }
+    @IBAction func unwindFromListeCourse(sender: UIStoryboardSegue) {
+        
+        if sender.source is ListeCoursesViewController {
+            
+            print("BAck From Lsite COurse")
+            
+            let srcVC = sender.source as! ListeCoursesViewController
+            
+            self.vinVal = srcVC.vinVal
+            self.biereVal = srcVC.biereVal
+            self.alcFortVal = srcVC.alcFortVal
+            self.pizzaVal = srcVC.pizzaVal
+            self.chipsVal = srcVC.chipsVal
+            self.platVal = srcVC.platVal
+            
+            var boiss:String
+            boiss = NSString(format:"%i", vinVal!) as String + " X Bouteille de vin/n"
+            boiss = boiss + (NSString(format:"%i", biereVal!) as String) as String + " X Bouteille de bière/n"
+        }
+    }
 
 }

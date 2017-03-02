@@ -66,8 +66,15 @@ class Helper{
                     let profilePictureURLStr = (usrDict["picture"]!["data"]!! as! [String : AnyObject])["url"]
                     let userid = usrDict["id"] as! String
                     let userName = usrDict["last_name"] as! String
+                    var userMail:String?
                     let userFName = usrDict["first_name"] as! String
-                    let userMail = usrDict["email"] as! String
+                    if let userM = usrDict["email"]{
+                        userMail = userM as? String
+                    
+                    }else{
+                         userMail = "dummy@dumy.com"
+                    
+                    }
                     let usernaiss = usrDict["birthday"] as! String
                     //let profilPic = usrDict["picture"]!["data"]! as! [String : AnyObject])["url"]as! String
                     //(data["picture"]!["data"]!! as! [String : AnyObject])["url"]as! String
@@ -79,7 +86,7 @@ class Helper{
                     
                     //Création de l'utilsateur FB
                     
-                    let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String,naiss: usernaiss)
+                    let userFB = User(nom: userName, pnom: userFName, email: userMail!,fbId: userid,imageUrl :profilePictureURLStr as! String,naiss: usernaiss)
                     //let userFB = User(nom: userName, pnom: userFName, email: userMail,fbId: userid,imageUrl :profilePictureURLStr as! String)
                     
                     //Firebase Setup
