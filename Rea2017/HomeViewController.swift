@@ -23,17 +23,30 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            // Do any additional setup after loading the view.
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            self.user = Constants.Users.user
+            Helper.initViewController()
+            Helper.getFBEvents()
+            
+            
+            
+            DispatchQueue.main.async {
+                
+                self.initHomeViewController()
+                self.homeTableView.delegate = self
+                self.searchTextField.delegate = self
+                self.tableHomePossible = Constants.Events.tabEvent
+                self.customView()
+                
+                print("This is run on the main queue, after the previous code in outer block")
+            }
+        }
         
-        // Do any additional setup after loading the view.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        user = Constants.Users.user
-        Helper.initViewController()
-        Helper.getFBEvents()
-        initHomeViewController()
-        homeTableView.delegate = self
-        searchTextField.delegate = self
-        tableHomePossible = Constants.Events.tabEvent
-        customView()
+        
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +56,20 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     
     override func viewDidAppear(_ animated: Bool)
     {
-       
         super.viewDidAppear(animated)
-        getMusicevent()
-        initHomeViewController()
-        self.homeTableView.reloadData()
+        DispatchQueue.global(qos: .background).async {
+            //print("This is run on the background queue")
+            self.getMusicevent()
+            DispatchQueue.main.async {
+                self.initHomeViewController()
+                self.homeTableView.reloadData()
+                //print("This is run on the main queue, after the previous code in outer block")
+            }
+        }
+       
+        
+        //getMusicevent()
+        
 
     }
     

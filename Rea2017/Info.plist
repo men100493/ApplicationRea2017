@@ -63,6 +63,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Cette application a besoin d'acceder a ton appareil photo SVP</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Cette application a besoin d'acceder a tes photos SVP</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Akkurat-Light.ttf</string>
@@ -78,10 +82,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Cette application a besoin d&apos;acceder a tes photos SVP</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Cette application a besoin d&apos;acceder a ton appareil photo SVP</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
