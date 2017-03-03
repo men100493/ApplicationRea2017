@@ -27,6 +27,8 @@ class User: NSObject {
     var googleId:  String?
     var photoProfilUrl: String?
     var tabApero: [Apero]?
+    var username:String?
+    var adresse:String?
 
     
    
@@ -193,16 +195,18 @@ class User: NSObject {
     }
     
     
-    func observeUser() -> [String: AnyObject]{
+    func observeUser(){
         let dic = [String: AnyObject]()
         let uid = FIRAuth.auth()?.currentUser?.uid
         FIRDatabase.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
             //print(snapshot)
             if let dic = snapshot.value as?  [String: AnyObject] {
-                //print(dic)
+                
+                
+                print(dic)
             }
         })
-        return dic
+        
         
     }
     

@@ -23,6 +23,7 @@ class ConfigProfilViewController: UIViewController {
     @IBOutlet var phoneField: UITextField!
     
     
+    @IBOutlet weak var nameLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,8 @@ class ConfigProfilViewController: UIViewController {
         user = Constants.Users.user
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (dismissKeyboard))
         view.addGestureRecognizer(tap)
+        let nom = (user?.nom)! + " " + (user?.pnom)!
+        nameLabel.text = nom
         // Do any additional setup after loading the view.
     }
 

@@ -14,6 +14,7 @@ import MapKit
 class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
+    @IBOutlet weak var noSmoking: UIButton!
     @IBOutlet var descrField: UITextField!
     @IBOutlet var eventField: UITextField!
     @IBOutlet var nbGuestField: UITextField!
@@ -56,12 +57,14 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var chipsVal:Int?
     var platVal:Int?
     
+    var smoke:Bool?
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.smoke = false
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         user = Constants.Users.user
         guestPicker.delegate = self
@@ -119,6 +122,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             //profilImageView.layer.borderColor =  UIColor.white.cgColor
             
         }
+        
         
         let coverUrl = event?.coverUrlFB
         if coverUrl != nil {
@@ -283,6 +287,17 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
  }
 
 
+    @IBAction func noSmokingAction(_ sender: Any) {
+        if smoke! {
+            noSmoking.alpha = 0.3
+            smoke = false
+        
+        } else {
+            noSmoking.alpha = 1.0
+            smoke = true
+        
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -337,13 +352,38 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             let srcVC = sender.source as! ListeCoursesViewController
             
-            self.vinVal = srcVC.vinVal
-            self.biereVal = srcVC.biereVal
-            self.alcFortVal = srcVC.alcFortVal
-            self.pizzaVal = srcVC.pizzaVal
-            self.chipsVal = srcVC.chipsVal
-            self.platVal = srcVC.platVal
-            
+            if srcVC.vinVal != nil {
+                self.vinVal = srcVC.vinVal
+            }else{
+                self.vinVal = 0
+            }
+            if srcVC.biereVal != nil {
+                 self.biereVal = srcVC.biereVal
+            }else{
+                 self.biereVal = 0
+            }
+            if srcVC.alcFortVal != nil {
+                self.alcFortVal = srcVC.alcFortVal
+            }else{
+                self.alcFortVal = 0
+            }
+            if srcVC.pizzaVal != nil {
+                self.pizzaVal = srcVC.pizzaVal
+            }else{
+                self.pizzaVal = 0
+            }
+            if srcVC.chipsVal != nil {
+                self.chipsVal  = srcVC.chipsVal
+            }else{
+                self.chipsVal  = 0
+            }
+            if srcVC.platVal != nil {
+                self.platVal  = srcVC.platVal
+
+            }else{
+                self.platVal  = 0
+            }
+
             var boiss:String
             boiss = NSString(format:"%i", vinVal!) as String + " X Bouteille de vin\n"
             boiss = boiss + (NSString(format:"%i", biereVal!) as String) as String + " X Bouteille de bière\n"

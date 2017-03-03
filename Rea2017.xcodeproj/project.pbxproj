@@ -22,6 +22,7 @@
 		007C89E91E48F81300487EF0 /* AperoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C89E81E48F81300487EF0 /* AperoViewController.swift */; };
 		007C89F01E49F6A400487EF0 /* Rea2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 007C89EE1E49F6A400487EF0 /* Rea2017.xcdatamodeld */; };
 		007F210E1E54DD9600E291DA /* AperoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007F210D1E54DD9600E291DA /* AperoPageViewController.swift */; };
+		00822F191E69C3BE00795B80 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00822F181E69C3BE00795B80 /* SearchTableViewCell.swift */; };
 		0088709F1E5358630081771B /* Apero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088709E1E5358630081771B /* Apero.swift */; };
 		00B4C48E1E531674003082E9 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B4C48D1E531674003082E9 /* DetailEventViewController.swift */; };
 		00BB0B621E5F2F3200F11670 /* Dolce_Vita.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00BB0B5E1E5F2F3200F11670 /* Dolce_Vita.ttf */; };
@@ -80,6 +81,7 @@
 		007C89E81E48F81300487EF0 /* AperoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoViewController.swift; sourceTree = "<group>"; };
 		007C89EF1E49F6A400487EF0 /* Rea2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rea2017.xcdatamodel; sourceTree = "<group>"; };
 		007F210D1E54DD9600E291DA /* AperoPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AperoPageViewController.swift; sourceTree = "<group>"; };
+		00822F181E69C3BE00795B80 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		0088709E1E5358630081771B /* Apero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apero.swift; sourceTree = "<group>"; };
 		00A45B311E5B368200FA27D9 /* Akkurat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Akkurat-Light.ttf"; sourceTree = "<group>"; };
 		00ABB3E01E560DBC002EDD2C /* aqua.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = aqua.ttf; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				00BB0B661E60856A00F11670 /* HomeTableViewCell.swift */,
 				00BD3F211E65C66A006DC8A6 /* AperoTableViewCell.swift */,
+				00822F181E69C3BE00795B80 /* SearchTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				005617111E48B0E200F15664 /* User.swift in Sources */,
 				0088709F1E5358630081771B /* Apero.swift in Sources */,
 				004E4D761E5DBE9500DE1168 /* OtherUserViewController.swift in Sources */,
+				00822F191E69C3BE00795B80 /* SearchTableViewCell.swift in Sources */,
 				005616DC1E48ABEF00F15664 /* AppDelegate.swift in Sources */,
 				007C89E51E48F7E200487EF0 /* FavorisViewController.swift in Sources */,
 			);

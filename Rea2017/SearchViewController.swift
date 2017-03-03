@@ -23,6 +23,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     var aperoChoose :Apero?
     
     //create two arrays
+    var eventArray = [FBEvent]()
     var searchArray = [String]()       //array of all value
     var searchArrayid = [String]()
     var filteredsearch = [String]()    //array of filtered search
@@ -42,6 +43,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
         Helper.getBDDAperos()
         
         for event in Constants.Events.tabEvent {
+            self.eventArray.append(event)
             self.searchArray.append(event.name!)
             self.searchArrayid.append(event.id)
         }
@@ -153,30 +155,35 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell")
+        var cell = SearchTableViewCell()
+        cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell") as! SearchTableViewCell
         
         var event: String
-        var id: String
-        
+        var date: String
+        var place:String
         if (searchController.isActive) && searchController.searchBar.text != "" {
+            
             event = self.filteredsearch[indexPath.row]
             let pos = self.searchArray.index(of: event)
-            id = self.searchArrayid[pos!]
+            date = self.eventArray[pos!].date!
+            place = self.eventArray[pos!].place!
 
             
         }else{
             
             event = self.searchArray[indexPath.row]
-            id = self.searchArrayid[indexPath.row]
+            date = self.eventArray[indexPath.row].date!
+            place = self.eventArray[indexPath.row].place!
 
             
         }
+        let dateCourt = date.components(separatedBy: "T")
         
-        cell?.textLabel?.text = event
-        cell?.detailTextLabel?.text = id
+        cell.dateLabel.text = dateCourt[0]
+        cell.eventNameLabel.text = event
+        cell.placeLabel.text = place
         
-        return cell!
+        return cell
     }
    
 //    // method to run when table view cell is tapped
