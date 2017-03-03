@@ -100,6 +100,8 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.reloadTable))
         
+        //let tap1 = UITapGestureRecognizer()
+        
         imageView.addGestureRecognizer(tap)
         
     }
