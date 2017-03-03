@@ -40,6 +40,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
                 self.searchTextField.delegate = self
                 self.tableHomePossible = Constants.Events.tabEvent
                 self.customView()
+                self.getMusicevent()
                 
                 print("This is run on the main queue, after the previous code in outer block")
             }
@@ -59,13 +60,14 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         super.viewDidAppear(animated)
         DispatchQueue.global(qos: .background).async {
             //print("This is run on the background queue")
-            self.getMusicevent()
+            
             DispatchQueue.main.async {
                 self.initHomeViewController()
                 self.homeTableView.reloadData()
                 //print("This is run on the main queue, after the previous code in outer block")
             }
         }
+        
        
         
         //getMusicevent()
@@ -95,6 +97,15 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         
         searchView.layer.borderWidth = 1.0
         searchView.layer.borderColor = UIColor.white.cgColor
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.reloadTable))
+        
+        imageView.addGestureRecognizer(tap)
+        
+    }
+    
+    func reloadTable() {
+        self.homeTableView.reloadData()
         
     }
 

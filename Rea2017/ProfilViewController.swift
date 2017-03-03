@@ -27,6 +27,9 @@ class ProfilViewController: UIViewController {
     
     @IBOutlet weak var profilPicture: UIImageView!
     
+    @IBOutlet weak var eventFavTableView: UITableView!
+    
+    var tabEvent = [FBEvent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +43,9 @@ class ProfilViewController: UIViewController {
         //print(pictureFB)
         nomLabelOutlet.text = Constants.Users.user?.nom
         prenomLabelOutlet.text = Constants.Users.user?.pnom
-        
+        if Constants.Users.tabEventFav.count != 0 {
+            tabEvent = Constants.Users.tabEventFav
+        }
         
         // Do any additional setup after loading the view.
     }

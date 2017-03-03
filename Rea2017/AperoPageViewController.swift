@@ -110,7 +110,27 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
             contactBtn.isEnabled = true
             //addUserBtn.isHidden = false
         }
-//
+        for id in (apero?.tabInviteId)! {
+            if id == Constants.Users.user?.id {
+                //enable btuton
+                nbPizzaBtn.isEnabled = true
+                nbBiereBtn.isEnabled = true
+                nbVinBtn.isEnabled = true
+                nbAlcoolBtn.isEnabled = true
+                nbChipsBtn.isEnabled = true
+                nbPlatsBtn.isEnabled = true
+            }
+        }
+        if ((Constants.Users.user?.id = apero?.id) != nil){
+            //enable btuton
+            nbPizzaBtn.isEnabled = true
+            nbBiereBtn.isEnabled = true
+            nbVinBtn.isEnabled = true
+            nbAlcoolBtn.isEnabled = true
+            nbChipsBtn.isEnabled = true
+            nbPlatsBtn.isEnabled = true
+        }
+
         for user in Constants.Users.tabUser {
             
         
@@ -139,8 +159,11 @@ class AperoPageViewController: UIViewController ,UITextFieldDelegate ,UITableVie
                 
                 }
                 
+               
+                
                 
             }
+            
         }
         
         
