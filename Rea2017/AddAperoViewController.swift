@@ -345,8 +345,19 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.platVal = srcVC.platVal
             
             var boiss:String
-            boiss = NSString(format:"%i", vinVal!) as String + " X Bouteille de vin/n"
-            boiss = boiss + (NSString(format:"%i", biereVal!) as String) as String + " X Bouteille de bière/n"
+            boiss = NSString(format:"%i", vinVal!) as String + " X Bouteille de vin\n"
+            boiss = boiss + (NSString(format:"%i", biereVal!) as String) as String + " X Bouteille de bière\n"
+            boiss = boiss + (NSString(format:"%i", alcFortVal!) as String) as String + " X Bouteille d'alcool\n"
+            self.ListeBoiss.text =  boiss
+            
+            
+            var nour:String
+            nour = NSString(format:"%i", pizzaVal!) as String + " X Pizaa\n"
+            nour = nour + (NSString(format:"%i", chipsVal!) as String) as String + " X paquetes de chips\n"
+            nour = nour + (NSString(format:"%i", platVal!) as String) as String + " X Plats\n"
+            self.ListeNour.text = nour
+
+
         }
     }
 

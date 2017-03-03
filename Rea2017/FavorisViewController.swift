@@ -30,6 +30,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Helper.getBDDEvents()
         
 
         
@@ -45,11 +46,12 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(_ animated: Bool) {
         user = Constants.Users.user
+        user?.getEventAsFav()
         Helper.initViewController()
         initHomeViewController()
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        user?.getEventAsFav()
+        //user?.getEventAsFav()
         
         print(Constants.Users.tabEventFav.count)
         //eventTableView.alpha = 1
@@ -61,6 +63,7 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         for event in tabEvent {
+            //event.getCoverURL()
             self.eventTitle.append(event.name!)
             self.eventId.append(event.id)
             //print(event.name)
@@ -92,11 +95,25 @@ class FavorisViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell?
-        cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as UITableViewCell
-        cell?.textLabel?.text = self.tabEvent[indexPath.row].name
+        var cell = HomeTableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as UITableViewCell as! HomeTableViewCell
+        
+        let event = self.tabEvent[indexPath.row]
+        
+        let coverUrl = event.coverUrlFB
+        
+        if coverUrl != nil {
+            cell.TitleLabel?.isHidden = true
+            let url = NSURL(string: coverUrl!)
+            let data = NSData(contentsOf: url! as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            cell.bgCell.image = UIImage(data: data! as Data)
+            
+        }else{
+            cell.TitleLabel?.text = event.name!
+        }
 
-        return cell!
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

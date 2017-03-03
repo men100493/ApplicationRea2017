@@ -138,7 +138,7 @@ class Apero: NSObject {
             values = ["id":self.id]
         
         
-        if !(self.userHostid?.isEmpty)! {
+        if (self.userHostid == nil ) {
             values["HostId"] = (Constants.Users.user?.id)!
             
         }

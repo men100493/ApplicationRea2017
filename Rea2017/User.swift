@@ -297,16 +297,21 @@ class User: NSObject {
                 for event  in dic{
                     let eventid = event.key as? String
                     
-                    let eventname = event.value["nom"] as? String
-                    let eventdate = event.value["date"] as? String
+                    // passer pas COnstant
                     
-                    if eventid != nil, eventname != nil, eventdate != nil{
-                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
-                        tabEve.append(event)
-                        //Constants.Events.tabEvent = tabEve
-                        //Constants.Events.addEvent(event)
-                        print(event.date)
+                    for ev in Constants.Events.tabEvent{
+                        if ev.id == eventid{
+                            ev.getCoverURL()
+                            tabEve.append(ev)
+                        }
                     }
+//                    if eventid != nil, eventname != nil, eventdate != nil{
+//                        let event = FBEvent(id: eventid!, name: eventname! , date: eventdate!)
+//                        tabEve.append(event)
+//                        //Constants.Events.tabEvent = tabEve
+//                        //Constants.Events.addEvent(event)
+//                        print(event.date)
+//                    }
                     
                 }
                 Constants.Users.tabEventFav = tabEve
