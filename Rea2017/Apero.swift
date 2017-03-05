@@ -295,6 +295,10 @@ class Apero: NSObject {
         
         
     }
+    
+    func deleteApero(){
+        
+    }
 
 
 }

@@ -25,12 +25,12 @@ class ListeCoursesViewController: UIViewController {
     @IBOutlet weak var chipsLabel: UILabel!
     @IBOutlet weak var platLabel: UILabel!
     
-    var vinVal:Int?
-    var biereVal:Int?
-    var alcFortVal:Int?
-    var pizzaVal:Int?
-    var chipsVal:Int?
-    var platVal:Int?
+    var vinVal:Int = 0
+    var biereVal:Int = 0
+    var alcFortVal:Int = 0
+    var pizzaVal:Int = 0
+    var chipsVal:Int = 0
+    var platVal:Int = 0
     
     
     override func viewDidLoad() {
@@ -41,34 +41,17 @@ class ListeCoursesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if vinVal == nil {
-            vinVal = 0
-        }
-        if biereVal == nil {
-            biereVal = 0
-        }
-        if alcFortVal == nil {
-            alcFortVal = 0
-        }
-        if pizzaVal == nil {
-            pizzaVal = 0
-        }
-        if chipsVal == nil {
-            chipsVal = 0
-        }
-        if platVal == nil {
-            platVal = 0
-        }
+
         setValue()
     }
     
     func setValue() {
-        vinLabel.text = NSString(format:"%i", vinVal!) as String
-        biereLabel.text = NSString(format:"%i", biereVal!) as String
-        alcFortLabel.text = NSString(format:"%i", alcFortVal!) as String
-        pizzaLabel.text = NSString(format:"%i", pizzaVal!) as String
-        chipsLabel.text = NSString(format:"%i", chipsVal!) as String
-        platLabel.text = NSString(format:"%i", platVal!) as String
+        vinLabel.text = NSString(format:"%i", vinVal) as String
+        biereLabel.text = NSString(format:"%i", biereVal) as String
+        alcFortLabel.text = NSString(format:"%i", alcFortVal) as String
+        pizzaLabel.text = NSString(format:"%i", pizzaVal) as String
+        chipsLabel.text = NSString(format:"%i", chipsVal) as String
+        platLabel.text = NSString(format:"%i", platVal) as String
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,8 +62,8 @@ class ListeCoursesViewController: UIViewController {
 
     @IBAction func vinAdd(_ sender: Any) {
         
-        if vinVal! < 10 {
-            vinVal = vinVal! + 1
+        if vinVal < 10 {
+            vinVal = vinVal + 1
         }else{
             vinVal = 0
         
@@ -89,8 +72,8 @@ class ListeCoursesViewController: UIViewController {
     }
     
     @IBAction func biereAdd(_ sender: Any) {
-        if biereVal! < 10 {
-            biereVal = biereVal! + 1
+        if biereVal < 10 {
+            biereVal = biereVal + 1
         }else{
             biereVal = 0
             
@@ -100,8 +83,8 @@ class ListeCoursesViewController: UIViewController {
 
     @IBAction func alcoolFortAdd(_ sender: Any) {
         
-        if alcFortVal! < 10 {
-            alcFortVal = alcFortVal! + 1
+        if alcFortVal < 10 {
+            alcFortVal = alcFortVal + 1
         }else{
             alcFortVal = 0
             
@@ -111,8 +94,8 @@ class ListeCoursesViewController: UIViewController {
     }
    
     @IBAction func pizzaAdd(_ sender: Any) {
-        if pizzaVal! <= 10 {
-            pizzaVal = pizzaVal! + 1
+        if pizzaVal <= 10 {
+            pizzaVal = pizzaVal + 1
         }else{
             pizzaVal = 0
             
@@ -120,8 +103,8 @@ class ListeCoursesViewController: UIViewController {
         setValue()
     }
     @IBAction func chipsAdd(_ sender: Any) {
-        if chipsVal! < 10 {
-            chipsVal = chipsVal! + 1
+        if chipsVal < 10 {
+            chipsVal = chipsVal + 1
         }else{
             chipsVal = 0
             
@@ -130,8 +113,8 @@ class ListeCoursesViewController: UIViewController {
     }
    
     @IBAction func platsAdd(_ sender: Any) {
-        if platVal! < 10 {
-            platVal = platVal! + 1
+        if platVal < 10 {
+            platVal = platVal + 1
         }else{
             platVal = 0
             

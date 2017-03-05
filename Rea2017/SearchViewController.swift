@@ -14,6 +14,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
+    //@IBOutlet weak var segemetedConrtol: UISegmentedControl!
     // ADD THE UISearchController
     var searchController:UISearchController!
     
@@ -41,7 +42,7 @@ class SearchViewController: UIViewController,UITableViewDataSource, UISearchResu
          initHomeViewController()
         Helper.getBDDEvents()
         Helper.getBDDAperos()
-        
+        Constants.Events.tabEvent.sort { $0.name! < $1.name! }
         for event in Constants.Events.tabEvent {
             self.eventArray.append(event)
             self.searchArray.append(event.name!)

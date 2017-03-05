@@ -12,6 +12,10 @@ import Firebase
 import Photos
 
 class ChatViewController: JSQMessagesViewController{
+    
+    
+    
+    
     var channelRef: FIRDatabaseReference?
     var channel: Apero? {
         didSet {
@@ -51,6 +55,7 @@ class ChatViewController: JSQMessagesViewController{
     var messages = [JSQMessage]()
     var titreChat:String?
     @IBOutlet weak var nameAperoLabel: UILabel!
+    @IBOutlet weak var quitBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +80,11 @@ class ChatViewController: JSQMessagesViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         observeTyping()
+        
+        self.senderDisplayName = Constants.Users.user?.pnom
+        nameAperoLabel.text = titreChat
+        self.view.addSubview(headerView)
+        self.view.bringSubview(toFront: headerView)
         
 //        // messages from someone else
 //        addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")

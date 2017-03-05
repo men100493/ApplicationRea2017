@@ -20,6 +20,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var databaseHandle:FIRDatabaseHandle?
     var aperoData = [String]()
     var aperoID = [String]()
+    var aperoTab = [Apero]()
     var aperoView:Apero?
     
     
@@ -33,7 +34,7 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         user = Constants.Users.user
         Helper.initViewController()
-        
+        //initHomeViewController()
         aperoTableView.delegate = self
         aperoTableView.dataSource = self
         
@@ -56,16 +57,9 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //            
 //            }
 //            
-//            
+//
 //            
 //        })
-        
-        for apero in Constants.Aperos.tabEApero {
-            self.aperoData.append(apero.name)
-            self.aperoID.append(apero.id)
-            self.aperoTableView.reloadData()
-        
-        }
         
         
         
@@ -74,8 +68,8 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        initHomeViewController()
-    }
+        self.initHomeViewController()
+          }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,11 +80,15 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "aperoCell")
-        cell?.textLabel?.text = aperoData[indexPath.row]
+        
+        var cell = AperoTableViewCell()
+        cell = tableView.dequeueReusableCell(withIdentifier: "aperoCell") as! AperoTableViewCell
+        cell.TitleLabel.text = aperoTab[indexPath.row].name
+        cell.PalceLabel.text = aperoTab[indexPath.row].adresse
+        cell.nbRestantLabel.text = aperoTab[indexPath.row].nbInvite + " places"
         //let label = cell?.viewWithTag(1) as! UILabel
         //label.text = aperoData[indexPath.row]
-        return cell!
+        return cell
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -138,6 +136,25 @@ class AperoViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func initHomeViewController(){
         
+        
+        
+        var aperoDataBrou = [String]()
+        var aperoIDBrou = [String]()
+        var aperoTabBrou = [Apero]()
+        
+        for apero in Constants.Aperos.tabEApero {
+            aperoTabBrou.append(apero)
+            aperoDataBrou.append(apero.name)
+            aperoIDBrou.append(apero.id)
+            //self.aperoTableView.reloadData()
+            
+        }
+        
+        self.aperoTab = aperoTabBrou
+        self.aperoID = aperoIDBrou
+        self.aperoData = aperoDataBrou
+        aperoTableView.reloadData()
+
         let imagePro = UIImage(named: "Profil") as UIImage?
         loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
         if self.user != nil {

@@ -16,6 +16,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     var tableHome = [FBEvent]()
     
     
+    @IBOutlet weak var badgeView: UIImageView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var homeTableView: UITableView!
@@ -30,17 +31,20 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
             self.user = Constants.Users.user
             Helper.initViewController()
             Helper.getFBEvents()
+        
+            self.getMusicevent()
+            self.initHomeViewController()
+            self.tableHomePossible = Constants.Events.tabEvent
             
-            
+            self.customView()
             
             DispatchQueue.main.async {
                 
-                self.initHomeViewController()
+                
                 self.homeTableView.delegate = self
                 self.searchTextField.delegate = self
-                self.tableHomePossible = Constants.Events.tabEvent
-                self.customView()
-                self.getMusicevent()
+                
+
                 
                 print("This is run on the main queue, after the previous code in outer block")
             }
@@ -58,15 +62,16 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        DispatchQueue.global(qos: .background).async {
+        
             //print("This is run on the background queue")
-            
-            DispatchQueue.main.async {
-                self.initHomeViewController()
-                self.homeTableView.reloadData()
+            self.initHomeViewController()
+            self.customView()
+        
+                //self.homeTableView.reloadData()
+                self.searchTextField.becomeFirstResponder()
+            self.reloadTable()
                 //print("This is run on the main queue, after the previous code in outer block")
-            }
-        }
+        
         
        
         
@@ -82,11 +87,13 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
     
     func customView() {
         
-        let imageName = "RechercheEve"
-        let imageHome = UIImage(named: imageName)
-        let imageView = UIImageView(image: imageHome!)
-        imageView.frame = CGRect(x: (self.view.frame.size.width/2)-40, y: (self.view.frame.size.height/5)-40, width: 80 , height:80 )
-        view.addSubview(imageView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.reloadTable))
+        
+        //let tap1 = UITapGestureRecognizer()
+        
+        badgeView.addGestureRecognizer(tap)
+        
         
         //let fdColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0).cgColor
         searchTextField.layer.borderWidth = 0
@@ -98,15 +105,12 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
         searchView.layer.borderWidth = 1.0
         searchView.layer.borderColor = UIColor.white.cgColor
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.reloadTable))
-        
-        //let tap1 = UITapGestureRecognizer()
-        
-        imageView.addGestureRecognizer(tap)
+       
         
     }
     
     func reloadTable() {
+        self.tableHomePossible = Constants.Events.tabEvent
         self.homeTableView.reloadData()
         
     }
@@ -262,7 +266,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
             loginBtnOutlet.setImage(imagePro, for: .normal)
             loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
 
-            
+            self.homeTableView.reloadData()
             return
             
         }
@@ -275,6 +279,7 @@ class HomeViewController: UIViewController,UITableViewDelegate ,UITableViewDataS
             loginBtnOutlet.setTitle("", for: .normal)
             loginBtnOutlet.setImage(imagePro, for: .normal)
             loginBtnOutlet.tintColor = Constants.Color.rougeDeClaudius
+            self.homeTableView.reloadData()
 
 
             return

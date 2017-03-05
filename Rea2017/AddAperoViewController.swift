@@ -50,12 +50,12 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     let timePickerE = UIDatePicker()
 
     
-    var vinVal:Int?
-    var biereVal:Int?
-    var alcFortVal:Int?
-    var pizzaVal:Int?
-    var chipsVal:Int?
-    var platVal:Int?
+    var vinVal:Int = 0
+    var biereVal:Int = 0
+    var alcFortVal:Int = 0
+    var pizzaVal:Int = 0
+    var chipsVal:Int = 0
+    var platVal:Int = 0
     
     var smoke:Bool?
     
@@ -87,7 +87,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func goToCourseVC(){
-        print("Wesh")
+       //print("Wesh")
         performSegue(withIdentifier: "listeCourseSegue", sender: nil)
     }
     func dismissKeyboard() {
@@ -99,16 +99,19 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidAppear(_ animated: Bool) {
         
         if eventId != nil {
-            setContent()
+            
             for event in Constants.Events.tabEvent{
                 if event.id == eventId{
                     eventField.text = event.name
                 
                 }
             }
+            //setContent()
             
             
         }
+        
+        setContent()
     }
     
     func setContent(){
@@ -204,6 +207,7 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func donePressed(){
         let formatTime = DateFormatter()
+        setContent()
         formatTime.dateStyle = .none
         formatTime.timeStyle = .short
         startField.text = formatTime.string(from: timePickerS.date)
@@ -245,12 +249,12 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             
             if aperosTab != nil {
-                aperosTab.addCourse(nom: "vin", value: vinVal!)
-                aperosTab.addCourse(nom: "biere", value: biereVal!)
-                aperosTab.addCourse(nom: "alcoolF", value: alcFortVal!)
-                aperosTab.addCourse(nom: "pizza", value: pizzaVal!)
-                aperosTab.addCourse(nom: "chips", value: chipsVal!)
-                aperosTab.addCourse(nom: "plats", value: platVal!)
+                aperosTab.addCourse(nom: "vin", value: vinVal)
+                aperosTab.addCourse(nom: "biere", value: biereVal)
+                aperosTab.addCourse(nom: "alcoolF", value: alcFortVal)
+                aperosTab.addCourse(nom: "pizza", value: pizzaVal)
+                aperosTab.addCourse(nom: "chips", value: chipsVal)
+                aperosTab.addCourse(nom: "plats", value: platVal)
 
             }
             if (Constants.Events.tabEvent.count != 0 ){
@@ -313,30 +317,13 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if segue.identifier == "listeCourseSegue" {
             print("new Courses")
             let destVC = segue.destination as! ListeCoursesViewController
-            if vinVal == nil {
-                vinVal = 0
-            }
-            if biereVal == nil {
-                biereVal = 0
-            }
-            if alcFortVal == nil {
-                alcFortVal = 0
-            }
-            if pizzaVal == nil {
-                pizzaVal = 0
-            }
-            if chipsVal == nil {
-                chipsVal = 0
-            }
-            if platVal == nil {
-                platVal = 0
-            }
-            destVC.vinVal = vinVal
-            destVC.biereVal = biereVal
-            destVC.alcFortVal = alcFortVal
-            destVC.pizzaVal = pizzaVal
-            destVC.chipsVal = chipsVal
-            destVC.platVal = platVal
+            
+            destVC.vinVal = self.vinVal
+            destVC.biereVal = self.biereVal
+            destVC.alcFortVal = self.alcFortVal
+            destVC.pizzaVal = self.pizzaVal
+            destVC.chipsVal = self.chipsVal
+            destVC.platVal = self.platVal
             
             
             
@@ -351,52 +338,28 @@ class AddAperoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             print("BAck From Lsite COurse")
             
             let srcVC = sender.source as! ListeCoursesViewController
-            
-            if srcVC.vinVal != nil {
-                self.vinVal = srcVC.vinVal
-            }else{
-                self.vinVal = 0
-            }
-            if srcVC.biereVal != nil {
-                 self.biereVal = srcVC.biereVal
-            }else{
-                 self.biereVal = 0
-            }
-            if srcVC.alcFortVal != nil {
-                self.alcFortVal = srcVC.alcFortVal
-            }else{
-                self.alcFortVal = 0
-            }
-            if srcVC.pizzaVal != nil {
-                self.pizzaVal = srcVC.pizzaVal
-            }else{
-                self.pizzaVal = 0
-            }
-            if srcVC.chipsVal != nil {
-                self.chipsVal  = srcVC.chipsVal
-            }else{
-                self.chipsVal  = 0
-            }
-            if srcVC.platVal != nil {
-                self.platVal  = srcVC.platVal
-
-            }else{
-                self.platVal  = 0
-            }
-
-            var boiss:String
-            boiss = NSString(format:"%i", vinVal!) as String + " X Bouteille de vin\n"
-            boiss = boiss + (NSString(format:"%i", biereVal!) as String) as String + " X Bouteille de bière\n"
-            boiss = boiss + (NSString(format:"%i", alcFortVal!) as String) as String + " X Bouteille d'alcool\n"
-            self.ListeBoiss.text =  boiss
+            self.vinVal = srcVC.vinVal
+            self.biereVal = srcVC.biereVal
+            self.alcFortVal = srcVC.alcFortVal
+            self.pizzaVal = srcVC.pizzaVal
+            self.chipsVal  = srcVC.chipsVal
+            self.platVal  = srcVC.platVal
             
             
-            var nour:String
-            nour = NSString(format:"%i", pizzaVal!) as String + " X Pizaa\n"
-            nour = nour + (NSString(format:"%i", chipsVal!) as String) as String + " X paquetes de chips\n"
-            nour = nour + (NSString(format:"%i", platVal!) as String) as String + " X Plats\n"
-            self.ListeNour.text = nour
+            var boiss:String = NSString(format:"%i", self.vinVal) as String + " X Bouteille de vin\n"
 
+            boiss += (NSString(format:"%i", self.biereVal) as String)  + " X Bouteille de bière\n"
+            boiss += (NSString(format:"%i", self.alcFortVal) as String)  + " X Bouteille d'alcool" as String
+            print (boiss)
+            self.ListeBoiss.text = NSString(format:"%@", boiss) as String
+            
+            var nour:String = NSString(format:"%i", pizzaVal) as String + " X Pizza\n"
+            
+            nour += (NSString(format:"%i", chipsVal) as String) + " X Paquets de chips\n" as String
+            nour += (NSString(format:"%i", platVal) as String) + " X Plats\n" as String
+            print(nour)
+            
+            self.ListeNour.text = NSString(format:"%@", nour) as String
 
         }
     }
